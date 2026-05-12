@@ -1,0 +1,23 @@
+{
+  "id": "session-1778538828213",
+  "startedAt": "2026-05-11T22:33:48.213Z",
+  "cwd": "/Users/b.lamoutlook.com/follow-up-engine",
+  "context": {
+    "lastMatchedPatterns": [
+      "mem-project_gtm_system_complete_reference-key-decisions---why",
+      "mem-project_rin_marketing_site-open-items--post-may-1-or-next",
+      "mem-project_galoras_handover-external-work-directory--outsi",
+      "mem-project_galoras_sio_feedback-outstanding---not-yet-done",
+      "mem-project_zoom_agent_debug-configure-ssl-for-deepgram"
+    ]
+  },
+  "metrics": {
+    "edits": 0,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "updatedAt": "2026-05-11T22:36:14.247Z",
+  "endedAt": "2026-05-11T22:36:14.651Z",
+  "duration": 146438
+}

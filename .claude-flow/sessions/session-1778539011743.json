@@ -1,0 +1,19 @@
+{
+  "id": "session-1778539011743",
+  "startedAt": "2026-05-11T22:36:51.743Z",
+  "cwd": "/Users/b.lamoutlook.com/follow-up-engine",
+  "context": {
+    "lastMatchedPatterns": [
+      "mem-project_gtm_dm_polling_fallback-then-trigger-rebuild"
+    ]
+  },
+  "metrics": {
+    "edits": 30,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "updatedAt": "2026-05-11T23:14:27.588Z",
+  "endedAt": "2026-05-11T23:18:06.219Z",
+  "duration": 2474477
+}

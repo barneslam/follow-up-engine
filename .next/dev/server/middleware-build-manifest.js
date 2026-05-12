@@ -1,0 +1,50 @@
+globalThis.__BUILD_MANIFEST = {
+  "pages": {
+    "/_app": [
+      "static/chunks/0ryl_next_dist_compiled_0.-lrr2._.js",
+      "static/chunks/0ryl_next_dist_shared_lib_01.ihw.._.js",
+      "static/chunks/0ryl_next_dist_client_103dbaz._.js",
+      "static/chunks/0ryl_next_dist_0xun~j-._.js",
+      "static/chunks/0ryl_next_app_0_y5wkt.js",
+      "static/chunks/[next]_entry_page-loader_ts_0urgt1u._.js",
+      "static/chunks/0ryl_react-dom_0rtl7d7._.js",
+      "static/chunks/0ryl_0tk6vld._.js",
+      "static/chunks/[root-of-the-server]__0kviyr9._.js",
+      "static/chunks/follow-up-engine_pages__app_07xvfw~._.js",
+      "static/chunks/turbopack-follow-up-engine_pages__app_0fg_t0.._.js"
+    ],
+    "/_error": [
+      "static/chunks/0ryl_next_dist_compiled_0.-lrr2._.js",
+      "static/chunks/0ryl_next_dist_shared_lib_06e6bhe._.js",
+      "static/chunks/0ryl_next_dist_client_103dbaz._.js",
+      "static/chunks/0ryl_next_dist_02z0s9j._.js",
+      "static/chunks/[next]_entry_page-loader_ts_0swwq7j._.js",
+      "static/chunks/0ryl_react-dom_0rtl7d7._.js",
+      "static/chunks/0ryl_0tk6vld._.js",
+      "static/chunks/[root-of-the-server]__0uqlwuk._.js",
+      "static/chunks/follow-up-engine_pages__error_07xvfw~._.js",
+      "static/chunks/turbopack-follow-up-engine_pages__error_112r9j9._.js"
+    ]
+  },
+  "devFiles": [],
+  "polyfillFiles": [
+    "static/chunks/0ryl_next_dist_build_polyfills_polyfill-nomodule.js"
+  ],
+  "lowPriorityFiles": [
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js",
+    "static/development/_clientMiddlewareManifest.js"
+  ],
+  "rootMainFiles": [
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_0rv-7hf._.js",
+    "static/chunks/0ryl_next_dist_compiled_next-devtools_index_0yv2i-d.js",
+    "static/chunks/0ryl_next_dist_compiled_react-dom_032vhht._.js",
+    "static/chunks/0ryl_next_dist_compiled_react-server-dom-turbopack_08nidbk._.js",
+    "static/chunks/0ryl_next_dist_compiled_0-o7iss._.js",
+    "static/chunks/0ryl_next_dist_client_08hfl7w._.js",
+    "static/chunks/0ryl_next_dist_0k9~2m7._.js",
+    "static/chunks/0ryl_@swc_helpers_cjs_09j~wi6._.js",
+    "static/chunks/follow-up-engine_0rqeker._.js",
+    "static/chunks/turbopack-follow-up-engine_0f4sg3o._.js"
+  ]
+};

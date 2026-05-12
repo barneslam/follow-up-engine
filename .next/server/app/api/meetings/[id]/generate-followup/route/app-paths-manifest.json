@@ -1,0 +1,3 @@
+{
+  "/api/meetings/[id]/generate-followup/route": "app/api/meetings/[id]/generate-followup/route.js"
+}

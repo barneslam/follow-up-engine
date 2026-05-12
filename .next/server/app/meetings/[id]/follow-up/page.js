@@ -1,0 +1,13 @@
+var R=require("../../../../chunks/ssr/[turbopack]_runtime.js")("server/app/meetings/[id]/follow-up/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0lu-oew._.js")
+R.c("server/chunks/ssr/0ryl_next_dist_esm_build_templates_app-page_0twjxrn.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0en2m61._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0qhamhu._.js")
+R.c("server/chunks/ssr/follow-up-engine_app_layout_tsx_06gr.3-._.js")
+R.c("server/chunks/ssr/0ryl_next_dist_client_components_0y0herw._.js")
+R.c("server/chunks/ssr/0ryl_next_dist_client_components_builtin_forbidden_10s8j9_.js")
+R.c("server/chunks/ssr/0ryl_next_dist_client_components_builtin_unauthorized_0sb.eb8.js")
+R.c("server/chunks/ssr/0ryl_next_dist_client_components_builtin_global-error_13qu~rp.js")
+R.c("server/chunks/ssr/0qlx__next-internal_server_app_meetings_[id]_follow-up_page_actions_0p3rclq.js")
+R.m(3904)
+module.exports=R.m(3904).exports

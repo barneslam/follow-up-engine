@@ -1,0 +1,19 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/health/route": "app/api/health/route.js",
+  "/api/meetings/[id]/generate-followup/route": "app/api/meetings/[id]/generate-followup/route.js",
+  "/api/meetings/[id]/generate-prep/route": "app/api/meetings/[id]/generate-prep/route.js",
+  "/api/meetings/[id]/route": "app/api/meetings/[id]/route.js",
+  "/api/meetings/route": "app/api/meetings/route.js",
+  "/api/stripe/create-checkout-session/route": "app/api/stripe/create-checkout-session/route.js",
+  "/api/stripe/webhook/route": "app/api/stripe/webhook/route.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/meetings/[id]/follow-up/page": "app/meetings/[id]/follow-up/page.js",
+  "/meetings/[id]/prep/page": "app/meetings/[id]/prep/page.js",
+  "/page": "app/page.js",
+  "/pricing/page": "app/pricing/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/success/page": "app/success/page.js",
+  "/team-setup/page": "app/team-setup/page.js"
+}
