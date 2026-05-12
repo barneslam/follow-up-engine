@@ -1,12 +1,21 @@
 {
+  "id": "session-1778625907423",
+  "startedAt": "2026-05-12T22:45:07.423Z",
+  "cwd": "/Users/b.lamoutlook.com/follow-up-engine",
   "context": {
     "lastMatchedPatterns": [
-      "mem-project_galoras_supabase_deletion_evidence-restoration-capability",
-      "mem-project_barnes_llm-workflow-to-fully-activate",
-      "mem-project_galoras_handover_complete-do-not-do-until-conor-confirms",
-      "mem-project_galoras_coach_matching-what-this-is-not",
-      "mem-MEMORY-galoras-dev---memory-index"
+      "mem-project_galoras_handover_complete-status--complete---awaiting-co",
+      "mem-supabase_setup-tables-in-uat-galoras",
+      "mem-project_galoras_hot_and_revenue_model-revenue-model-source-files",
+      "mem-project_galoras_handover-handover-target",
+      "mem-project_galoras_payment_gate-what-it-is"
     ]
   },
-  "updatedAt": "2026-05-12T21:35:44.600Z"
+  "metrics": {
+    "edits": 7,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "updatedAt": "2026-05-12T22:46:41.382Z"
 }

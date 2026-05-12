@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Section, SectionEyebrow, Container } from '../components/Layout'
 import { Button } from '../components/Button'
-import { Copy, Check } from 'lucide-react'
+import { Copy, Check, File, X } from 'lucide-react'
 
 export function DemoPage() {
   const [formData, setFormData] = useState({
@@ -17,10 +17,124 @@ export function DemoPage() {
   const [outputs, setOutputs] = useState<any>(null)
   const [isGenerating, setIsGenerating] = useState(false)
   const [copiedField, setCopiedField] = useState<string | null>(null)
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([])
+  const [sessionWarning, setSessionWarning] = useState(false)
+  const [sessionClosed, setSessionClosed] = useState(false)
+  const [lastActivity, setLastActivity] = useState(Date.now())
+
+  const SESSION_TIMEOUT = 5 * 60 * 1000
+  const MAX_FILES = 3
+  const MAX_FILE_SIZE = 20 * 1024 * 1024
+
+  const trackInteraction = (interactionType: string) => {
+    const pattern = {
+      type: interactionType,
+      timestamp: new Date().toISOString(),
+      flowType: formData.meetingType,
+      tonePreference: formData.tone,
+      urgencyLevel: formData.urgency,
+    }
+    localStorage.setItem(`pattern_${Date.now()}`, JSON.stringify(pattern))
+  }
+
+  useEffect(() => {
+    const handleActivity = () => {
+      if (!sessionClosed) {
+        setLastActivity(Date.now())
+        setSessionWarning(false)
+      }
+    }
+
+    window.addEventListener('click', handleActivity)
+    window.addEventListener('keypress', handleActivity)
+    window.addEventListener('scroll', handleActivity)
+
+    return () => {
+      window.removeEventListener('click', handleActivity)
+      window.removeEventListener('keypress', handleActivity)
+      window.removeEventListener('scroll', handleActivity)
+    }
+  }, [sessionClosed])
+
+  useEffect(() => {
+    if (sessionClosed) return
+
+    const warningTimer = setTimeout(() => {
+      const timeSinceActivity = Date.now() - lastActivity
+      if (timeSinceActivity >= SESSION_TIMEOUT - 30000) {
+        setSessionWarning(true)
+        trackInteraction('session_warning_shown')
+      }
+    }, SESSION_TIMEOUT - 30000)
+
+    const closeTimer = setTimeout(() => {
+      cleanupSession()
+      setSessionClosed(true)
+      trackInteraction('session_auto_closed')
+    }, SESSION_TIMEOUT)
+
+    return () => {
+      clearTimeout(warningTimer)
+      clearTimeout(closeTimer)
+    }
+  }, [lastActivity, sessionClosed])
+
+  const cleanupSession = () => {
+    setFormData({
+      meetingType: 'sales-discovery',
+      purpose: '',
+      company: '',
+      comments: '',
+      tone: 'professional',
+      urgency: 'normal',
+      transcript: '',
+    })
+    setOutputs(null)
+    setUploadedFiles([])
+  }
+
+  const handleContinueSession = () => {
+    setSessionWarning(false)
+    setLastActivity(Date.now())
+    trackInteraction('session_continued')
+  }
+
+  const handleCloseSession = () => {
+    cleanupSession()
+    setSessionClosed(true)
+    trackInteraction('session_manually_closed')
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+    trackInteraction('form_input_change')
+  }
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || [])
+    const newFiles = [...uploadedFiles]
+
+    for (const file of files) {
+      if (newFiles.length >= MAX_FILES) {
+        alert(`Maximum ${MAX_FILES} files allowed`)
+        break
+      }
+      if (file.size > MAX_FILE_SIZE) {
+        alert(`File ${file.name} exceeds 20 MB limit`)
+        continue
+      }
+      newFiles.push(file)
+    }
+
+    setUploadedFiles(newFiles)
+    trackInteraction('files_uploaded')
+    e.target.value = ''
+  }
+
+  const removeFile = (index: number) => {
+    setUploadedFiles(uploadedFiles.filter((_, i) => i !== index))
+    trackInteraction('file_removed')
   }
 
   const generateOutputs = () => {
@@ -30,6 +144,8 @@ export function DemoPage() {
     }
 
     setIsGenerating(true)
+    trackInteraction('outputs_generated')
+
     setTimeout(() => {
       const tonePrefix = formData.tone === 'casual' ? 'Hey ' : 'Hello '
       const urgencyText = formData.urgency === 'high' ? 'ASAP' : 'soon'
@@ -53,11 +169,69 @@ export function DemoPage() {
   const copyToClipboard = (text: string, field: string) => {
     navigator.clipboard.writeText(text)
     setCopiedField(field)
+    trackInteraction('output_copied')
     setTimeout(() => setCopiedField(null), 2000)
+  }
+
+  if (sessionClosed) {
+    return (
+      <>
+        <section className="border-b border-border bg-surface px-6 py-16 sm:py-20">
+          <Container>
+            <div className="max-w-3xl">
+              <h1 className="font-display text-4xl sm:text-5xl font-semibold text-destructive">
+                Session Expired
+              </h1>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Your demo session has ended due to inactivity. All data has been automatically cleared for your privacy and security.
+              </p>
+              <Button
+                onClick={() => {
+                  setSessionClosed(false)
+                  setLastActivity(Date.now())
+                  trackInteraction('session_restarted')
+                }}
+                className="mt-6"
+              >
+                Start New Session
+              </Button>
+            </div>
+          </Container>
+        </section>
+      </>
+    )
   }
 
   return (
     <>
+      {sessionWarning && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-card rounded-lg p-8 max-w-md shadow-lg">
+            <h2 className="font-display text-xl font-semibold text-foreground mb-2">
+              Session Timeout Warning
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Your session will close in 30 seconds due to inactivity. All data will be automatically cleared.
+            </p>
+            <div className="flex gap-4">
+              <Button
+                variant="outline"
+                onClick={handleCloseSession}
+                className="flex-1"
+              >
+                Close Session
+              </Button>
+              <Button
+                onClick={handleContinueSession}
+                className="flex-1"
+              >
+                Continue Session
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <section className="border-b border-border bg-surface px-6 py-16 sm:py-20">
         <Container>
           <div className="max-w-3xl">
@@ -66,7 +240,7 @@ export function DemoPage() {
               Generate a complete follow-up pack.
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Adjust the inputs, paste a transcript, and click generate. Outputs are produced locally — nothing is sent to a server in this version.
+              Adjust the inputs, paste a transcript, and click generate. Outputs are produced locally — nothing is sent to a server in this version. Session auto-closes after 5 minutes of inactivity.
             </p>
           </div>
         </Container>
@@ -134,6 +308,43 @@ export function DemoPage() {
                     rows={3}
                     className="w-full px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                   />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-widest text-foreground mb-2">
+                    Attachments
+                  </label>
+                  <div className="space-y-2">
+                    <input
+                      type="file"
+                      multiple
+                      onChange={handleFileUpload}
+                      disabled={uploadedFiles.length >= MAX_FILES}
+                      className="w-full text-sm"
+                      accept="*/*"
+                    />
+                    <p className="text-xs text-muted-foreground">
+                      Max {MAX_FILES} files, 20 MB each. Files auto-delete on session close.
+                    </p>
+                    {uploadedFiles.length > 0 && (
+                      <div className="space-y-2 mt-3">
+                        {uploadedFiles.map((file, index) => (
+                          <div key={index} className="flex items-center justify-between bg-surface p-2 rounded text-xs">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <File className="h-3 w-3 flex-shrink-0" />
+                              <span className="truncate">{file.name}</span>
+                            </div>
+                            <button
+                              onClick={() => removeFile(index)}
+                              className="p-1 hover:bg-border rounded flex-shrink-0"
+                            >
+                              <X className="h-3 w-3" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div>

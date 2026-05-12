@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "computedAt": 1778543528433,
+  "computedAt": 1778625907555,
   "entries": [
     {
       "id": "mem-project_galoras_handover-key-decisions-made",
@@ -12963,9 +12963,9 @@
       "content": "bookings, coach_applications, coach_availability, coach_products, coaches, messages, session_bookings, user_roles",
       "summary": "Tables in UAT-Galoras",
       "category": "supabase_setup",
-      "confidence": 0.5,
+      "confidence": 0.55,
       "pageRank": 0.0019890367032677097,
-      "accessCount": 0,
+      "accessCount": 1,
       "words": [
         "bookings",
         "coach",
@@ -14879,9 +14879,9 @@
       "content": "All in: `~/Downloads/Conor's New Business Model/`\n\n| File | Contents |\n|---|---|\n| `Galoras_Revenue_Model_Updated - April 2026.pdf` | Full FY26–FY30 P&L: coach subs, coachee subs, B2B, OpEx, CapEx |\n| `Galoras_Coach_Tiers.pdf` | Three-tier coach ecosystem: Pro $49, Elite $99, Master $197 |\n| `Galoras Operations LLC - Heads of Terms.pdf` | Signed binding HoT |\n| `Galoras_Coach_Tiers.pptx` | Source deck for coach tier positioning |\n| `Galoras_Revenue_Model_Updated - April 2026.xlsx` | Editable spr",
       "summary": "Revenue Model Source Files",
       "category": "project_galoras_hot_and_revenue_model",
-      "confidence": 0.5,
+      "confidence": 0.55,
       "pageRank": 0.0016057103960818203,
-      "accessCount": 0,
+      "accessCount": 1,
       "words": [
         "downloads",
         "conor",
@@ -18858,9 +18858,9 @@
       "content": "Galoras Operations LLC (Conor McGowan, CEO)\nTermination date: April 29, 2026",
       "summary": "Handover Target",
       "category": "project_galoras_handover",
-      "confidence": 0.5,
+      "confidence": 0.55,
       "pageRank": 0.001154738393882317,
-      "accessCount": 0,
+      "accessCount": 1,
       "words": [
         "galoras",
         "operations",
@@ -18881,9 +18881,9 @@
       "content": "Last updated: April 29, 2026 (full session completed)\n\nTermination date: April 29, 2026\nRecipient: Conor McGowan (conor@galoras.com), Galoras Operations LLC\n\n---",
       "summary": "Status: COMPLETE — Awaiting Conor Confirmation Reply",
       "category": "project_galoras_handover_complete",
-      "confidence": 0.5,
+      "confidence": 0.55,
       "pageRank": 0.001154738393882317,
-      "accessCount": 0,
+      "accessCount": 1,
       "words": [
         "last",
         "updated",
@@ -19085,9 +19085,9 @@
       "content": "A code-level access gate on all routes built but not paid for by Conor (the $7,069 unpaid infrastructure). When `VITE_PAYMENT_GATE=true` is set in Netlify, every gated route returns the standard 404 page — no message, no indication it's intentional.",
       "summary": "What It Is",
       "category": "project_galoras_payment_gate",
-      "confidence": 0.5,
+      "confidence": 0.55,
       "pageRank": 0.001154738393882317,
-      "accessCount": 0,
+      "accessCount": 1,
       "words": [
         "code-level",
         "access",

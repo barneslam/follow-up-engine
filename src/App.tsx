@@ -4,6 +4,7 @@ import { HomePage } from './pages/Home'
 import { DemoPage } from './pages/Demo'
 import { PricingPage } from './pages/Pricing'
 import { TeamSetupPage } from './pages/TeamSetup'
+import { TermsAndConditionsPage } from './pages/TermsAndConditions'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/demo" element={<DemoPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/team-setup" element={<TeamSetupPage />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
           </Routes>
         </main>
         <Footer />
