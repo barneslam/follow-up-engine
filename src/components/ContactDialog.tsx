@@ -2,12 +2,26 @@ import { useState } from 'react'
 import { X } from 'lucide-react'
 import { submitContactForm, sendSmsOtp, verifySmsOtp } from '../lib/supabase'
 
+function getPlanValue(plan: 'solo' | 'launch' | 'team' | null | undefined): string {
+  switch (plan) {
+    case 'solo':
+      return 'solo'
+    case 'launch':
+      return 'launch'
+    case 'team':
+      return 'team'
+    default:
+      return ''
+  }
+}
+
 interface ContactDialogProps {
   isOpen: boolean
   onClose: () => void
+  selectedPlan?: 'solo' | 'launch' | 'team' | null
 }
 
-export function ContactDialog({ isOpen, onClose }: ContactDialogProps) {
+export function ContactDialog({ isOpen, onClose, selectedPlan }: ContactDialogProps) {
   const [step, setStep] = useState<'form' | 'otp' | 'consent' | 'success'>('form')
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -16,7 +30,7 @@ export function ContactDialog({ isOpen, onClose }: ContactDialogProps) {
     phone: '',
     company: '',
     role: '',
-    interested_plan: '',
+    interested_plan: getPlanValue(selectedPlan),
     biggest_challenge: '',
   })
   const [otpCode, setOtpCode] = useState('')

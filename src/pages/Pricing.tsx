@@ -1,5 +1,6 @@
 import { Section, SectionEyebrow, Container } from '../components/Layout'
 import { Button } from '../components/Button'
+import { ContactDialog } from '../components/ContactDialog'
 import { Check } from 'lucide-react'
 import { useState } from 'react'
 
@@ -55,9 +56,17 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
 
 export function PricingPage() {
   const [contactOpen, setContactOpen] = useState(false)
+  const [selectedPlan, setSelectedPlan] = useState<'solo' | 'launch' | 'team' | null>(null)
+
+  const handleSelectPlan = (plan: 'solo' | 'launch' | 'team') => {
+    setSelectedPlan(plan)
+    setContactOpen(true)
+  }
 
   return (
     <>
+      <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} selectedPlan={selectedPlan} />
+
       {/* Header */}
       <section className="border-b border-border bg-surface px-6 py-16 sm:py-20">
         <Container>
@@ -91,6 +100,7 @@ export function PricingPage() {
               ]}
               cta="Get Solo Access"
               isPrimary={false}
+              onSelect={() => handleSelectPlan('solo')}
             />
             <PricingCard
               title="Launch Plan"
@@ -106,6 +116,7 @@ export function PricingPage() {
               ]}
               cta="Start Launch Plan"
               isPrimary={true}
+              onSelect={() => handleSelectPlan('launch')}
             />
             <PricingCard
               title="Team Setup"
@@ -121,6 +132,7 @@ export function PricingPage() {
               ]}
               cta="Request Team Setup"
               isPrimary={false}
+              onSelect={() => handleSelectPlan('team')}
             />
           </div>
         </Container>
@@ -173,7 +185,8 @@ function PricingCard({
   description,
   features,
   cta,
-  isPrimary = false
+  isPrimary = false,
+  onSelect
 }: {
   title: string
   price: string
@@ -181,9 +194,10 @@ function PricingCard({
   features: string[]
   cta: string
   isPrimary?: boolean
+  onSelect: () => void
 }) {
   return (
-    <div className={`rounded-2xl border p-8 transition ${isPrimary ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border bg-card'}`}>
+    <div className={`rounded-2xl border p-8 transition cursor-pointer hover:shadow-lg ${isPrimary ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border bg-card hover:border-primary/50'}`}>
       <h3 className="font-display text-xl font-semibold">{title}</h3>
       <div className="mt-3">
         <span className="text-4xl font-semibold">{price}</span>
@@ -191,7 +205,11 @@ function PricingCard({
       </div>
       <p className="mt-2 text-sm text-muted-foreground">{description}</p>
 
-      <Button className="w-full mt-6" variant={isPrimary ? 'primary' : 'outline'}>
+      <Button
+        className="w-full mt-6"
+        variant={isPrimary ? 'primary' : 'outline'}
+        onClick={onSelect}
+      >
         {cta}
       </Button>
 
