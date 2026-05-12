@@ -44,7 +44,10 @@ export function Footer() {
     <footer className="border-t border-border bg-surface px-6 py-12">
       <div className="max-w-6xl mx-auto text-center">
         <p className="text-sm text-muted-foreground">
-          Follow-Up Engine — a product by The Strategy Pitch
+          Follow-Up Engine — a product by{' '}
+          <a href="https://www.thestrategypitch.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            The Strategy Pitch
+          </a>
         </p>
         <p className="text-xs text-muted-foreground mt-2">
           © 2026 The Strategy Pitch. All rights reserved.

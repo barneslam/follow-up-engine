@@ -55,7 +55,7 @@ const NOT_FOR = [
   "Companies expecting guaranteed outcomes",
 ]
 
-const INTEGRATIONS = ["Fathom", "Google Calendar", "Outlook", "Google Drive", "Salesforce", "HubSpot", "Pipedrive", "Manager Dashboards"]
+const INTEGRATIONS = ["Fathom", "Google Calendar", "Outlook", "Google Drive", "Salesforce", "HubSpot", "Pipedrive", "CRM Plug-In", "Manager Dashboards"]
 
 function PricingCard({
   title,
