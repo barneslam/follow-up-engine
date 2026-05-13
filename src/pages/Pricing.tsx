@@ -35,18 +35,18 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border-b border-border">
+    <div className="border-b border-slate/20">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-4 text-left font-medium text-foreground hover:text-primary transition"
+        className="w-full py-5 text-left font-semibold text-slate hover:text-primary transition"
       >
         <div className="flex items-center justify-between">
-          <span>{q}</span>
-          <span className="text-lg">{isOpen ? '−' : '+'}</span>
+          <span className="text-base">{q}</span>
+          <span className="text-xl text-slate/40">{isOpen ? '−' : '+'}</span>
         </div>
       </button>
       {isOpen && (
-        <div className="pb-4 text-muted-foreground text-sm">
+        <div className="pb-5 text-slate/70 text-sm leading-relaxed">
           {a}
         </div>
       )}
@@ -68,14 +68,14 @@ export function PricingPage() {
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} selectedPlan={selectedPlan} />
 
       {/* Header */}
-      <section className="border-b border-border bg-surface px-6 py-16 sm:py-20">
+      <section className="border-b border-border bg-gradient-to-b from-white via-blue-50/40 to-slate-100/30 px-6 py-24 sm:py-32">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <SectionEyebrow>Pricing</SectionEyebrow>
-            <h1 className="font-display text-4xl sm:text-5xl font-semibold">
+            <h1 className="font-display text-5xl sm:text-6xl font-bold text-slate">
               Pricing that fits how you sell.
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-6 text-xl text-slate/70">
               Start with a single license, scale to a monthly plan, or set up your full team.
             </p>
           </div>
@@ -83,9 +83,9 @@ export function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <Section>
+      <Section className="bg-white">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3 lg:items-end">
             <PricingCard
               title="Solo Access"
               price="$199.99"
@@ -139,13 +139,13 @@ export function PricingPage() {
       </Section>
 
       {/* FAQ */}
-      <Section className="bg-surface border-b border-border">
+      <Section className="bg-slate-50 border-b border-border">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold mb-8">
+            <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate mb-12">
               Frequently asked questions
             </h2>
-            <div className="border border-border rounded-lg divide-y divide-border overflow-hidden">
+            <div className="bg-white border-2 border-slate/20 rounded-xl divide-y divide-slate/20 overflow-hidden shadow-sm">
               {FAQ.map((f) => (
                 <AccordionItem key={f.q} q={f.q} a={f.a} />
               ))}
@@ -155,20 +155,20 @@ export function PricingPage() {
       </Section>
 
       {/* Final CTA */}
-      <Section>
+      <Section className="bg-fafbfc">
         <Container>
-          <div className="rounded-3xl bg-primary px-8 py-16 text-center text-white sm:px-16 sm:py-20">
-            <h2 className="mx-auto max-w-3xl font-display text-3xl sm:text-4xl font-semibold">
+          <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
+            <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
               Ready to turn meetings into revenue next steps?
             </h2>
-            <p className="mt-4 text-white/90">
+            <p className="mt-6 text-lg text-white/90 max-w-2xl mx-auto">
               Start with Solo Access or request a demo of the full team platform.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button size="lg" variant="secondary">
-                Get Started
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <Button size="lg" onClick={() => setContactOpen(true)}>
+                Request Early Access
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10">
+              <Button size="lg" className="border-white/40 bg-white/15 text-white hover:bg-white/25">
                 Request Demo
               </Button>
             </div>
@@ -197,26 +197,34 @@ function PricingCard({
   onSelect: () => void
 }) {
   return (
-    <div className={`rounded-2xl border p-8 transition cursor-pointer hover:shadow-lg ${isPrimary ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-border bg-card hover:border-primary/50'}`}>
-      <h3 className="font-display text-xl font-semibold">{title}</h3>
-      <div className="mt-3">
-        <span className="text-4xl font-semibold">{price}</span>
-        {price !== 'Custom' && <span className="text-sm text-muted-foreground ml-1">{title === 'Solo Access' ? 'one-time' : '/month'}</span>}
+    <div className={`rounded-2xl border-2 transition-all cursor-pointer ${isPrimary
+      ? 'border-primary bg-gradient-to-br from-blue-50 to-white shadow-lg ring-2 ring-primary/30 scale-105'
+      : 'border-gray-light bg-white shadow-sm hover:shadow-md opacity-60'
+    } p-8`}>
+      {isPrimary && (
+        <span className="inline-block mb-4 px-3 py-1 rounded-full bg-primary/10 text-xs font-semibold text-primary">
+          Recommended
+        </span>
+      )}
+      <h3 className={`font-display text-2xl font-bold ${isPrimary ? 'text-slate' : 'text-slate/70'}`}>{title}</h3>
+      <div className="mt-4">
+        <span className={`text-5xl font-bold ${isPrimary ? 'text-slate' : 'text-slate/70'}`}>{price}</span>
+        {price !== 'Custom' && <span className={`text-sm ml-2 ${isPrimary ? 'text-muted-foreground' : 'text-muted-foreground/60'}`}>{title === 'Solo Access' ? 'one-time' : '/month'}</span>}
       </div>
-      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+      <p className={`mt-3 text-base ${isPrimary ? 'text-slate/80' : 'text-slate/60'}`}>{description}</p>
 
       <Button
-        className="w-full mt-6"
+        className="w-full mt-7 font-bold"
         variant={isPrimary ? 'primary' : 'outline'}
         onClick={onSelect}
       >
         {cta}
       </Button>
 
-      <ul className="mt-8 space-y-3">
+      <ul className="mt-9 space-y-4">
         {features.map((f) => (
-          <li key={f} className="flex gap-3 text-sm">
-            <Check className="h-4 w-4 shrink-0 text-success mt-0.5" />
+          <li key={f} className={`flex gap-3 text-sm leading-relaxed ${isPrimary ? 'text-slate/80' : 'text-slate/60'}`}>
+            <Check className={`h-5 w-5 shrink-0 mt-0 font-bold ${isPrimary ? 'text-primary' : 'text-gray-light'}`} />
             <span>{f}</span>
           </li>
         ))}
