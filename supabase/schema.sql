@@ -93,3 +93,28 @@ CREATE POLICY "Allow auth select on trial_requests" ON follow_up_engine_trial_re
 
 CREATE POLICY "Allow anon update on trial_requests" ON follow_up_engine_trial_requests
   FOR UPDATE TO anon USING (true) WITH CHECK (true);
+
+-- Create follow_up_engine_survey_responses table
+CREATE TABLE IF NOT EXISTS follow_up_engine_survey_responses (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  time_saved TEXT NOT NULL,
+  most_valuable_output TEXT NOT NULL,
+  pricing_49 TEXT NOT NULL,
+  pricing_99_fathom TEXT NOT NULL,
+  phase2_feature TEXT NOT NULL,
+  stopping_factor TEXT NOT NULL,
+  referral_likelihood TEXT NOT NULL,
+  referral_email TEXT,
+  open_feedback TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Enable RLS
+ALTER TABLE follow_up_engine_survey_responses ENABLE ROW LEVEL SECURITY;
+
+-- Create policies
+CREATE POLICY "Allow insert from anonymous users" ON follow_up_engine_survey_responses
+  FOR INSERT TO anon WITH CHECK (true);
+
+CREATE POLICY "Allow select for authenticated users" ON follow_up_engine_survey_responses
+  FOR SELECT TO authenticated USING (true);

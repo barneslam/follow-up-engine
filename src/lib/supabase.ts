@@ -195,3 +195,29 @@ export async function verifyCode(requestId: string, providedCode: string) {
 
   return { verified: false }
 }
+
+export interface SurveyResponseData {
+  time_saved: string
+  most_valuable_output: string
+  pricing_49: string
+  pricing_99_fathom: string
+  phase2_feature: string
+  stopping_factor: string
+  referral_likelihood: string
+  referral_email?: string
+  open_feedback?: string
+}
+
+export async function submitSurveyResponse(data: SurveyResponseData) {
+  const { data: result, error } = await supabase
+    .from('follow_up_engine_survey_responses')
+    .insert([{
+      ...data,
+      referral_email: data.referral_email || null,
+      open_feedback: data.open_feedback || null,
+    }])
+    .select()
+
+  if (error) throw error
+  return result
+}

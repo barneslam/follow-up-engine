@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Section, SectionEyebrow, Container } from '../components/Layout'
 import { Button } from '../components/Button'
+import { SurveyModal } from '../components/SurveyModal'
 import { Copy, Check, File, X } from 'lucide-react'
 
 export function DemoPage() {
@@ -21,6 +22,7 @@ export function DemoPage() {
   const [sessionWarning, setSessionWarning] = useState(false)
   const [sessionClosed, setSessionClosed] = useState(false)
   const [lastActivity, setLastActivity] = useState(Date.now())
+  const [surveyOpen, setSurveyOpen] = useState(false)
 
   const SESSION_TIMEOUT = 5 * 60 * 1000
   const MAX_FILES = 3
@@ -162,6 +164,7 @@ export function DemoPage() {
         nextSteps: `Pipeline & Next Steps\n\n**Move to:** Proposal Stage\n**Timeline:** 2-3 weeks\n\n1. Friday: Send $${Math.floor(Math.random() * 50000) + 20000} proposal\n2. Tuesday: Follow-up demo with full team\n3. Thursday: Incorporate feedback\n4. Next week: Pilot project kickoff\n\n**Success Metrics:**\n• Response within 48 hours of proposal\n• Demo attendance: 3+ team members\n• Pilot commitment: 2-week trial\n\n**Required Actions:**\n• Customize proposal for their use case\n• Prepare demo scenarios\n• Draft pilot SLA`,
       })
 
+      setSurveyOpen(true)
       setIsGenerating(false)
     }, 1200)
   }
@@ -204,6 +207,8 @@ export function DemoPage() {
 
   return (
     <>
+      <SurveyModal isOpen={surveyOpen} onClose={() => setSurveyOpen(false)} />
+
       {sessionWarning && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-card rounded-lg p-8 max-w-md shadow-lg">
