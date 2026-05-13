@@ -75,7 +75,7 @@ export function PricingPage() {
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
       {/* Header */}
-      <section className="border-b border-border bg-gradient-to-b from-white via-blue-50/40 to-slate-100/30 px-6 py-24 sm:py-32">
+      <section className="border-b border-border bg-gradient-to-b from-white via-[#f0f7ff]/30 to-[#f5f4f1] px-6 py-24 sm:py-32">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <SectionEyebrow>Pricing</SectionEyebrow>
@@ -90,7 +90,7 @@ export function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <Section className="bg-white">
+      <Section className="bg-[#fefdf9]">
         <Container>
           <div className="grid gap-6 lg:grid-cols-3 lg:items-end">
             <PricingCard
@@ -146,7 +146,7 @@ export function PricingPage() {
       </Section>
 
       {/* FAQ */}
-      <Section className="bg-slate-50 border-b border-border">
+      <Section className="bg-[#f8f7f6] border-b border-border">
         <Container>
           <div className="max-w-3xl">
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate mb-12">
@@ -161,8 +161,8 @@ export function PricingPage() {
         </Container>
       </Section>
 
-      {/* Final CTA */}
-      <Section className="bg-fafbfc">
+      {/* CTA */}
+      <Section className="bg-white">
         <Container>
           <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
             <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
@@ -204,10 +204,10 @@ function PricingCard({
   onSelect: () => void
 }) {
   return (
-    <div className={`rounded-2xl border-2 transition-all cursor-pointer ${isPrimary
-      ? 'border-primary bg-gradient-to-br from-blue-50 to-white shadow-lg ring-2 ring-primary/30 scale-105'
-      : 'border-gray-light bg-white shadow-sm hover:shadow-md opacity-60'
-    } p-8`}>
+    <div className={`rounded-3xl border-2 transition-all cursor-pointer ${isPrimary
+      ? 'border-primary bg-gradient-to-br from-[#f0f7ff] to-white shadow-lg ring-2 ring-primary/30 scale-105'
+      : 'border-slate-200 bg-white shadow-md hover:shadow-lg opacity-70 hover:opacity-100'
+    } p-10`}>
       {isPrimary && (
         <span className="inline-block mb-4 px-3 py-1 rounded-full bg-primary/10 text-xs font-semibold text-primary">
           Recommended

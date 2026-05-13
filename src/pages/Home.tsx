@@ -121,7 +121,7 @@ export function HomePage() {
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
       {/* Hero */}
-      <section className="border-b border-border bg-gradient-to-b from-white via-blue-50/40 to-slate-100/30 px-6 pt-24 pb-28 sm:pt-32 sm:pb-40">
+      <section className="border-b border-border bg-gradient-to-b from-white via-[#f0f7ff]/30 to-[#f5f4f1] px-6 pt-24 pb-28 sm:pt-32 sm:pb-40">
         <Container>
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
             <div>
@@ -205,7 +205,7 @@ export function HomePage() {
       </section>
 
       {/* Problem */}
-      <Section className="border-b border-border bg-white">
+      <Section className="border-b border-border bg-[#f5f4f1]">
         <div className="max-w-3xl mb-14">
           <SectionEyebrow>The problem</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
@@ -214,8 +214,8 @@ export function HomePage() {
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           {PROBLEMS.map((p) => (
-            <div key={p} className="flex gap-4 rounded-xl border-2 border-red-100 bg-red-50 p-6 shadow-sm hover:shadow-md transition">
-              <div className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-red-200 text-red-700">
+            <div key={p} className="flex gap-4 rounded-2xl border-2 border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all">
+              <div className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-slate-100 text-slate-500">
                 <X className="h-4 w-4 font-bold" />
               </div>
               <span className="text-sm leading-relaxed text-slate/80">{p}</span>
@@ -225,7 +225,7 @@ export function HomePage() {
       </Section>
 
       {/* How It Works */}
-      <Section className="bg-gradient-to-b from-slate-50 to-white border-b border-border">
+      <Section className="bg-white border-b border-border">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>How it works</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
@@ -233,24 +233,26 @@ export function HomePage() {
           </h2>
         </div>
 
-        <div className="overflow-x-auto mb-20">
-          <ol className="flex min-w-max items-center gap-3">
-            {WORKFLOW.map((s, i) => (
-              <li key={s.label} className="flex items-center gap-3">
-                <div className="flex flex-col items-center gap-3">
-                  <div className="grid h-14 w-14 place-items-center rounded-xl border-2 border-primary/30 bg-blue-50 text-primary shadow-md hover:shadow-lg transition">
-                    <s.icon className="h-6 w-6 font-bold" />
+        <div className="rounded-3xl bg-gradient-to-br from-[#f0f7ff] to-white border-2 border-slate-200 p-12 mb-20 shadow-sm">
+          <div className="overflow-x-auto">
+            <ol className="flex min-w-max items-center gap-3">
+              {WORKFLOW.map((s, i) => (
+                <li key={s.label} className="flex items-center gap-3">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="grid h-14 w-14 place-items-center rounded-xl border-2 border-primary/40 bg-white text-primary shadow-md hover:shadow-lg transition">
+                      <s.icon className="h-6 w-6 font-bold" />
+                    </div>
+                    <span className="w-28 text-center text-xs font-semibold text-slate/70">{s.label}</span>
                   </div>
-                  <span className="w-28 text-center text-xs font-semibold text-slate/70">{s.label}</span>
-                </div>
-                {i < WORKFLOW.length - 1 && <ChevronRight className="h-5 w-5 text-slate/30" />}
-              </li>
-            ))}
-          </ol>
+                  {i < WORKFLOW.length - 1 && <ChevronRight className="h-5 w-5 text-slate/20" />}
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-blue-50 to-white p-10 shadow-md">
+          <div className="rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-10 shadow-md hover:shadow-lg transition-shadow">
             <div className="text-xs font-bold uppercase tracking-widest text-primary">Prepare better</div>
             <h3 className="mt-3 font-display text-2xl font-bold text-slate">Before the meeting</h3>
             <ol className="mt-7 space-y-5">
@@ -269,7 +271,7 @@ export function HomePage() {
             </ol>
           </div>
 
-          <div className="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-blue-50 to-white p-10 shadow-md">
+          <div className="rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-10 shadow-md hover:shadow-lg transition-shadow">
             <div className="text-xs font-bold uppercase tracking-widest text-primary">Follow up faster</div>
             <h3 className="mt-3 font-display text-2xl font-bold text-slate">After the meeting</h3>
             <ol className="mt-7 space-y-5">
@@ -290,7 +292,7 @@ export function HomePage() {
       </Section>
 
       {/* Outputs */}
-      <Section className="border-b border-border bg-white">
+      <Section className="border-b border-border bg-[#fefdf9]">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>Product output</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
@@ -299,20 +301,20 @@ export function HomePage() {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {OUTPUTS.map((o) => (
-            <div key={o.title} className="rounded-xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-7 hover:shadow-lg hover:border-primary/30 transition-all">
-              <div className="grid h-12 w-12 place-items-center rounded-lg bg-primary/15 text-primary font-bold">
+            <div key={o.title} className="rounded-2xl border-2 border-slate-200 bg-white p-8 hover:shadow-lg hover:border-primary/40 transition-all">
+              <div className="grid h-12 w-12 place-items-center rounded-lg bg-primary/10 text-primary font-bold">
                 <o.icon className="h-6 w-6" />
               </div>
-              <h3 className="mt-5 text-base font-bold text-slate">{o.title}</h3>
-              <p className="mt-2 text-sm text-slate/70 leading-relaxed">{o.desc}</p>
+              <h3 className="mt-5 text-sm font-bold text-slate leading-snug">{o.title}</h3>
+              <p className="mt-3 text-xs text-slate/70 leading-relaxed">{o.desc}</p>
             </div>
           ))}
         </div>
       </Section>
 
       {/* Demo Teaser */}
-      <Section className="bg-slate-50 border-b border-border">
-        <div className="rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-blue-50 to-white p-12 text-center sm:p-20 shadow-lg">
+      <Section className="bg-white border-b border-border">
+        <div className="rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-[#f0f7ff] to-white p-12 text-center sm:p-20 shadow-md">
           <SectionEyebrow>Try it</SectionEyebrow>
           <h2 className="mx-auto max-w-2xl font-display text-4xl sm:text-5xl font-bold text-slate">
             Paste a transcript. See the full follow-up pack in seconds.
@@ -329,14 +331,14 @@ export function HomePage() {
       </Section>
 
       {/* Pricing Teaser */}
-      <Section className="border-b border-border bg-white">
+      <Section className="border-b border-border bg-[#f8f7f6]">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>Pricing</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
             Simple plans for solo operators and growing teams.
           </h2>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3 lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-3 lg:items-end">
           <PricingCard
             title="Solo Access"
             price="$199.99"
@@ -378,7 +380,7 @@ export function HomePage() {
             cta="Request Team Setup"
           />
         </div>
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <Button size="lg" variant="outline" asChild>
             <Link to="/pricing">See full pricing & FAQs</Link>
           </Button>
@@ -386,29 +388,29 @@ export function HomePage() {
       </Section>
 
       {/* Who For */}
-      <Section className="bg-slate-50 border-b border-border">
+      <Section className="bg-white border-b border-border">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>Fit check</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">Who it's for.</h2>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-white p-10 shadow-md">
+          <div className="rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-white to-[#f5f8f5] p-10 shadow-md hover:shadow-lg transition-shadow">
             <h3 className="font-display text-2xl font-bold text-slate">Best for</h3>
             <ul className="mt-6 space-y-4">
               {BEST_FOR.map((t) => (
                 <li key={t} className="flex items-start gap-3 text-sm text-slate/80">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-green-600 font-bold" />
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary font-bold" />
                   <span>{t}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-slate-50 to-white p-10 shadow-md">
+          <div className="rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-10 shadow-md hover:shadow-lg transition-shadow">
             <h3 className="font-display text-2xl font-bold text-slate">Not for</h3>
             <ul className="mt-6 space-y-4">
               {NOT_FOR.map((t) => (
                 <li key={t} className="flex items-start gap-3 text-sm text-slate/70">
-                  <span className="mt-2 h-0.5 w-4 shrink-0 bg-slate/40 rounded" />
+                  <span className="mt-2 h-0.5 w-4 shrink-0 bg-slate/30 rounded" />
                   <span>{t}</span>
                 </li>
               ))}
@@ -418,7 +420,7 @@ export function HomePage() {
       </Section>
 
       {/* Roadmap */}
-      <Section className="border-b border-border bg-white">
+      <Section className="border-b border-border bg-[#f5f4f1]">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>Roadmap</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
@@ -431,7 +433,7 @@ export function HomePage() {
         </div>
         <div className="flex flex-wrap gap-3 mb-6">
           {INTEGRATIONS.map((i) => (
-            <span key={i} className="rounded-full border-2 border-slate/20 bg-gradient-to-br from-slate-50 to-white px-4 py-2.5 text-sm font-medium text-slate shadow-sm hover:shadow-md transition">
+            <span key={i} className="rounded-full border-2 border-slate/30 bg-white px-4 py-2.5 text-sm font-medium text-slate shadow-sm hover:shadow-md hover:border-primary/40 transition">
               {i}
             </span>
           ))}
@@ -440,7 +442,7 @@ export function HomePage() {
       </Section>
 
       {/* Final CTA */}
-      <Section className="bg-fafbfc">
+      <Section className="bg-white">
         <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
           <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
             Stop letting meetings end without clear follow-up.

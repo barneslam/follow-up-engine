@@ -11,7 +11,7 @@
   --success: #16a34a;
   --muted-foreground: #64748b;
   --foreground: #0f172a;
-  --background: #fafbfc;
+  --background: #f8f9f7;
   --card: #ffffff;
   --surface: #f1f5f9;
   --border: #cbd5e1;
@@ -20,6 +20,13 @@
   --blue-soft: #dbeafe;
   --blue-subtle: #eff6ff;
   --gray-light: #e2e8f0;
+
+  /* Warm section colors */
+  --section-cream: #fefdf9;
+  --section-warm-gray: #f5f4f1;
+  --section-soft-blue: #f0f7ff;
+  --section-soft-slate: #f8f7f6;
+  --section-light-sage: #f5f8f5;
 }
 
 * {
