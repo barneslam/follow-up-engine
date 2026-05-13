@@ -122,27 +122,38 @@ export function HomePage() {
         <Container>
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
             <div>
-              <div className="mb-8 inline-block rounded-full border border-primary/20 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-primary">
+              <div className="mb-6 inline-block rounded-full border border-primary/20 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-primary">
                 Built for SME sales teams
               </div>
               <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-slate">
-                Turn sales meetings into follow-up emails, action items, and revenue next steps.
+                One-click sales meeting follow-up for SMEs.
               </h1>
-              <p className="mt-8 max-w-xl text-lg sm:text-xl text-slate/70 leading-relaxed">
-                Follow-Up Engine helps SMEs turn meeting context, sales documents, call objectives, and transcripts
-                into client agendas, follow-up emails, WhatsApp summaries, internal manager updates, action items,
-                and next-step recommendations.
+
+              <div className="mt-8 inline-flex items-center gap-3 rounded-xl border-2 border-primary/20 bg-gradient-to-r from-blue-50 to-white px-5 py-4 shadow-md">
+                <span className="text-xs font-bold uppercase tracking-wide text-primary">Save</span>
+                <span className="text-3xl font-bold text-primary">2+ hours</span>
+                <span className="text-sm font-semibold text-slate/70">per sales meeting</span>
+              </div>
+
+              <p className="mt-8 max-w-2xl text-xl sm:text-2xl font-semibold text-slate leading-relaxed">
+                Follow-Up Engine turns meeting context and transcripts into agendas, follow-up emails, WhatsApp summaries, action items, manager updates, and next steps — before the momentum disappears.
               </p>
+
+              <p className="mt-6 max-w-xl text-base text-slate/70">
+                One meeting in. Seven sales outputs out.
+              </p>
+
               <div className="mt-10 flex flex-wrap gap-4">
                 <Button size="lg" onClick={() => setContactOpen(true)}>
-                  Request Early Access
+                  Try Free for 7 Days
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/demo">Try Demo Flow <ArrowRight className="h-4 w-4" /></Link>
+                  <Link to="/demo">See How It Works <ArrowRight className="h-4 w-4" /></Link>
                 </Button>
               </div>
-              <p className="mt-8 text-sm font-medium text-slate/70">
-                Before the meeting, prepare better. After the meeting, follow up faster.
+
+              <p className="mt-6 text-sm font-medium text-slate/60">
+                Create unlimited follow-up packs during your 7-day launch test.
               </p>
             </div>
 
