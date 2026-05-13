@@ -58,20 +58,28 @@ CREATE POLICY "Allow select for authenticated users" ON demo_outputs
 -- Create follow_up_engine_trial_requests table
 CREATE TABLE IF NOT EXISTS follow_up_engine_trial_requests (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  company TEXT NOT NULL,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  corporate_email TEXT NOT NULL,
+  phone_number TEXT NOT NULL,
+  company_name TEXT NOT NULL,
   role TEXT NOT NULL,
   company_size TEXT NOT NULL,
-  meetings_per_week TEXT NOT NULL,
-  transcript_tool TEXT NOT NULL,
-  biggest_challenge TEXT NOT NULL,
+  biggest_followup_challenge TEXT NOT NULL,
   referral_code TEXT,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+  verification_status TEXT DEFAULT 'pending',
+  verification_method TEXT DEFAULT 'email',
+  trial_start_date TIMESTAMP WITH TIME ZONE,
+  trial_end_date TIMESTAMP WITH TIME ZONE,
+  trial_status TEXT DEFAULT 'pending',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create index on email for lookups
-CREATE INDEX IF NOT EXISTS idx_trial_requests_email ON follow_up_engine_trial_requests(email);
+-- Create indexes
+CREATE INDEX IF NOT EXISTS idx_trial_requests_email ON follow_up_engine_trial_requests(corporate_email);
+CREATE INDEX IF NOT EXISTS idx_trial_requests_status ON follow_up_engine_trial_requests(verification_status);
+CREATE INDEX IF NOT EXISTS idx_trial_requests_trial_status ON follow_up_engine_trial_requests(trial_status);
 
 -- Enable RLS
 ALTER TABLE follow_up_engine_trial_requests ENABLE ROW LEVEL SECURITY;
@@ -82,3 +90,6 @@ CREATE POLICY "Allow anon insert on trial_requests" ON follow_up_engine_trial_re
 
 CREATE POLICY "Allow auth select on trial_requests" ON follow_up_engine_trial_requests
   FOR SELECT TO authenticated USING (true);
+
+CREATE POLICY "Allow anon update on trial_requests" ON follow_up_engine_trial_requests
+  FOR UPDATE TO anon USING (true) WITH CHECK (true);
