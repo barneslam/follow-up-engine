@@ -469,6 +469,24 @@
       color: white;
     }
 
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary);
+    }
+
     /* Footer */
     footer {
       background: var(--foreground);
@@ -542,9 +560,13 @@
         </div>
         Follow-Up Engine
       </a>
-      <div style="display: flex; gap: 24px; align-items: center;">
-        <button class="btn-primary" style="padding: 10px 20px; font-size: 0.95rem;">Try Free for 7 Days</button>
+      <div class="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#demo">Demo</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#team">Team Setup</a>
       </div>
+      <button class="btn-primary" style="padding: 10px 20px; font-size: 0.95rem;">Request Early Access</button>
     </div>
   </header>
 
