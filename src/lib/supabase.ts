@@ -108,3 +108,22 @@ export async function verifySmsOtp(phoneNumber: string, otpCode: string): Promis
 
   return isValid
 }
+
+export interface TrialRequestData {
+  name: string
+  email: string
+  company: string
+  role: string
+  company_size: string
+  meetings_per_week: string
+  transcript_tool: string
+  biggest_challenge: string
+  referral_code?: string
+}
+
+export async function submitTrialRequest(data: TrialRequestData) {
+  const { error } = await supabase
+    .from('follow_up_engine_trial_requests')
+    .insert([{ ...data, referral_code: data.referral_code || null }])
+  if (error) throw error
+}

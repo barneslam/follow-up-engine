@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { useState } from 'react'
 import { ContactDialog } from '../components/ContactDialog'
+import { TrialRequestDialog } from '../components/TrialRequestDialog'
 
 const PROBLEMS = [
   "Meeting agendas are created too late or not at all",
@@ -112,10 +113,12 @@ function PricingCard({
 
 export function HomePage() {
   const [contactOpen, setContactOpen] = useState(false)
+  const [trialOpen, setTrialOpen] = useState(false)
 
   return (
     <>
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} />
+      <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
       {/* Hero */}
       <section className="border-b border-border bg-gradient-to-b from-white via-blue-50/40 to-slate-100/30 px-6 pt-24 pb-28 sm:pt-32 sm:pb-40">
@@ -144,7 +147,7 @@ export function HomePage() {
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
-                <Button size="lg" onClick={() => setContactOpen(true)}>
+                <Button size="lg" onClick={() => setTrialOpen(true)}>
                   Try Free for 7 Days
                 </Button>
                 <Button size="lg" variant="outline" asChild>
@@ -446,7 +449,7 @@ export function HomePage() {
             Start with early access today. Request a demo, try the flow, or pick a plan.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Button size="lg" onClick={() => setContactOpen(true)}>
+            <Button size="lg" onClick={() => setTrialOpen(true)}>
               Request Early Access
             </Button>
             <Button size="lg" className="border-white/40 bg-white/15 text-white hover:bg-white/25" asChild>

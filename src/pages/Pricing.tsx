@@ -1,6 +1,7 @@
 import { Section, SectionEyebrow, Container } from '../components/Layout'
 import { Button } from '../components/Button'
 import { ContactDialog } from '../components/ContactDialog'
+import { TrialRequestDialog } from '../components/TrialRequestDialog'
 import { Check } from 'lucide-react'
 import { useState } from 'react'
 
@@ -56,16 +57,22 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
 
 export function PricingPage() {
   const [contactOpen, setContactOpen] = useState(false)
+  const [trialOpen, setTrialOpen] = useState(false)
   const [selectedPlan, setSelectedPlan] = useState<'solo' | 'launch' | 'team' | null>(null)
 
   const handleSelectPlan = (plan: 'solo' | 'launch' | 'team') => {
-    setSelectedPlan(plan)
-    setContactOpen(true)
+    if (plan === 'launch') {
+      setTrialOpen(true)
+    } else {
+      setSelectedPlan(plan)
+      setContactOpen(true)
+    }
   }
 
   return (
     <>
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} selectedPlan={selectedPlan} />
+      <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
       {/* Header */}
       <section className="border-b border-border bg-gradient-to-b from-white via-blue-50/40 to-slate-100/30 px-6 py-24 sm:py-32">
@@ -165,7 +172,7 @@ export function PricingPage() {
               Start with Solo Access or request a demo of the full team platform.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Button size="lg" onClick={() => setContactOpen(true)}>
+              <Button size="lg" onClick={() => setTrialOpen(true)}>
                 Request Early Access
               </Button>
               <Button size="lg" className="border-white/40 bg-white/15 text-white hover:bg-white/25">
