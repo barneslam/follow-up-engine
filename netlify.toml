@@ -1,6 +1,7 @@
 [build]
 command = "npm run build"
 publish = "dist"
+functions = "netlify/functions"
 
 [[redirects]]
 from = "/*"
@@ -8,4 +9,10 @@ to = "/index.html"
 status = 200
 
 [context.production]
-environment = { VITE_SUPABASE_URL = "https://your-project.supabase.co", VITE_SUPABASE_ANON_KEY = "your-key" }
+environment = {
+  VITE_SUPABASE_URL = "https://your-project.supabase.co",
+  VITE_SUPABASE_ANON_KEY = "your-key",
+  TWILIO_ACCOUNT_SID = "",
+  TWILIO_AUTH_TOKEN = "",
+  TWILIO_VERIFY_SERVICE_SID = ""
+}

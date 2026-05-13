@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": 1778625907539,
+  "updatedAt": 1778690891951,
   "nodeCount": 523,
   "nodes": {
     "mem-MEMORY-memory-index": {
@@ -958,8 +958,8 @@
     "mem-project_galoras_handover-handover-target": {
       "id": "mem-project_galoras_handover-handover-target",
       "category": "project_galoras_handover",
-      "confidence": 0.55,
-      "accessCount": 1,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660315
     },
     "mem-project_galoras_handover-external-work-directory--outsi": {
@@ -1035,8 +1035,8 @@
     "mem-project_galoras_handover_complete-status--complete---awaiting-co": {
       "id": "mem-project_galoras_handover_complete-status--complete---awaiting-co",
       "category": "project_galoras_handover_complete",
-      "confidence": 0.55,
-      "accessCount": 1,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660316
     },
     "mem-project_galoras_handover_complete-what-is-done--april-29--2026-": {
@@ -1105,8 +1105,8 @@
     "mem-project_galoras_hot_and_revenue_model-revenue-model-source-files": {
       "id": "mem-project_galoras_hot_and_revenue_model-revenue-model-source-files",
       "category": "project_galoras_hot_and_revenue_model",
-      "confidence": 0.55,
-      "accessCount": 1,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660318
     },
     "mem-project_galoras_hot_and_revenue_model-known-document-errors--fix-bef": {
@@ -1266,8 +1266,8 @@
     "mem-project_galoras_payment_gate-what-it-is": {
       "id": "mem-project_galoras_payment_gate-what-it-is",
       "category": "project_galoras_payment_gate",
-      "confidence": 0.55,
-      "accessCount": 1,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660322
     },
     "mem-project_galoras_payment_gate-gate-status--as-of-2026-04-26-": {
@@ -3597,8 +3597,8 @@
     "mem-supabase_setup-tables-in-uat-galoras": {
       "id": "mem-supabase_setup-tables-in-uat-galoras",
       "category": "supabase_setup",
-      "confidence": 0.55,
-      "accessCount": 1,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660377
     },
     "mem-supabase_setup-migrations-applied--uat-": {

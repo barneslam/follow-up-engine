@@ -52,61 +52,45 @@ export async function saveDemoOutput(data: DemoOutput) {
 }
 
 export async function sendSmsOtp(phoneNumber: string) {
-  const cleanPhone = phoneNumber.replace(/\D/g, '')
-  const otp = Math.floor(100000 + Math.random() * 900000).toString()
-
-  const otpData = {
-    phone: cleanPhone,
-    otp: otp,
-    createdAt: Date.now(),
-    expiresAt: Date.now() + 10 * 60 * 1000,
-  }
-
-  localStorage.setItem(`otp_${cleanPhone}`, JSON.stringify(otpData))
-
   try {
-    const response = await fetch('/api/send-otp', {
+    const response = await fetch('/.netlify/functions/send-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        phone: phoneNumber,
-        code: otp,
-      }),
+      body: JSON.stringify({ phone: phoneNumber }),
     })
 
     if (!response.ok) {
-      console.warn('Failed to send SMS OTP via API, using local verification')
+      const error = await response.json()
+      throw new Error(error.error || 'Failed to send verification code')
     }
-  } catch (error) {
-    console.warn('SMS service unavailable, using local verification for demo')
-  }
 
-  return true
+    const data = await response.json()
+    return { success: true, verificationSid: data.verificationSid }
+  } catch (error) {
+    console.error('Send OTP error:', error)
+    throw error
+  }
 }
 
 export async function verifySmsOtp(phoneNumber: string, otpCode: string): Promise<boolean> {
-  const cleanPhone = phoneNumber.replace(/\D/g, '')
-  const otpDataStr = localStorage.getItem(`otp_${cleanPhone}`)
+  try {
+    const response = await fetch('/.netlify/functions/verify-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone: phoneNumber, code: otpCode }),
+    })
 
-  if (!otpDataStr) {
-    throw new Error('OTP not found. Please request a new code.')
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.error || 'Verification failed')
+    }
+
+    const data = await response.json()
+    return data.verified === true
+  } catch (error) {
+    console.error('Verify OTP error:', error)
+    throw error
   }
-
-  const otpData = JSON.parse(otpDataStr)
-
-  if (Date.now() > otpData.expiresAt) {
-    localStorage.removeItem(`otp_${cleanPhone}`)
-    throw new Error('OTP expired. Please request a new code.')
-  }
-
-  const isValid = otpData.otp === otpCode.trim()
-
-  if (isValid) {
-    localStorage.removeItem(`otp_${cleanPhone}`)
-    localStorage.setItem(`verified_phone_${cleanPhone}`, 'true')
-  }
-
-  return isValid
 }
 
 export interface TrialRequestData {
@@ -114,11 +98,16 @@ export interface TrialRequestData {
   last_name: string
   corporate_email: string
   phone_number: string
+  phone_verified: boolean
   company_name: string
   role: string
   company_size: string
+  meetings_per_week?: string
+  transcript_tool?: string
   biggest_followup_challenge: string
   referral_code?: string
+  consent_terms: boolean
+  consent_updates: boolean
 }
 
 export function generateReferralCode(firstName: string, lastName: string): string {
@@ -136,11 +125,24 @@ export async function submitTrialRequest(data: TrialRequestData) {
   const { data: result, error } = await supabase
     .from('follow_up_engine_trial_requests')
     .insert([{
-      ...data,
-      referral_code: generatedCode,
-      verification_status: 'pending',
-      verification_method: 'email',
-      trial_status: 'pending',
+      first_name: data.first_name,
+      last_name: data.last_name,
+      corporate_email: data.corporate_email,
+      phone_number: data.phone_number,
+      phone_verified: data.phone_verified,
+      company_name: data.company_name,
+      role: data.role,
+      company_size: data.company_size,
+      meetings_per_week: data.meetings_per_week || null,
+      transcript_tool: data.transcript_tool || null,
+      biggest_followup_challenge: data.biggest_followup_challenge,
+      referral_code: data.referral_code || generatedCode,
+      verification_status: data.phone_verified ? 'verified' : 'pending',
+      verification_method: 'sms',
+      trial_status: data.phone_verified ? 'active' : 'pending',
+      consent_terms: data.consent_terms,
+      consent_updates: data.consent_updates,
+      consent_timestamp: new Date().toISOString(),
     }])
     .select()
     .single()
