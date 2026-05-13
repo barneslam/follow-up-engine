@@ -244,6 +244,153 @@
       margin-right: 4px;
     }
 
+    /* Icon SVG */
+    .icon-svg {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Demo section styles */
+    .demo-container {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.02) 0%, rgba(3, 105, 161, 0.02) 100%);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .demo-email {
+      background: linear-gradient(to bottom right, white, rgba(240, 247, 255, 0.5));
+      border: 1px solid rgba(203, 213, 225, 0.5);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .demo-email-header {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-email-to {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      margin-bottom: 8px;
+    }
+
+    .demo-email-subject {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 12px;
+    }
+
+    .demo-email-body {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: rgba(15, 23, 42, 0.8);
+    }
+
+    .demo-email-body p {
+      margin-bottom: 8px;
+    }
+
+    .demo-email-body ul {
+      margin: 8px 0;
+      padding-left: 12px;
+      list-style: none;
+    }
+
+    .demo-email-body li {
+      font-size: 0.875rem;
+      color: rgba(15, 23, 42, 0.6);
+      line-height: 1.4;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .demo-card {
+      background: linear-gradient(to bottom right, white, rgba(248, 247, 246, 0.5));
+      border: 1px solid rgba(203, 213, 225, 0.5);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .demo-card-header {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .demo-card-content {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: rgba(15, 23, 42, 0.7);
+    }
+
+    .demo-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .demo-checklist li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+    }
+
+    .demo-checklist-check {
+      color: var(--primary);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Coming Soon overlay */
+    .coming-soon-container {
+      position: relative;
+    }
+
+    .coming-soon-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .coming-soon-text {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(15, 23, 42, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     /* CTA Section */
     .cta-section {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
@@ -332,6 +479,49 @@
         </div>
         <p style="font-size: 0.875rem; font-weight: 500; color: rgba(15, 23, 42, 0.6); margin-top: 24px;">Create unlimited follow-up packs during your 7-day launch test.</p>
       </div>
+
+      <div class="demo-container" style="max-width: 500px;">
+        <div class="demo-email">
+          <div class="demo-email-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>
+            Follow-up Email
+          </div>
+          <div class="demo-email-to">To: prospect@company.com</div>
+          <div class="demo-email-subject">Subject: Next steps from our discovery call today</div>
+          <div class="demo-email-body">
+            <p>Hi Sarah,</p>
+            <p>Great conversation today. Here's what we discussed:</p>
+            <ul>
+              <li>• Your team needs better visibility into pipeline health</li>
+              <li>• Currently using spreadsheets for tracking</li>
+              <li>• Interested in Q2 pilot with 3 reps</li>
+            </ul>
+            <p>Next: I'll send the one-pager by EOD Friday. Chat next week?</p>
+          </div>
+        </div>
+        <div class="demo-grid">
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Action Items
+            </div>
+            <ul class="demo-checklist">
+              <li><span class="demo-checklist-check">✓</span> Send solution one-pager</li>
+              <li><span class="demo-checklist-check">✓</span> Confirm 3 pilot reps</li>
+              <li><span class="demo-checklist-check">✓</span> Schedule kickoff call</li>
+            </ul>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              WhatsApp Summary
+            </div>
+            <div class="demo-card-content">
+              Quick recap: Sarah's team is tracking pipeline manually, wants better visibility. Interested in Q2 pilot with 3 reps. Follow-up: solution one-pager by Fri EOD.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -385,35 +575,45 @@
       <div style="background: linear-gradient(to bottom right, var(--section-soft-blue), white); border: 2px solid var(--border); border-radius: 24px; padding: 48px; margin-bottom: 40px;">
         <ol style="list-style: none; padding: 0; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
           <li style="text-align: center;">
-            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: var(--primary); font-weight: 700;">📅</div>
+            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg>
+            </div>
             <div style="font-size: 0.75rem; font-weight: 600; color: rgba(15, 23, 42, 0.7); width: 112px;">Calendar Meeting</div>
           </li>
           <li style="text-align: center;">
             <div style="color: rgba(15, 23, 42, 0.2); font-weight: 700;">→</div>
           </li>
           <li style="text-align: center;">
-            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: var(--primary); font-weight: 700;">📤</div>
+            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </div>
             <div style="font-size: 0.75rem; font-weight: 600; color: rgba(15, 23, 42, 0.7); width: 112px;">Upload Documents</div>
           </li>
           <li style="text-align: center;">
             <div style="color: rgba(15, 23, 42, 0.2); font-weight: 700;">→</div>
           </li>
           <li style="text-align: center;">
-            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: var(--primary); font-weight: 700;">🎯</div>
+            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M12 2L15.09 8.26H22L17.55 12.5L19.64 18.74L12 14.49L4.36 18.74L6.45 12.5L2 8.26h6.91L12 2z"></path></svg>
+            </div>
             <div style="font-size: 0.75rem; font-weight: 600; color: rgba(15, 23, 42, 0.7); width: 112px;">Select Objective</div>
           </li>
           <li style="text-align: center;">
             <div style="color: rgba(15, 23, 42, 0.2); font-weight: 700;">→</div>
           </li>
           <li style="text-align: center;">
-            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: var(--primary); font-weight: 700;">✨</div>
+            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><polygon points="12 2 15.09 8.26 22 9.27 17.77 13.5 18.85 20.51 12 17.77 5.15 20.51 6.23 13.5 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
             <div style="font-size: 0.75rem; font-weight: 600; color: rgba(15, 23, 42, 0.7); width: 112px;">Generate Prep Pack</div>
           </li>
           <li style="text-align: center;">
             <div style="color: rgba(15, 23, 42, 0.2); font-weight: 700;">→</div>
           </li>
           <li style="text-align: center;">
-            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: var(--primary); font-weight: 700;">📄</div>
+            <div style="width: 56px; height: 56px; background: white; border: 2px solid rgba(3, 105, 161, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg>
+            </div>
             <div style="font-size: 0.75rem; font-weight: 600; color: rgba(15, 23, 42, 0.7); width: 112px;">Add Transcript</div>
           </li>
         </ol>
@@ -526,14 +726,38 @@
       <h2>Built for deeper workflow integration.</h2>
       <p style="font-size: 1.125rem; color: rgba(15, 23, 42, 0.7); margin-bottom: 32px; max-width: 800px;">Future phases may include Fathom connection, Google Calendar, Outlook Calendar, Google Drive, Salesforce, HubSpot, Pipedrive, and team manager dashboards.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-        <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Fathom</span>
-        <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Google Calendar</span>
-        <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Outlook</span>
-        <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Google Drive</span>
-        <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Salesforce</span>
-        <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">HubSpot</span>
-        <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Pipedrive</span>
-        <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Manager Dashboards</span>
+        <div class="coming-soon-container" style="position: relative;">
+          <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Fathom</span>
+          <div class="coming-soon-overlay"><span class="coming-soon-text">Coming Soon</span></div>
+        </div>
+        <div class="coming-soon-container" style="position: relative;">
+          <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Google Calendar</span>
+          <div class="coming-soon-overlay"><span class="coming-soon-text">Coming Soon</span></div>
+        </div>
+        <div class="coming-soon-container" style="position: relative;">
+          <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Outlook</span>
+          <div class="coming-soon-overlay"><span class="coming-soon-text">Coming Soon</span></div>
+        </div>
+        <div class="coming-soon-container" style="position: relative;">
+          <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Google Drive</span>
+          <div class="coming-soon-overlay"><span class="coming-soon-text">Coming Soon</span></div>
+        </div>
+        <div class="coming-soon-container" style="position: relative;">
+          <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Salesforce</span>
+          <div class="coming-soon-overlay"><span class="coming-soon-text">Coming Soon</span></div>
+        </div>
+        <div class="coming-soon-container" style="position: relative;">
+          <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">HubSpot</span>
+          <div class="coming-soon-overlay"><span class="coming-soon-text">Coming Soon</span></div>
+        </div>
+        <div class="coming-soon-container" style="position: relative;">
+          <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Pipedrive</span>
+          <div class="coming-soon-overlay"><span class="coming-soon-text">Coming Soon</span></div>
+        </div>
+        <div class="coming-soon-container" style="position: relative;">
+          <span style="border: 2px solid rgba(15, 23, 42, 0.3); background: white; padding: 12px 16px; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;">Manager Dashboards</span>
+          <div class="coming-soon-overlay"><span class="coming-soon-text">Coming Soon</span></div>
+        </div>
       </div>
       <p style="font-size: 0.75rem; font-weight: 500; color: rgba(15, 23, 42, 0.6); margin-top: 24px;">Coming soon — not live in this version.</p>
     </div>
