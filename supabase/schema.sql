@@ -118,3 +118,28 @@ CREATE POLICY "Allow insert from anonymous users" ON follow_up_engine_survey_res
 
 CREATE POLICY "Allow select for authenticated users" ON follow_up_engine_survey_responses
   FOR SELECT TO authenticated USING (true);
+
+-- Create follow_up_engine_referrals table
+CREATE TABLE IF NOT EXISTS follow_up_engine_referrals (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  referral_code TEXT NOT NULL UNIQUE,
+  referred_by_code TEXT,
+  signup_email TEXT NOT NULL,
+  signup_name TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create indexes
+CREATE INDEX IF NOT EXISTS idx_referrals_code ON follow_up_engine_referrals(referral_code);
+CREATE INDEX IF NOT EXISTS idx_referrals_referred_by ON follow_up_engine_referrals(referred_by_code);
+CREATE INDEX IF NOT EXISTS idx_referrals_email ON follow_up_engine_referrals(signup_email);
+
+-- Enable RLS
+ALTER TABLE follow_up_engine_referrals ENABLE ROW LEVEL SECURITY;
+
+-- Create policies
+CREATE POLICY "Allow insert from anonymous users" ON follow_up_engine_referrals
+  FOR INSERT TO anon WITH CHECK (true);
+
+CREATE POLICY "Allow select for authenticated users" ON follow_up_engine_referrals
+  FOR SELECT TO authenticated USING (true);

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { X, AlertCircle, CheckCircle } from 'lucide-react'
-import { submitTrialRequest, sendVerificationCode, verifyCode } from '../lib/supabase'
+import { submitTrialRequest, sendVerificationCode, verifyCode, storeReferral } from '../lib/supabase'
 
 interface TrialRequestDialogProps {
   isOpen: boolean
@@ -17,6 +17,7 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
   const [verificationCode, setVerificationCode] = useState('')
   const [trialRequestId, setTrialRequestId] = useState<string | null>(null)
   const [trialEndDate, setTrialEndDate] = useState<string | null>(null)
+  const [referralCode, setReferralCode] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -108,7 +109,17 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
       const result = await verifyCode(trialRequestId, verificationCode)
 
       if (result.verified) {
+        const code = result.referral_code || result.generated_referral_code
         setTrialEndDate(result.trial_end_date)
+        setReferralCode(code)
+
+        await storeReferral({
+          referral_code: code,
+          referred_by_code: formData.referral_code || undefined,
+          signup_email: formData.corporate_email,
+          signup_name: `${formData.first_name} ${formData.last_name}`,
+        })
+
         setStep('success')
         setTimeout(() => {
           setStep('form')
@@ -126,6 +137,7 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
           setVerificationCode('')
           setTrialRequestId(null)
           setTrialEndDate(null)
+          setReferralCode(null)
           onClose()
         }, 4000)
       } else {
@@ -392,6 +404,19 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
                   Your 7-day trial is now active. You have until <strong>{trialEndDate}</strong> to test Follow-Up Engine.
                 </p>
               </div>
+              {referralCode && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <p className="text-xs text-blue-700 mb-2">
+                    Your referral code:
+                  </p>
+                  <p className="text-sm font-mono font-semibold text-blue-900 mb-2">
+                    {referralCode}
+                  </p>
+                  <p className="text-xs text-blue-700">
+                    Share it with another SME owner or sales team. If they join, you may receive a launch discount when paid subscriptions open.
+                  </p>
+                </div>
+              )}
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <p className="text-xs text-green-700">
                   Check your email for login details and a quick setup guide.

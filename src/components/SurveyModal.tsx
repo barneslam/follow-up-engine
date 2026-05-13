@@ -321,8 +321,14 @@ export function SurveyModal({ isOpen, onClose }: SurveyModalProps) {
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Thank You!</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground mb-4">
                   Your feedback helps shape the next version of Follow-Up Engine.
+                </p>
+                <p className="text-sm text-foreground font-medium mb-2">
+                  As a launch tester, you're eligible for a founder discount when subscriptions open.
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Final launch discount will be confirmed before paid subscriptions begin.
                 </p>
               </div>
             </div>

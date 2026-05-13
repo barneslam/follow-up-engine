@@ -121,12 +121,23 @@ export interface TrialRequestData {
   referral_code?: string
 }
 
+export function generateReferralCode(firstName: string, lastName: string): string {
+  if (firstName && lastName) {
+    const initials = (firstName.charAt(0) + lastName).substring(0, 8).toUpperCase()
+    return `${initials}10`
+  }
+  const randomPart = Math.random().toString(36).substring(2, 6).toUpperCase()
+  return `FUE-${randomPart}`
+}
+
 export async function submitTrialRequest(data: TrialRequestData) {
+  const generatedCode = generateReferralCode(data.first_name, data.last_name)
+
   const { data: result, error } = await supabase
     .from('follow_up_engine_trial_requests')
     .insert([{
       ...data,
-      referral_code: data.referral_code || null,
+      referral_code: generatedCode,
       verification_status: 'pending',
       verification_method: 'email',
       trial_status: 'pending',
@@ -135,7 +146,7 @@ export async function submitTrialRequest(data: TrialRequestData) {
     .single()
 
   if (error) throw error
-  return result
+  return { ...result, generated_referral_code: generatedCode }
 }
 
 export async function sendVerificationCode(email: string, requestId: string) {
@@ -215,6 +226,28 @@ export async function submitSurveyResponse(data: SurveyResponseData) {
       ...data,
       referral_email: data.referral_email || null,
       open_feedback: data.open_feedback || null,
+    }])
+    .select()
+
+  if (error) throw error
+  return result
+}
+
+export interface ReferralData {
+  referral_code: string
+  referred_by_code?: string
+  signup_email: string
+  signup_name: string
+}
+
+export async function storeReferral(data: ReferralData) {
+  const { data: result, error } = await supabase
+    .from('follow_up_engine_referrals')
+    .insert([{
+      referral_code: data.referral_code,
+      referred_by_code: data.referred_by_code || null,
+      signup_email: data.signup_email,
+      signup_name: data.signup_name,
     }])
     .select()
 
