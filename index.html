@@ -185,6 +185,23 @@
       text-align: center;
       opacity: 0.7;
       transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.coming-soon::before {
+      content: "Coming Soon";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(3, 105, 161, 0.15);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 1;
+      letter-spacing: 2px;
     }
 
     .price-card.featured {
@@ -818,7 +835,7 @@
       <div class="eyebrow">Pricing</div>
       <h2>Simple plans for solo operators and growing teams.</h2>
       <div class="grid cols-3">
-        <div class="price-card">
+        <div class="price-card coming-soon">
           <h3>Solo Access</h3>
           <div class="price">$199.99</div>
           <div class="period">one-time</div>
@@ -849,7 +866,7 @@
           </ul>
         </div>
 
-        <div class="price-card">
+        <div class="price-card coming-soon">
           <h3>Team Setup</h3>
           <div class="price">Custom</div>
           <div class="period"></div>
