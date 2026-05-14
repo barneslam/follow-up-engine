@@ -1418,9 +1418,24 @@
 
         // Close trial modal and open survey after 2 seconds
         setTimeout(() => {
-          closeTrialModal();
+          trialModal.style.display = 'none';
+          // Reset trial modal state
+          signupStep.style.display = 'flex';
+          verificationStep.style.display = 'none';
+          successMessage.style.display = 'none';
+          trialForm.reset();
+
           // Open survey modal after trial modal closes
-          setTimeout(openSurveyModal, 500);
+          setTimeout(() => {
+            const surveyModal = document.getElementById('surveyModal');
+            const surveyForm = document.getElementById('surveyForm');
+            if (surveyModal && surveyForm) {
+              surveyModal.style.display = 'flex';
+              surveyForm.style.display = 'flex';
+              document.getElementById('surveySuccess').style.display = 'none';
+              surveyForm.reset();
+            }
+          }, 500);
         }, 2000);
       } else {
         verificationError.style.display = 'block';
