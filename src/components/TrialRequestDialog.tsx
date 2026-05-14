@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { X, AlertCircle, CheckCircle } from 'lucide-react'
 import { submitTrialRequest, sendSmsOtp, verifySmsOtp, storeReferral } from '../lib/supabase'
+import { useTrialSession } from '../contexts/TrialContext'
 
 interface TrialRequestDialogProps {
   isOpen: boolean
@@ -10,6 +12,8 @@ interface TrialRequestDialogProps {
 const GENERIC_EMAILS = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com', 'proton.me', 'aol.com']
 
 export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps) {
+  const navigate = useNavigate()
+  const { startTrial } = useTrialSession()
   const [step, setStep] = useState<'form' | 'sms' | 'success'>('form')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
@@ -132,6 +136,17 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
           })
         }
 
+        startTrial({
+          id: result.id,
+          email: formData.corporate_email,
+          firstName: formData.first_name,
+          lastName: formData.last_name,
+          company: formData.company_name,
+          trialStartDate: verifyResponse.trialStartDate,
+          trialEndDate: verifyResponse.trialEndDate,
+          referralCode: result.generated_referral_code,
+        })
+
         setStep('success')
         setTimeout(() => {
           setStep('form')
@@ -155,7 +170,8 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
           setPhoneForSms('')
           setGeneratedReferralCode(null)
           onClose()
-        }, 4000)
+          navigate('/demo')
+        }, 2000)
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : String(err)
