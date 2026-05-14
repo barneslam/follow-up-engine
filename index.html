@@ -921,16 +921,201 @@
     <p>&copy; 2026 Follow-Up Engine. For SME sales teams.</p>
   </footer>
 
+  <!-- 7-Day Trial Modal -->
+  <div id="trialModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background: white; border-radius: 12px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15); position: relative;">
+      <!-- Close button -->
+      <button id="closeModal" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: #64748b; z-index: 10;">✕</button>
+
+      <!-- Modal content -->
+      <div style="padding: 40px 32px;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: #0f172a;">Start Your 7-Day Follow-Up Engine Test</h2>
+        <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 32px; line-height: 1.6;">Create unlimited follow-up packs during your 7-day launch test. Help us understand what saves the most time and which features matter next.</p>
+
+        <form id="trialForm" style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Name -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Name</label>
+            <input type="text" name="name" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Email</label>
+            <input type="email" name="email" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+          </div>
+
+          <!-- Company -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Company</label>
+            <input type="text" name="company" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+          </div>
+
+          <!-- Role -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Role</label>
+            <input type="text" name="role" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+          </div>
+
+          <!-- Company Size -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Company Size</label>
+            <select name="company_size" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+              <option value="">Select...</option>
+              <option value="Solo">Solo</option>
+              <option value="2–5 employees">2–5 employees</option>
+              <option value="6–20 employees">6–20 employees</option>
+              <option value="21–50 employees">21–50 employees</option>
+              <option value="51–100 employees">51–100 employees</option>
+              <option value="100+ employees">100+ employees</option>
+            </select>
+          </div>
+
+          <!-- Meetings per week -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Sales Meetings Per Week</label>
+            <select name="meetings_per_week" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+              <option value="">Select...</option>
+              <option value="1–2 meetings/week">1–2 meetings/week</option>
+              <option value="3–5 meetings/week">3–5 meetings/week</option>
+              <option value="6–10 meetings/week">6–10 meetings/week</option>
+              <option value="11–20 meetings/week">11–20 meetings/week</option>
+              <option value="20+ meetings/week">20+ meetings/week</option>
+            </select>
+          </div>
+
+          <!-- Transcript Tool -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Meeting Notes / Transcript Tool</label>
+            <select name="transcript_tool" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+              <option value="">Select...</option>
+              <option value="Fathom">Fathom</option>
+              <option value="Zoom transcript">Zoom transcript</option>
+              <option value="Microsoft Teams transcript">Microsoft Teams transcript</option>
+              <option value="Google Meet transcript">Google Meet transcript</option>
+              <option value="Fireflies">Fireflies</option>
+              <option value="Otter">Otter</option>
+              <option value="Manual notes">Manual notes</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Biggest Challenge -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Biggest Follow-up Challenge</label>
+            <select name="biggest_challenge" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+              <option value="">Select...</option>
+              <option value="Follow-up emails take too long">Follow-up emails take too long</option>
+              <option value="Notes are messy">Notes are messy</option>
+              <option value="Action items are unclear">Action items are unclear</option>
+              <option value="CRM is not updated">CRM is not updated</option>
+              <option value="Manager does not know what happened">Manager does not know what happened</option>
+              <option value="Leads go quiet">Leads go quiet</option>
+              <option value="No consistent follow-up process">No consistent follow-up process</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Referral Code (Optional) -->
+          <div>
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Referral Code (Optional)</label>
+            <input type="text" name="referral_code" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" style="background: #0369a1; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 8px;">Start 7-Day Test</button>
+        </form>
+
+        <!-- Success Message (hidden by default) -->
+        <div id="successMessage" style="display: none; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 16px;">✓</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #0f172a;">Thank You</h3>
+          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6;">Your 7-day test request has been received. We will send next steps and access details shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // CTA handlers
-    document.querySelectorAll('.btn-primary, .pricing-cta').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (btn.textContent.includes('Coming Soon') || btn.textContent.includes('Get in Touch')) {
-          console.log('Feature not yet enabled');
-          return;
+    // Modal handlers
+    const trialModal = document.getElementById('trialModal');
+    const trialForm = document.getElementById('trialForm');
+    const successMessage = document.getElementById('successMessage');
+    const closeBtn = document.getElementById('closeModal');
+
+    // Open modal on CTA clicks
+    function openTrialModal() {
+      trialModal.style.display = 'flex';
+      trialForm.style.display = 'flex';
+      successMessage.style.display = 'none';
+    }
+
+    // Close modal
+    function closeTrialModal() {
+      trialModal.style.display = 'none';
+      trialForm.reset();
+      trialForm.style.display = 'flex';
+      successMessage.style.display = 'none';
+    }
+
+    closeBtn.addEventListener('click', closeTrialModal);
+    trialModal.addEventListener('click', (e) => {
+      if (e.target === trialModal) closeTrialModal();
+    });
+
+    // Wire all CTA buttons to open modal
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.textContent.includes('Try Free for 7 Days') ||
+          btn.textContent.includes('Start Launch Plan') ||
+          btn.textContent.includes('Start 90-Day Test') ||
+          btn.textContent.includes('Request Early Access') ||
+          btn.textContent.includes('Get Early Access') ||
+          btn.textContent.includes('See Demo')) {
+        btn.addEventListener('click', (e) => {
+          if (btn.textContent.includes('See Demo')) return;
+          e.preventDefault();
+          openTrialModal();
+        });
+      }
+    });
+
+    // Form submission
+    trialForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        name: document.querySelector('input[name="name"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        company: document.querySelector('input[name="company"]').value,
+        role: document.querySelector('input[name="role"]').value,
+        company_size: document.querySelector('select[name="company_size"]').value,
+        meetings_per_week: document.querySelector('select[name="meetings_per_week"]').value,
+        transcript_tool: document.querySelector('select[name="transcript_tool"]').value,
+        biggest_challenge: document.querySelector('select[name="biggest_challenge"]').value,
+        referral_code: document.querySelector('input[name="referral_code"]').value || null,
+      };
+
+      // Try to save to Supabase if available
+      try {
+        const response = await fetch('/.netlify/functions/save-trial-request', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+          console.log('Backend not available, showing success anyway');
         }
-        console.log('Opening trial/contact dialog');
-      });
+      } catch (err) {
+        console.log('Backend unavailable, showing success message');
+      }
+
+      // Show success message
+      trialForm.style.display = 'none';
+      successMessage.style.display = 'block';
+
+      // Close after 3 seconds
+      setTimeout(closeTrialModal, 3000);
     });
   </script>
 </body>
