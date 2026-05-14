@@ -13,12 +13,35 @@ exports.handler = async (event) => {
   try {
     const { email, code } = JSON.parse(event.body)
 
-    // TODO: Verify code against stored/sent codes
-    // For now, accept code '123456' for testing
-    if (code !== '123456') {
+    // Get the trial request and verify the code
+    const { data: records, error: queryError } = await supabase
+      .from('follow_up_engine_trial_requests')
+      .select('*')
+      .eq('corporate_email', email)
+      .single()
+
+    if (queryError || !records) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ error: 'Trial request not found' }),
+      }
+    }
+
+    // Check if code matches and hasn't expired
+    const now = new Date()
+    const expiresAt = new Date(records.verification_code_expires_at)
+
+    if (records.verification_code !== code) {
       return {
         statusCode: 400,
         body: JSON.stringify({ error: 'Invalid verification code' }),
+      }
+    }
+
+    if (now > expiresAt) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Verification code has expired' }),
       }
     }
 
@@ -33,6 +56,7 @@ exports.handler = async (event) => {
         trial_status: 'active',
         trial_start_date: trialStartDate.toISOString(),
         trial_end_date: trialEndDate.toISOString(),
+        verification_code: null, // Clear the code after verification
       })
       .eq('corporate_email', email)
       .select()

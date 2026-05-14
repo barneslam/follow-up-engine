@@ -1,3 +1,22 @@
 {
-	"siteId": "939739e2-5303-4d02-8c7f-838b4c3ecf8f"
+	"siteId": "939739e2-5303-4d02-8c7f-838b4c3ecf8f",
+	"dbConnectionString": "postgres://localhost:63915/postgres",
+	"geolocation": {
+		"data": {
+			"city": "Toronto",
+			"country": {
+				"code": "CA",
+				"name": "Canada"
+			},
+			"subdivision": {
+				"code": "ON",
+				"name": "Ontario"
+			},
+			"timezone": "America/Toronto",
+			"latitude": 43.6694,
+			"longitude": -79.4018,
+			"postalCode": "M5R"
+		},
+		"timestamp": 1778720964881
+	}
 }
