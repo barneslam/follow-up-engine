@@ -1416,8 +1416,12 @@
         verificationStep.style.display = 'none';
         successMessage.style.display = 'block';
 
-        // Close after 3 seconds
-        setTimeout(closeTrialModal, 3000);
+        // Close trial modal and open survey after 2 seconds
+        setTimeout(() => {
+          closeTrialModal();
+          // Open survey modal after trial modal closes
+          setTimeout(openSurveyModal, 500);
+        }, 2000);
       } else {
         verificationError.style.display = 'block';
       }
