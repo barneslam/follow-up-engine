@@ -1,0 +1,21 @@
+{
+  "id": "session-1778702031309",
+  "startedAt": "2026-05-13T19:53:51.309Z",
+  "cwd": "/Users/b.lamoutlook.com/follow-up-engine",
+  "context": {
+    "lastMatchedPatterns": [
+      "mem-project_gtm_system_complete_reference-server-runs-on-localhost-3001",
+      "mem-project_gtm_content_automation-test-manually",
+      "mem-project_rin_dispatcher-development"
+    ]
+  },
+  "metrics": {
+    "edits": 16,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "updatedAt": "2026-05-13T20:13:30.081Z",
+  "endedAt": "2026-05-13T20:18:09.466Z",
+  "duration": 1458158
+}

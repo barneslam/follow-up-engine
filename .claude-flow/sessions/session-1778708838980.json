@@ -1,0 +1,14 @@
+{
+  "id": "session-1778708838980",
+  "startedAt": "2026-05-13T21:47:18.980Z",
+  "cwd": "/Users/b.lamoutlook.com/follow-up-engine",
+  "context": {},
+  "metrics": {
+    "edits": 0,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "endedAt": "2026-05-13T21:48:24.205Z",
+  "duration": 65226
+}

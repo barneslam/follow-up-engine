@@ -1315,7 +1315,7 @@
         role: document.querySelector('input[name="role"]').value,
         company_size: document.querySelector('select[name="company_size"]').value,
         biggest_followup_challenge: document.querySelector('select[name="biggest_followup_challenge"]').value,
-        referred_by_code: document.querySelector('input[name="referral_code"]').value || null,
+        referral_code: document.querySelector('input[name="referral_code"]').value || null,
         verification_status: 'pending',
         verification_method: 'email',
       };
@@ -1342,7 +1342,7 @@
 
             const codeData = await codeResponse.json();
             verificationCode = codeData.code || '123456'; // Fallback to mock code
-            console.log('Verification code sent to email');
+            console.log('Verification code set:', verificationCode);
           } catch (err) {
             console.log('Email service unavailable, using mock code 123456');
             verificationCode = '123456';
@@ -1352,6 +1352,7 @@
         console.log('Backend unavailable, using mock code 123456');
         verificationCode = '123456';
       }
+      console.log('About to show verification step with code:', verificationCode);
 
       // Show verification step
       verificationEmail.textContent = trialFormData.corporate_email;
@@ -1366,6 +1367,8 @@
 
       const enteredCode = document.getElementById('verificationCode').value.trim();
       const verificationError = document.getElementById('verificationError');
+
+      console.log('Verification attempt:', { entered: enteredCode, expected: verificationCode, match: enteredCode === verificationCode });
 
       // TODO: Call backend to verify code against database record
       // For now, verify against mock code
