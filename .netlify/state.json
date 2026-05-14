@@ -1,6 +1,5 @@
 {
 	"siteId": "939739e2-5303-4d02-8c7f-838b4c3ecf8f",
-	"dbConnectionString": "postgres://localhost:63915/postgres",
 	"geolocation": {
 		"data": {
 			"city": "Toronto",
@@ -18,5 +17,6 @@
 			"postalCode": "M5R"
 		},
 		"timestamp": 1778720964881
-	}
+	},
+	"dbConnectionString": "postgres://localhost:50501/postgres"
 }

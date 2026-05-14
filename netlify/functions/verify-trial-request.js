@@ -1,8 +1,13 @@
+const twilio = require('twilio')
 const { createClient } = require('@supabase/supabase-js')
 
+const accountSid = process.env.TWILIO_ACCOUNT_SID
+const authToken = process.env.TWILIO_AUTH_TOKEN
+const verifySid = process.env.TWILIO_VERIFY_SERVICE_SID
 const supabaseUrl = process.env.VITE_SUPABASE_URL
 const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY
 
+const client = twilio(accountSid, authToken)
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 exports.handler = async (event) => {
@@ -11,37 +16,32 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { email, code } = JSON.parse(event.body)
+    const { phone, code } = JSON.parse(event.body)
 
-    // Get the trial request and verify the code
-    const { data: records, error: queryError } = await supabase
-      .from('follow_up_engine_trial_requests')
-      .select('*')
-      .eq('corporate_email', email)
-      .single()
-
-    if (queryError || !records) {
+    if (!phone || !code) {
       return {
-        statusCode: 404,
-        body: JSON.stringify({ error: 'Trial request not found' }),
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Phone number and verification code are required' }),
       }
     }
 
-    // Check if code matches and hasn't expired
-    const now = new Date()
-    const expiresAt = new Date(records.verification_code_expires_at)
-
-    if (records.verification_code !== code) {
+    if (!accountSid || !authToken || !verifySid) {
       return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Invalid verification code' }),
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Twilio service not configured' }),
       }
     }
 
-    if (now > expiresAt) {
+    // Verify code via Twilio Verify Service
+    const verification = await client.verify.v2.services(verifySid).verificationChecks.create({
+      to: phone,
+      code: code,
+    })
+
+    if (verification.status !== 'approved') {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Verification code has expired' }),
+        body: JSON.stringify({ error: 'The verification code is incorrect or expired. Please try again.' }),
       }
     }
 
@@ -53,12 +53,12 @@ exports.handler = async (event) => {
       .from('follow_up_engine_trial_requests')
       .update({
         verification_status: 'verified',
+        phone_verified: true,
         trial_status: 'active',
         trial_start_date: trialStartDate.toISOString(),
         trial_end_date: trialEndDate.toISOString(),
-        verification_code: null, // Clear the code after verification
       })
-      .eq('corporate_email', email)
+      .eq('phone_number', phone)
       .select()
 
     if (error) {

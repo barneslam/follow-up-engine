@@ -53,7 +53,7 @@ export async function saveDemoOutput(data: DemoOutput) {
 
 export async function sendSmsOtp(phoneNumber: string) {
   try {
-    const response = await fetch('/.netlify/functions/send-otp', {
+    const response = await fetch('/.netlify/functions/send-verification-code', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ phone: phoneNumber }),
@@ -74,7 +74,7 @@ export async function sendSmsOtp(phoneNumber: string) {
 
 export async function verifySmsOtp(phoneNumber: string, otpCode: string): Promise<boolean> {
   try {
-    const response = await fetch('/.netlify/functions/verify-otp', {
+    const response = await fetch('/.netlify/functions/verify-trial-request', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ phone: phoneNumber, code: otpCode }),
@@ -86,7 +86,7 @@ export async function verifySmsOtp(phoneNumber: string, otpCode: string): Promis
     }
 
     const data = await response.json()
-    return data.verified === true
+    return true
   } catch (error) {
     console.error('Verify OTP error:', error)
     throw error

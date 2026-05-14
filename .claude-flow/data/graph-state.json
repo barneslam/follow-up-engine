@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": 1778720631150,
+  "updatedAt": 1778755043379,
   "nodeCount": 523,
   "nodes": {
     "mem-MEMORY-memory-index": {
@@ -1322,8 +1322,8 @@
     "mem-project_galoras_sio_feedback-outstanding---not-yet-done": {
       "id": "mem-project_galoras_sio_feedback-outstanding---not-yet-done",
       "category": "project_galoras_sio_feedback",
-      "confidence": 0.5800000000000001,
-      "accessCount": 2,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660323
     },
     "mem-project_galoras_sow4_sow5_deferred----": {
@@ -1581,15 +1581,15 @@
     "mem-project_gtm_content_automation-check-logs": {
       "id": "mem-project_gtm_content_automation-check-logs",
       "category": "project_gtm_content_automation",
-      "confidence": 0.53,
-      "accessCount": 1,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660333
     },
     "mem-project_gtm_content_automation-test-manually": {
       "id": "mem-project_gtm_content_automation-test-manually",
       "category": "project_gtm_content_automation",
-      "confidence": 0.53,
-      "accessCount": 1,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660333
     },
     "mem-project_gtm_content_automation-get-report": {
@@ -1721,8 +1721,8 @@
     "mem-project_gtm_diagnostic_flow-files-implemented": {
       "id": "mem-project_gtm_diagnostic_flow-files-implemented",
       "category": "project_gtm_diagnostic_flow",
-      "confidence": 0.5800000000000001,
-      "accessCount": 2,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660336
     },
     "mem-project_gtm_diagnostic_flow-modal-flow": {
@@ -2190,8 +2190,8 @@
     "mem-project_gtm_system_complete_reference-key-decisions---why": {
       "id": "mem-project_gtm_system_complete_reference-key-decisions---why",
       "category": "project_gtm_system_complete_reference",
-      "confidence": 0.5800000000000001,
-      "accessCount": 2,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660343
     },
     "mem-project_gtm_system_complete_reference-success-metrics": {
@@ -2631,8 +2631,8 @@
     "mem-project_rin_daily_rhythm_setup-first-deployment": {
       "id": "mem-project_rin_daily_rhythm_setup-first-deployment",
       "category": "project_rin_daily_rhythm_setup",
-      "confidence": 0.53,
-      "accessCount": 1,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660354
     },
     "mem-project_rin_daily_rhythm_setup-notes": {
@@ -2673,8 +2673,8 @@
     "mem-project_rin_dispatcher-current-status--2026-04-15-": {
       "id": "mem-project_rin_dispatcher-current-status--2026-04-15-",
       "category": "project_rin_dispatcher",
-      "confidence": 0.5800000000000001,
-      "accessCount": 2,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660355
     },
     "mem-project_rin_dispatcher-project-structure": {
@@ -2904,8 +2904,8 @@
     "mem-project_rin_mto_outreach-sending-from": {
       "id": "mem-project_rin_mto_outreach-sending-from",
       "category": "project_rin_mto_outreach",
-      "confidence": 0.5800000000000001,
-      "accessCount": 2,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660362
     },
     "mem-project_rin_outreach_execution----": {
@@ -3541,8 +3541,8 @@
     "mem-project_status----": {
       "id": "mem-project_status----",
       "category": "project_status",
-      "confidence": 0.5800000000000001,
-      "accessCount": 2,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660376
     },
     "mem-project_status-sow-completion-as-of-2026-04-0": {
@@ -3611,8 +3611,8 @@
     "mem-supabase_setup-edge-functions-deployed": {
       "id": "mem-supabase_setup-edge-functions-deployed",
       "category": "supabase_setup",
-      "confidence": 0.6000000000000001,
-      "accessCount": 2,
+      "confidence": 0.5,
+      "accessCount": 0,
       "createdAt": 1778538660377
     },
     "mem-supabase_setup-secrets-set": {
