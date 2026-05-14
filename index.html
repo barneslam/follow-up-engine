@@ -1047,6 +1047,169 @@
     </div>
   </div>
 
+  <!-- Post-Use Survey Modal -->
+  <div id="surveyModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background: white; border-radius: 12px; max-width: 550px; width: 90%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15); position: relative;">
+      <!-- Close button -->
+      <button id="closeSurvey" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: #64748b; z-index: 10;">✕</button>
+
+      <!-- Modal content -->
+      <div style="padding: 40px 32px;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: #0f172a;">Help Shape Follow-Up Engine</h2>
+        <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 12px; line-height: 1.6;">Tell us what would make this worth paying for.</p>
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 32px;">Your answers help us decide what to build next and whether the product should stay at $49/month or move to a higher feature tier.</p>
+
+        <form id="surveyForm" style="display: flex; flex-direction: column; gap: 28px;">
+          <!-- Q1: Time Saved -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 12px;">1. How much time would this save after a typical sales meeting?</label>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="time_saved" value="Less than 15 minutes" required style="cursor: pointer;"> Less than 15 minutes
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="time_saved" value="15–30 minutes" required style="cursor: pointer;"> 15–30 minutes
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="time_saved" value="30–60 minutes" required style="cursor: pointer;"> 30–60 minutes
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="time_saved" value="60–90 minutes" required style="cursor: pointer;"> 60–90 minutes
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="time_saved" value="90+ minutes" required style="cursor: pointer;"> 90+ minutes
+              </label>
+            </div>
+          </div>
+
+          <!-- Q2: Most Valuable Output -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 12px;">2. Which output is most valuable to you?</label>
+            <select name="most_valuable_output" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+              <option value="">Select...</option>
+              <option value="Follow-up email">Follow-up email</option>
+              <option value="WhatsApp / short message summary">WhatsApp / short message summary</option>
+              <option value="Action items">Action items</option>
+              <option value="Manager update">Manager update</option>
+              <option value="Pre-meeting agenda">Pre-meeting agenda</option>
+              <option value="Questions to ask">Questions to ask</option>
+              <option value="Pipeline / next-step note">Pipeline / next-step note</option>
+              <option value="All of them together">All of them together</option>
+            </select>
+          </div>
+
+          <!-- Q3: $49/month Pricing -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 12px;">3. Would you pay $49/month for this if it helped your team follow up faster?</label>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="price_49_month" value="Yes" required style="cursor: pointer;"> Yes
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="price_49_month" value="Maybe" required style="cursor: pointer;"> Maybe
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="price_49_month" value="No" required style="cursor: pointer;"> No
+              </label>
+            </div>
+          </div>
+
+          <!-- Q4: $99/month with Integrations -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 12px;">4. If Follow-Up Engine connected directly to Fathom and your calendar, would $99/month feel reasonable?</label>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="price_99_month" value="Yes" required style="cursor: pointer;"> Yes
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="price_99_month" value="Maybe" required style="cursor: pointer;"> Maybe
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="price_99_month" value="No" required style="cursor: pointer;"> No
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="price_99_month" value="Only if it also connects to CRM" required style="cursor: pointer;"> Only if it also connects to CRM
+              </label>
+            </div>
+          </div>
+
+          <!-- Q5: Phase 2 Priority -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 12px;">5. Which Phase 2 feature matters most?</label>
+            <select name="phase2_priority" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+              <option value="">Select...</option>
+              <option value="Fathom integration">Fathom integration</option>
+              <option value="Google Calendar / Outlook integration">Google Calendar / Outlook integration</option>
+              <option value="CRM integration">CRM integration</option>
+              <option value="Saved meeting history">Saved meeting history</option>
+              <option value="Manager dashboard">Manager dashboard</option>
+              <option value="Team templates">Team templates</option>
+              <option value="Automatic follow-up generation">Automatic follow-up generation</option>
+              <option value="Pipeline impact scoring">Pipeline impact scoring</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Q6: Barriers to Use -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 12px;">6. What would stop you from using this?</label>
+            <select name="barriers" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+              <option value="">Select...</option>
+              <option value="Price">Price</option>
+              <option value="Data privacy concern">Data privacy concern</option>
+              <option value="Already use another tool">Already use another tool</option>
+              <option value="Too much setup">Too much setup</option>
+              <option value="Need CRM integration">Need CRM integration</option>
+              <option value="Need Fathom integration">Need Fathom integration</option>
+              <option value="Need team features">Need team features</option>
+              <option value="Not enough value">Not enough value</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Q7: Referral -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 12px;">7. Would you refer another SME owner, consultant, or sales team to try this?</label>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="would_refer" value="Yes" required style="cursor: pointer;"> Yes
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="would_refer" value="Maybe" required style="cursor: pointer;"> Maybe
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem;">
+                <input type="radio" name="would_refer" value="No" required style="cursor: pointer;"> No
+              </label>
+            </div>
+          </div>
+
+          <!-- Q8: Referral Email (Optional) -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">8. Optional: Who should we reach out to?</label>
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 6px;">Email of person you want to refer</p>
+            <input type="email" name="referral_email" placeholder="colleague@company.com" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+          </div>
+
+          <!-- Q9: Open Feedback -->
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">9. What would make Follow-Up Engine a must-have for your business?</label>
+            <textarea name="must_have_feedback" rows="4" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; resize: vertical;"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" style="background: #0369a1; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 8px;">Submit Feedback</button>
+        </form>
+
+        <!-- Success Message (hidden by default) -->
+        <div id="surveySuccess" style="display: none; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 16px;">✓</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #0f172a;">Thank You</h3>
+          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6;">Your feedback helps shape the next version of Follow-Up Engine.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Modal and form elements
     const trialModal = document.getElementById('trialModal');
@@ -1225,6 +1388,86 @@
         console.log('TODO: Resend verification code to', trialFormData.corporate_email);
         alert('Verification code resent to ' + trialFormData.corporate_email);
       }
+    });
+
+    // Survey Modal Handlers
+    const surveyModal = document.getElementById('surveyModal');
+    const surveyForm = document.getElementById('surveyForm');
+    const surveySuccess = document.getElementById('surveySuccess');
+    const closeSurvey = document.getElementById('closeSurvey');
+
+    // Open survey modal
+    function openSurveyModal() {
+      surveyModal.style.display = 'flex';
+      surveyForm.style.display = 'flex';
+      surveySuccess.style.display = 'none';
+      surveyForm.reset();
+    }
+
+    // Close survey modal
+    function closeSurveyModal() {
+      surveyModal.style.display = 'none';
+      surveyForm.reset();
+      surveyForm.style.display = 'flex';
+      surveySuccess.style.display = 'none';
+    }
+
+    closeSurvey.addEventListener('click', closeSurveyModal);
+    surveyModal.addEventListener('click', (e) => {
+      if (e.target === surveyModal) closeSurveyModal();
+    });
+
+    // Wire "See Demo" button to open survey after demo
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.textContent.includes('See Demo')) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          // TODO: Show demo generator first, then after user generates demo, open survey
+          // For now, open survey directly
+          openSurveyModal();
+        });
+      }
+    });
+
+    // Survey form submission
+    surveyForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const surveyData = {
+        time_saved: document.querySelector('input[name="time_saved"]:checked').value,
+        most_valuable_output: document.querySelector('select[name="most_valuable_output"]').value,
+        price_49_month: document.querySelector('input[name="price_49_month"]:checked').value,
+        price_99_month: document.querySelector('input[name="price_99_month"]:checked').value,
+        phase2_priority: document.querySelector('select[name="phase2_priority"]').value,
+        barriers: document.querySelector('select[name="barriers"]').value,
+        would_refer: document.querySelector('input[name="would_refer"]:checked').value,
+        referral_email: document.querySelector('input[name="referral_email"]').value || null,
+        must_have_feedback: document.querySelector('textarea[name="must_have_feedback"]').value || null,
+        created_at: new Date().toISOString(),
+      };
+
+      // TODO: Call backend to save survey responses to follow_up_engine_survey_responses table
+      console.log('Survey data:', surveyData);
+      try {
+        const response = await fetch('/.netlify/functions/save-survey-response', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(surveyData)
+        });
+
+        if (!response.ok) {
+          console.log('Backend not available, showing success anyway');
+        }
+      } catch (err) {
+        console.log('Backend unavailable, showing success message');
+      }
+
+      // Show success message
+      surveyForm.style.display = 'none';
+      surveySuccess.style.display = 'block';
+
+      // Close after 3 seconds
+      setTimeout(closeSurveyModal, 3000);
     });
   </script>
 </body>
