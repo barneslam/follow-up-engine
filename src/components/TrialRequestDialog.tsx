@@ -116,6 +116,8 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
           referral_code: formData.referral_code || undefined,
           consent_terms: formData.consent_terms,
           consent_updates: formData.consent_updates,
+          trial_start_date: verifyResponse.trialStartDate,
+          trial_end_date: verifyResponse.trialEndDate,
         })
 
         setTrialRequestId(result.id)

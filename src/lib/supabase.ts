@@ -108,6 +108,8 @@ export interface TrialRequestData {
   referral_code?: string
   consent_terms: boolean
   consent_updates: boolean
+  trial_start_date?: string
+  trial_end_date?: string
 }
 
 export function generateReferralCode(firstName: string, lastName: string): string {
@@ -140,6 +142,8 @@ export async function submitTrialRequest(data: TrialRequestData) {
       verification_status: data.phone_verified ? 'verified' : 'pending',
       verification_method: 'sms',
       trial_status: data.phone_verified ? 'active' : 'pending',
+      trial_start_date: data.trial_start_date || null,
+      trial_end_date: data.trial_end_date || null,
       consent_terms: data.consent_terms,
       consent_updates: data.consent_updates,
       consent_timestamp: new Date().toISOString(),
