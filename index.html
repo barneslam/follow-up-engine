@@ -1037,11 +1037,19 @@
           <p style="font-size: 0.85rem; color: #64748b; margin-top: 16px;">Didn't receive the code? <button id="resendButton" style="background: none; border: none; color: #0369a1; cursor: pointer; font-weight: 600; text-decoration: underline;">Resend</button></p>
         </div>
 
-        <!-- Step 3: Success Message -->
+        <!-- Step 3: Success Message with Referral Code -->
         <div id="successMessage" style="display: none; text-align: center;">
           <div style="font-size: 3rem; margin-bottom: 16px;">✓</div>
           <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #0f172a;">Verified! Your 7-Day Trial Starts Now</h3>
-          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6;">Welcome! We've activated your trial account. Check your email for next steps and your trial workspace link.</p>
+          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin-bottom: 20px;">Welcome! We've activated your trial account. Check your email for next steps and your trial workspace link.</p>
+
+          <div style="background: #f8fafb; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+            <p style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 8px;">Your Referral Code</p>
+            <p style="font-size: 1.5rem; font-weight: 700; color: #0369a1; margin-bottom: 12px; font-family: monospace;" id="referralCodeDisplay"></p>
+            <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5;">Share it with another SME owner or sales team. If they join, you may receive a launch discount when paid subscriptions open.</p>
+          </div>
+
+          <p style="font-size: 0.8rem; color: #64748b; font-style: italic;">Referral discounts will be applied when paid subscriptions become available.</p>
         </div>
       </div>
     </div>
@@ -1204,7 +1212,14 @@
         <div id="surveySuccess" style="display: none; text-align: center;">
           <div style="font-size: 3rem; margin-bottom: 16px;">✓</div>
           <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #0f172a;">Thank You</h3>
-          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6;">Your feedback helps shape the next version of Follow-Up Engine.</p>
+          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin-bottom: 20px;">Your feedback helps shape the next version of Follow-Up Engine.</p>
+
+          <div style="background: #eff6ff; border: 1px solid #0369a1; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+            <p style="font-size: 0.85rem; font-weight: 600; color: #0369a1; margin-bottom: 8px;">🎉 Founder Discount Eligibility</p>
+            <p style="font-size: 0.95rem; color: #0f172a; line-height: 1.5; margin-bottom: 8px;">As a launch tester, you are eligible for a founder discount when paid subscriptions open:</p>
+            <p style="font-size: 0.95rem; color: #0f172a; font-weight: 600;">$10 off your first paid month OR 15% off your first 3 months</p>
+            <p style="font-size: 0.8rem; color: #64748b; margin-top: 12px; font-style: italic;">Final launch discount will be confirmed before paid subscriptions begin.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1300,7 +1315,7 @@
         role: document.querySelector('input[name="role"]').value,
         company_size: document.querySelector('select[name="company_size"]').value,
         biggest_followup_challenge: document.querySelector('select[name="biggest_followup_challenge"]').value,
-        referral_code: document.querySelector('input[name="referral_code"]').value || null,
+        referred_by_code: document.querySelector('input[name="referral_code"]').value || null,
         verification_status: 'pending',
         verification_method: 'email',
       };
@@ -1349,6 +1364,20 @@
         trialFormData.trial_start_date = trialStartDate.toISOString();
         trialFormData.trial_end_date = trialEndDate.toISOString();
         trialFormData.trial_status = 'active';
+
+        // Generate referral code based on first name + "10" or fallback to FUE-XXXX
+        let referralCode;
+        const firstName = trialFormData.first_name?.toUpperCase();
+        if (firstName && firstName.length > 0) {
+          referralCode = firstName.substring(0, 7) + '10'; // e.g., "BARNES10"
+        } else {
+          const randomStr = Math.random().toString(36).substring(2, 6).toUpperCase();
+          referralCode = 'FUE-' + randomStr; // e.g., "FUE-ABCD"
+        }
+        trialFormData.referral_code = referralCode;
+
+        // Display referral code in success message
+        document.getElementById('referralCodeDisplay').textContent = referralCode;
 
         // TODO: Call backend to update verification status and create trial access record
         try {
@@ -1443,6 +1472,10 @@
         would_refer: document.querySelector('input[name="would_refer"]:checked').value,
         referral_email: document.querySelector('input[name="referral_email"]').value || null,
         must_have_feedback: document.querySelector('textarea[name="must_have_feedback"]').value || null,
+        // Link survey response to trial user (if they came from trial form)
+        signup_email: trialFormData?.corporate_email || null,
+        signup_name: trialFormData ? (trialFormData.first_name + ' ' + trialFormData.last_name) : null,
+        user_referral_code: trialFormData?.referral_code || null,
         created_at: new Date().toISOString(),
       };
 
