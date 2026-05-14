@@ -98,9 +98,9 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
     setIsLoading(true)
     setError('')
     try {
-      const isVerified = await verifySmsOtp(phoneForSms, verificationCode)
+      const verifyResponse = await verifySmsOtp(phoneForSms, verificationCode)
 
-      if (isVerified) {
+      if (verifyResponse.verified) {
         const result = await submitTrialRequest({
           first_name: formData.first_name,
           last_name: formData.last_name,
@@ -154,8 +154,6 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
           setGeneratedReferralCode(null)
           onClose()
         }, 4000)
-      } else {
-        setError('The verification code is incorrect or expired. Please try again.')
       }
     } catch (err) {
       setError('Your phone was verified, but we could not save your request. Please try again or email barnes@thestrategypitch.com.')

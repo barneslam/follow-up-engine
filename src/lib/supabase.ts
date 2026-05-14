@@ -72,7 +72,7 @@ export async function sendSmsOtp(phoneNumber: string) {
   }
 }
 
-export async function verifySmsOtp(phoneNumber: string, otpCode: string): Promise<boolean> {
+export async function verifySmsOtp(phoneNumber: string, otpCode: string) {
   try {
     const response = await fetch('/.netlify/functions/verify-trial-request', {
       method: 'POST',
@@ -86,7 +86,7 @@ export async function verifySmsOtp(phoneNumber: string, otpCode: string): Promis
     }
 
     const data = await response.json()
-    return true
+    return { verified: true, trialStartDate: data.trialStartDate, trialEndDate: data.trialEndDate }
   } catch (error) {
     console.error('Verify OTP error:', error)
     throw error

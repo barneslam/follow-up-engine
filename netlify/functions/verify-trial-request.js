@@ -49,43 +49,17 @@ exports.handler = async (event) => {
       }
     }
 
-    // Update trial request status to active
+    // Code verified successfully - frontend will handle database INSERT via submitTrialRequest
     const trialStartDate = new Date()
     const trialEndDate = new Date(trialStartDate.getTime() + 7 * 24 * 60 * 60 * 1000) // 7 days
-
-    const { data, error } = await supabase
-      .from('follow_up_engine_trial_requests')
-      .update({
-        verification_status: 'verified',
-        phone_verified: true,
-        trial_status: 'active',
-        trial_start_date: trialStartDate.toISOString(),
-        trial_end_date: trialEndDate.toISOString(),
-      })
-      .eq('phone_number', phone)
-      .select()
-
-    if (error) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: error.message }),
-      }
-    }
-
-    if (!data || data.length === 0) {
-      return {
-        statusCode: 404,
-        body: JSON.stringify({ error: 'Trial request not found' }),
-      }
-    }
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
-        message: 'Trial activated',
+        message: 'Phone number verified',
+        trialStartDate: trialStartDate.toISOString(),
         trialEndDate: trialEndDate.toISOString(),
-        data: data[0],
       }),
     }
   } catch (err) {
