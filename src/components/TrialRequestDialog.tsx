@@ -158,8 +158,9 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
         }, 4000)
       }
     } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : String(err)
+      console.error('Verification error details:', { errorMessage, err })
       setError('Your phone was verified, but we could not save your request. Please try again or email barnes@thestrategypitch.com.')
-      console.error('Verification error:', err)
     } finally {
       setIsLoading(false)
     }

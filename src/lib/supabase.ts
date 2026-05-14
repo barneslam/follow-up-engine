@@ -86,6 +86,7 @@ export async function verifySmsOtp(phoneNumber: string, otpCode: string) {
     }
 
     const data = await response.json()
+    console.log('verifySmsOtp response:', data)
     return { verified: true, trialStartDate: data.trialStartDate, trialEndDate: data.trialEndDate }
   } catch (error) {
     console.error('Verify OTP error:', error)
@@ -123,6 +124,7 @@ export function generateReferralCode(firstName: string, lastName: string): strin
 
 export async function submitTrialRequest(data: TrialRequestData) {
   const generatedCode = generateReferralCode(data.first_name, data.last_name)
+  console.log('submitTrialRequest: inserting with trial dates', { trial_start_date: data.trial_start_date, trial_end_date: data.trial_end_date })
 
   const { data: result, error } = await supabase
     .from('follow_up_engine_trial_requests')
@@ -151,7 +153,10 @@ export async function submitTrialRequest(data: TrialRequestData) {
     .select()
     .single()
 
-  if (error) throw error
+  if (error) {
+    console.error('submitTrialRequest error:', error)
+    throw error
+  }
   return { ...result, generated_referral_code: generatedCode }
 }
 
