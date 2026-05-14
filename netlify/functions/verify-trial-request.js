@@ -32,9 +32,13 @@ exports.handler = async (event) => {
       }
     }
 
+    // Format phone number to E.164 format (required by Twilio)
+    const cleanPhone = phone.replace(/\D/g, '')
+    const formattedPhone = cleanPhone.length === 10 ? `+1${cleanPhone}` : (cleanPhone.startsWith('1') && cleanPhone.length === 11 ? `+${cleanPhone}` : `+${cleanPhone}`)
+
     // Verify code via Twilio Verify Service
     const verification = await client.verify.v2.services(verifySid).verificationChecks.create({
-      to: phone,
+      to: formattedPhone,
       code: code,
     })
 
