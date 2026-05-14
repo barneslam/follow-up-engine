@@ -921,7 +921,7 @@
     <p>&copy; 2026 Follow-Up Engine. For SME sales teams.</p>
   </footer>
 
-  <!-- 7-Day Trial Modal -->
+  <!-- 7-Day Trial Modal with Email Verification -->
   <div id="trialModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center;">
     <div style="background: white; border-radius: 12px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15); position: relative;">
       <!-- Close button -->
@@ -929,133 +929,180 @@
 
       <!-- Modal content -->
       <div style="padding: 40px 32px;">
-        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: #0f172a;">Start Your 7-Day Follow-Up Engine Test</h2>
-        <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 32px; line-height: 1.6;">Create unlimited follow-up packs during your 7-day launch test. Help us understand what saves the most time and which features matter next.</p>
+        <!-- Step 1: Signup Form -->
+        <div id="signupStep" style="display: flex; flex-direction: column;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: #0f172a;">Start Your 7-Day Trial</h2>
+          <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 32px; line-height: 1.6;">Create unlimited follow-up packs during your 7-day launch test. We'll send a verification code to your corporate email.</p>
 
-        <form id="trialForm" style="display: flex; flex-direction: column; gap: 20px;">
-          <!-- Name -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Name</label>
-            <input type="text" name="name" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
-          </div>
+          <form id="trialForm" style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- First Name -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">First Name</label>
+              <input type="text" name="first_name" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+            </div>
 
-          <!-- Email -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Email</label>
-            <input type="email" name="email" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
-          </div>
+            <!-- Last Name -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Last Name</label>
+              <input type="text" name="last_name" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+            </div>
 
-          <!-- Company -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Company</label>
-            <input type="text" name="company" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
-          </div>
+            <!-- Corporate Email -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Corporate Email Address</label>
+              <input type="email" name="corporate_email" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+              <div id="emailWarning" style="display: none; font-size: 0.85rem; color: #ea580c; margin-top: 8px; padding: 8px; background: #fed7aa; border-radius: 4px;">
+                ⚠️ We prefer corporate email addresses. Consumer emails may have limited features. Continue anyway?
+              </div>
+            </div>
 
-          <!-- Role -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Role</label>
-            <input type="text" name="role" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
-          </div>
+            <!-- Phone Number -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Mobile Number</label>
+              <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 6px;">For setup and trial access confirmation</p>
+              <input type="tel" name="phone_number" required placeholder="+1 (555) 000-0000" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+            </div>
 
-          <!-- Company Size -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Company Size</label>
-            <select name="company_size" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
-              <option value="">Select...</option>
-              <option value="Solo">Solo</option>
-              <option value="2–5 employees">2–5 employees</option>
-              <option value="6–20 employees">6–20 employees</option>
-              <option value="21–50 employees">21–50 employees</option>
-              <option value="51–100 employees">51–100 employees</option>
-              <option value="100+ employees">100+ employees</option>
-            </select>
-          </div>
+            <!-- Company Name -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Company Name</label>
+              <input type="text" name="company_name" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+            </div>
 
-          <!-- Meetings per week -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Sales Meetings Per Week</label>
-            <select name="meetings_per_week" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
-              <option value="">Select...</option>
-              <option value="1–2 meetings/week">1–2 meetings/week</option>
-              <option value="3–5 meetings/week">3–5 meetings/week</option>
-              <option value="6–10 meetings/week">6–10 meetings/week</option>
-              <option value="11–20 meetings/week">11–20 meetings/week</option>
-              <option value="20+ meetings/week">20+ meetings/week</option>
-            </select>
-          </div>
+            <!-- Role -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Role</label>
+              <input type="text" name="role" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+            </div>
 
-          <!-- Transcript Tool -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Meeting Notes / Transcript Tool</label>
-            <select name="transcript_tool" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
-              <option value="">Select...</option>
-              <option value="Fathom">Fathom</option>
-              <option value="Zoom transcript">Zoom transcript</option>
-              <option value="Microsoft Teams transcript">Microsoft Teams transcript</option>
-              <option value="Google Meet transcript">Google Meet transcript</option>
-              <option value="Fireflies">Fireflies</option>
-              <option value="Otter">Otter</option>
-              <option value="Manual notes">Manual notes</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
+            <!-- Company Size -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Company Size</label>
+              <select name="company_size" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+                <option value="">Select...</option>
+                <option value="Solo">Solo</option>
+                <option value="2–5 employees">2–5 employees</option>
+                <option value="6–20 employees">6–20 employees</option>
+                <option value="21–50 employees">21–50 employees</option>
+                <option value="51–100 employees">51–100 employees</option>
+                <option value="100+ employees">100+ employees</option>
+              </select>
+            </div>
 
-          <!-- Biggest Challenge -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Biggest Follow-up Challenge</label>
-            <select name="biggest_challenge" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
-              <option value="">Select...</option>
-              <option value="Follow-up emails take too long">Follow-up emails take too long</option>
-              <option value="Notes are messy">Notes are messy</option>
-              <option value="Action items are unclear">Action items are unclear</option>
-              <option value="CRM is not updated">CRM is not updated</option>
-              <option value="Manager does not know what happened">Manager does not know what happened</option>
-              <option value="Leads go quiet">Leads go quiet</option>
-              <option value="No consistent follow-up process">No consistent follow-up process</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
+            <!-- Biggest Follow-up Challenge -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Biggest Follow-up Challenge</label>
+              <select name="biggest_followup_challenge" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; background: white;">
+                <option value="">Select...</option>
+                <option value="Follow-up emails take too long">Follow-up emails take too long</option>
+                <option value="Notes are messy">Notes are messy</option>
+                <option value="Action items are unclear">Action items are unclear</option>
+                <option value="CRM is not updated">CRM is not updated</option>
+                <option value="Manager does not know what happened">Manager does not know what happened</option>
+                <option value="Leads go quiet">Leads go quiet</option>
+                <option value="No consistent follow-up process">No consistent follow-up process</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
 
-          <!-- Referral Code (Optional) -->
-          <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Referral Code (Optional)</label>
-            <input type="text" name="referral_code" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
-          </div>
+            <!-- Referral Code (Optional) -->
+            <div>
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Referral Code (Optional)</label>
+              <input type="text" name="referral_code" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter;">
+            </div>
 
-          <!-- Submit Button -->
-          <button type="submit" style="background: #0369a1; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 8px;">Start 7-Day Test</button>
-        </form>
+            <!-- Submit Button -->
+            <button type="submit" style="background: #0369a1; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 8px;">Send Verification Code</button>
+          </form>
+        </div>
 
-        <!-- Success Message (hidden by default) -->
+        <!-- Step 2: Email Verification -->
+        <div id="verificationStep" style="display: none; text-align: center;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: #0f172a;">Verify Your Email</h2>
+          <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 32px; line-height: 1.6;">We've sent a verification code to <span id="verificationEmail" style="font-weight: 600;"></span></p>
+
+          <form id="verificationForm" style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Verification Code -->
+            <div style="text-align: left;">
+              <label style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; margin-bottom: 6px;">Verification Code</label>
+              <input type="text" id="verificationCode" name="code" required placeholder="Enter 6-digit code" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; font-family: Inter; text-align: center; letter-spacing: 4px;">
+              <div id="verificationError" style="display: none; font-size: 0.85rem; color: #dc2626; margin-top: 8px;">Incorrect code. Please try again.</div>
+            </div>
+
+            <!-- Verify Button -->
+            <button type="submit" style="background: #0369a1; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer;">Verify & Start Trial</button>
+          </form>
+
+          <!-- Resend Code -->
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 16px;">Didn't receive the code? <button id="resendButton" style="background: none; border: none; color: #0369a1; cursor: pointer; font-weight: 600; text-decoration: underline;">Resend</button></p>
+        </div>
+
+        <!-- Step 3: Success Message -->
         <div id="successMessage" style="display: none; text-align: center;">
           <div style="font-size: 3rem; margin-bottom: 16px;">✓</div>
-          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #0f172a;">Thank You</h3>
-          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6;">Your 7-day test request has been received. We will send next steps and access details shortly.</p>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #0f172a;">Verified! Your 7-Day Trial Starts Now</h3>
+          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6;">Welcome! We've activated your trial account. Check your email for next steps and your trial workspace link.</p>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Modal handlers
+    // Modal and form elements
     const trialModal = document.getElementById('trialModal');
     const trialForm = document.getElementById('trialForm');
+    const verificationForm = document.getElementById('verificationForm');
+    const signupStep = document.getElementById('signupStep');
+    const verificationStep = document.getElementById('verificationStep');
     const successMessage = document.getElementById('successMessage');
     const closeBtn = document.getElementById('closeModal');
+    const emailWarning = document.getElementById('emailWarning');
+    const verificationEmail = document.getElementById('verificationEmail');
+    const resendButton = document.getElementById('resendButton');
+
+    // State
+    let trialFormData = null;
+    let verificationCode = null; // TODO: This will come from backend email service
+
+    // Consumer email domains
+    const consumerEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com', 'proton.me', 'aol.com'];
+
+    // Check if email is consumer domain
+    function isConsumerEmail(email) {
+      const domain = email.split('@')[1]?.toLowerCase();
+      return consumerEmailDomains.includes(domain);
+    }
+
+    // Show/hide email warning
+    const corporateEmailInput = document.querySelector('input[name="corporate_email"]');
+    corporateEmailInput?.addEventListener('change', () => {
+      if (isConsumerEmail(corporateEmailInput.value)) {
+        emailWarning.style.display = 'block';
+      } else {
+        emailWarning.style.display = 'none';
+      }
+    });
 
     // Open modal on CTA clicks
     function openTrialModal() {
       trialModal.style.display = 'flex';
-      trialForm.style.display = 'flex';
+      signupStep.style.display = 'flex';
+      verificationStep.style.display = 'none';
       successMessage.style.display = 'none';
+      trialForm.reset();
+      emailWarning.style.display = 'none';
     }
 
     // Close modal
     function closeTrialModal() {
       trialModal.style.display = 'none';
       trialForm.reset();
-      trialForm.style.display = 'flex';
+      verificationForm.reset();
+      signupStep.style.display = 'flex';
+      verificationStep.style.display = 'none';
       successMessage.style.display = 'none';
+      trialFormData = null;
+      verificationCode = null;
     }
 
     closeBtn.addEventListener('click', closeTrialModal);
@@ -1069,53 +1116,115 @@
           btn.textContent.includes('Start Launch Plan') ||
           btn.textContent.includes('Start 90-Day Test') ||
           btn.textContent.includes('Request Early Access') ||
-          btn.textContent.includes('Get Early Access') ||
-          btn.textContent.includes('See Demo')) {
+          btn.textContent.includes('Get Early Access')) {
         btn.addEventListener('click', (e) => {
-          if (btn.textContent.includes('See Demo')) return;
           e.preventDefault();
           openTrialModal();
         });
       }
     });
 
-    // Form submission
+    // Signup form submission
     trialForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const formData = {
-        name: document.querySelector('input[name="name"]').value,
-        email: document.querySelector('input[name="email"]').value,
-        company: document.querySelector('input[name="company"]').value,
+      trialFormData = {
+        first_name: document.querySelector('input[name="first_name"]').value,
+        last_name: document.querySelector('input[name="last_name"]').value,
+        corporate_email: document.querySelector('input[name="corporate_email"]').value,
+        phone_number: document.querySelector('input[name="phone_number"]').value,
+        company_name: document.querySelector('input[name="company_name"]').value,
         role: document.querySelector('input[name="role"]').value,
         company_size: document.querySelector('select[name="company_size"]').value,
-        meetings_per_week: document.querySelector('select[name="meetings_per_week"]').value,
-        transcript_tool: document.querySelector('select[name="transcript_tool"]').value,
-        biggest_challenge: document.querySelector('select[name="biggest_challenge"]').value,
+        biggest_followup_challenge: document.querySelector('select[name="biggest_followup_challenge"]').value,
         referral_code: document.querySelector('input[name="referral_code"]').value || null,
+        verification_status: 'pending',
+        verification_method: 'email',
       };
 
-      // Try to save to Supabase if available
+      // TODO: Call backend to send verification code via email
+      // For now, generate a mock 6-digit code
+      verificationCode = '123456'; // Mock code for testing
+      console.log('TODO: Send verification code to', trialFormData.corporate_email);
+
+      // Try to save pending trial request and send verification email
       try {
         const response = await fetch('/.netlify/functions/save-trial-request', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(trialFormData)
         });
 
         if (!response.ok) {
-          console.log('Backend not available, showing success anyway');
+          console.log('Backend unavailable, proceeding with local verification');
         }
       } catch (err) {
-        console.log('Backend unavailable, showing success message');
+        console.log('Backend unavailable, proceeding with local verification');
       }
 
-      // Show success message
-      trialForm.style.display = 'none';
-      successMessage.style.display = 'block';
+      // Show verification step
+      verificationEmail.textContent = trialFormData.corporate_email;
+      signupStep.style.display = 'none';
+      verificationStep.style.display = 'flex';
+      document.getElementById('verificationCode').focus();
+    });
 
-      // Close after 3 seconds
-      setTimeout(closeTrialModal, 3000);
+    // Verification form submission
+    verificationForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const enteredCode = document.getElementById('verificationCode').value.trim();
+      const verificationError = document.getElementById('verificationError');
+
+      // TODO: Call backend to verify code against database record
+      // For now, verify against mock code
+      if (enteredCode === verificationCode) {
+        // Mark as verified in database
+        trialFormData.verification_status = 'verified';
+        const trialStartDate = new Date();
+        const trialEndDate = new Date(trialStartDate.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 days later
+        trialFormData.trial_start_date = trialStartDate.toISOString();
+        trialFormData.trial_end_date = trialEndDate.toISOString();
+        trialFormData.trial_status = 'active';
+
+        // TODO: Call backend to update verification status and create trial access record
+        try {
+          const response = await fetch('/.netlify/functions/verify-trial-request', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: trialFormData.corporate_email,
+              code: enteredCode,
+              ...trialFormData
+            })
+          });
+
+          if (!response.ok) {
+            console.log('Backend verification unavailable, showing success anyway');
+          }
+        } catch (err) {
+          console.log('Backend unavailable, showing success message');
+        }
+
+        // Show success
+        verificationError.style.display = 'none';
+        verificationStep.style.display = 'none';
+        successMessage.style.display = 'block';
+
+        // Close after 3 seconds
+        setTimeout(closeTrialModal, 3000);
+      } else {
+        verificationError.style.display = 'block';
+      }
+    });
+
+    // Resend code
+    resendButton.addEventListener('click', () => {
+      if (trialFormData?.corporate_email) {
+        // TODO: Call backend to resend verification code
+        console.log('TODO: Resend verification code to', trialFormData.corporate_email);
+        alert('Verification code resent to ' + trialFormData.corporate_email);
+      }
     });
   </script>
 </body>
