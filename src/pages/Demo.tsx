@@ -8,7 +8,7 @@ import { useTrialSession } from '../contexts/TrialContext'
 
 export function DemoPage() {
   const navigate = useNavigate()
-  const { trialSession, isTrialActive, isTrialExpired, daysRemaining, endTrial } = useTrialSession()
+  const { trialSession, isTrialActive, isTrialExpired, daysRemaining, endTrial, clearReferralCode } = useTrialSession()
   const [formData, setFormData] = useState({
     meetingType: 'sales-discovery',
     purpose: '',
@@ -210,6 +210,7 @@ export function DemoPage() {
                   <div className="flex gap-4">
                     <Button
                       onClick={() => {
+                        clearReferralCode()
                         endTrial()
                         navigate('/')
                       }}
@@ -219,7 +220,10 @@ export function DemoPage() {
                     </Button>
                     <Button
                       variant="outline"
-                      onClick={() => navigate('/')}
+                      onClick={() => {
+                        endTrial()
+                        navigate('/')
+                      }}
                       className="mt-4"
                     >
                       Return Home
@@ -280,7 +284,7 @@ export function DemoPage() {
               <Button
                 size="sm"
                 onClick={() => {
-                  endTrial()
+                  clearReferralCode()
                   navigate('/')
                 }}
                 className="bg-amber-700 text-white hover:bg-amber-800"

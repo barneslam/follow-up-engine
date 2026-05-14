@@ -15,6 +15,7 @@ interface TrialContextType {
   trialSession: TrialSession | null
   startTrial: (session: TrialSession) => void
   endTrial: () => void
+  clearReferralCode: () => void
   isTrialActive: () => boolean
   isTrialExpired: () => boolean
   daysRemaining: () => number
@@ -44,6 +45,14 @@ export function TrialProvider({ children }: { children: React.ReactNode }) {
   const endTrial = () => {
     setTrialSession(null)
     localStorage.removeItem('trial_session')
+    localStorage.removeItem('trial_referral_code')
+  }
+
+  const clearReferralCode = () => {
+    if (trialSession) {
+      setTrialSession({ ...trialSession, referralCode: '' })
+      localStorage.removeItem('trial_referral_code')
+    }
   }
 
   const isTrialActive = () => {
@@ -69,7 +78,7 @@ export function TrialProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <TrialContext.Provider value={{ trialSession, startTrial, endTrial, isTrialActive, isTrialExpired, daysRemaining }}>
+    <TrialContext.Provider value={{ trialSession, startTrial, endTrial, clearReferralCode, isTrialActive, isTrialExpired, daysRemaining }}>
       {children}
     </TrialContext.Provider>
   )

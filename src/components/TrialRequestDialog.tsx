@@ -506,14 +506,17 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
               </div>
               {generatedReferralCode && (
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <p className="text-xs text-blue-700 mb-2">
-                    Your referral code:
+                  <p className="text-xs text-blue-700 mb-2 font-semibold">
+                    Your Referral Code (Trial Only)
                   </p>
-                  <p className="text-sm font-mono font-semibold text-blue-900 mb-2">
+                  <p className="text-sm font-mono font-semibold text-blue-900 mb-3 p-2 bg-white rounded border border-blue-300">
                     {generatedReferralCode}
                   </p>
-                  <p className="text-xs text-blue-700">
-                    Share it with another SME owner or sales team. If they join, you may receive a launch discount when paid subscriptions open.
+                  <p className="text-xs text-blue-700 mb-2">
+                    Share this code with another SME owner or sales team during your trial. If they join, you may receive a launch discount when paid subscriptions open.
+                  </p>
+                  <p className="text-xs text-blue-600 italic mt-2 pt-2 border-t border-blue-200">
+                    ⚠️ This code will be automatically erased once you create your account.
                   </p>
                 </div>
               )}
