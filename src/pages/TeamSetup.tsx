@@ -44,26 +44,24 @@ export function TeamSetupPage() {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault()
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // In a real app, this would submit to Supabase
-    console.log('Team setup form:', formData)
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        teamSize: '',
-        integrations: '',
-        timeline: '',
-        budget: '',
-        challenge: '',
-      })
-    }, 3000)
-  }
+  const subject = encodeURIComponent('Team Setup Consultation Request')
+  const body = encodeURIComponent(
+    `Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+Team Size: ${formData.teamSize}
+Integrations: ${formData.integrations}
+Timeline: ${formData.timeline}
+Budget: ${formData.budget}
+Biggest Challenge: ${formData.challenge}`
+  )
+
+  window.location.href = `mailto:barnes@thestrategypitch.com?subject=${subject}&body=${body}`
+}
+  
 
   return (
     <>
