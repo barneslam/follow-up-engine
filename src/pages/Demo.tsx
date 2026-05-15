@@ -478,6 +478,14 @@ export function DemoPage() {
                 <label className="block text-xs font-semibold uppercase tracking-widest text-foreground mb-2">
                   Meeting Transcript
                 </label>
+                <div className="mb-3 rounded-lg border border-yellow-200 bg-yellow-50 p-3">
+  <p className="text-xs text-yellow-800 leading-relaxed">
+    This public demo is intended for evaluation purposes only.
+    Do not upload confidential, regulated, or third-party client information
+    unless you are authorized to do so.
+  </p>
+</div>
+               
                 <textarea
                   name="transcript"
                   value={formData.transcript}

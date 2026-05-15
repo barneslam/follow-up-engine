@@ -6,6 +6,7 @@ import { PricingPage } from './pages/Pricing'
 import { TeamSetupPage } from './pages/TeamSetup'
 import { TermsAndConditionsPage } from './pages/TermsAndConditions'
 import { TrialProvider } from './contexts/TrialContext'
+import { PrivacyPolicyPage } from './pages/PrivacyPolicy'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/team-setup" element={<TeamSetupPage />} />
               <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             </Routes>
           </main>
           <Footer />
