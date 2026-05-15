@@ -2,6 +2,7 @@ import { Section, SectionEyebrow, Container } from '../components/Layout'
 import { Button } from '../components/Button'
 import { Users, BarChart3, Zap, Shield, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
+import { submitTeamSetupRequest } from '../lib/supabase'
 
 const FEATURES = [
   {
@@ -44,22 +45,40 @@ export function TeamSetupPage() {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
-const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault()
 
-  const subject = encodeURIComponent('Team Setup Consultation Request')
-  const body = encodeURIComponent(
-    `Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company}
-Team Size: ${formData.teamSize}
-Integrations: ${formData.integrations}
-Timeline: ${formData.timeline}
-Budget: ${formData.budget}
-Biggest Challenge: ${formData.challenge}`
-  )
+  try {
+    await submitTeamSetupRequest({
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      team_size: formData.teamSize,
+      integrations: formData.integrations,
+      timeline: formData.timeline,
+      budget: formData.budget,
+      challenge: formData.challenge,
+    })
 
-  window.location.href = `mailto:barnes@thestrategypitch.com?subject=${subject}&body=${body}`
+    setIsSubmitted(true)
+
+    setTimeout(() => {
+      setIsSubmitted(false)
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        teamSize: '',
+        integrations: '',
+        timeline: '',
+        budget: '',
+        challenge: '',
+      })
+    }, 3000)
+  } catch (error) {
+    console.error('Team setup submission error:', error)
+    alert('We could not submit your request. Please email barnes@thestrategypitch.com directly.')
+  }
 }
   
 

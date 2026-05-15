@@ -32,6 +32,27 @@ export async function submitContactForm(data: ContactFormData) {
   return result
 }
 
+export type TeamSetupRequestData = {
+  name: string
+  email: string
+  company: string
+  team_size: string
+  integrations: string
+  timeline: string
+  budget: string
+  challenge: string
+}
+
+export async function submitTeamSetupRequest(data: TeamSetupRequestData) {
+  const { data: result, error } = await supabase
+    .from('team_setup_requests')
+    .insert([data])
+    .select()
+
+  if (error) throw error
+  return result
+}
+
 export type DemoOutput = {
   email_id: string
   email: string
