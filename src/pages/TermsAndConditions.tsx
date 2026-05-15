@@ -45,9 +45,12 @@ export function TermsAndConditionsPage() {
                     Follow-Up Engine does NOT retain, store, or track usage patterns from demo sessions. We do not maintain files of your interactions, meeting transcripts, company information, or any outputs generated during the demo. Each session is independent and leaves no trace on our systems.
                   </p>
                   <p>
-                    <strong>2.4 File Uploads</strong><br/>
-                    You may upload up to 3 attachments per session, with a maximum file size of 20 MB per file. All uploaded files are removed immediately after session closure or after 5 minutes of inactivity. No copies or backups are retained.
-                  </p>
+  <strong>2.3 Session and Interaction Data</strong><br/>
+  Demo transcript content and uploaded files are intended to remain temporary and session-based. 
+  Certain interaction flow patterns, feature usage events, browser-session activity, and non-identifiable 
+  operational telemetry may be temporarily processed or stored locally in the browser or in anonymized form 
+  for service functionality, troubleshooting, abuse prevention, and product improvement purposes.
+</p>
                 </div>
               </div>
 
@@ -72,14 +75,17 @@ export function TermsAndConditionsPage() {
               <div>
                 <h2 className="font-display text-2xl font-semibold mb-4">4. Internal Analytics</h2>
                 <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    <strong>4.1 Interaction Patterns</strong><br/>
-                    For service improvement purposes, we may analyze general interaction patterns and flow types across all demo sessions in aggregate. This analysis is performed using anonymized, non-identifiable data only.
-                  </p>
-                  <p>
-                    <strong>4.2 No Personal Data</strong><br/>
-                    This internal analysis does NOT include any personal information, company names, transcripts, or specific user inputs. We only track interaction flow and feature usage patterns to optimize the demo experience.
-                  </p>
+                <p>
+  <strong>4.1 Operational Analytics</strong><br/>
+  Follow-Up Engine may process anonymized operational usage signals, flow interactions, feature engagement,
+  session timing, and system events to improve reliability, usability, security, and product experience.
+</p>
+
+<p>
+  <strong>4.2 No Intentional Sale of Data</strong><br/>
+  We do not intentionally sell demo transcript content, uploaded files, or personally identifiable customer
+  information submitted through the demo experience.
+</p>
                 </div>
               </div>
 
@@ -137,11 +143,11 @@ export function TermsAndConditionsPage() {
                 <div className="space-y-4 text-muted-foreground">
                   <p>
                     <strong>9.1 Personal Information Protection and Electronic Documents Act (PIPEDA)</strong><br/>
-                    Follow-Up Engine complies with PIPEDA requirements. As we do not collect or retain personal information from demo sessions, PIPEDA's data handling requirements do not apply to demo usage. Contact form submissions are processed securely and retained only for communication purposes.
+                    Follow-Up Engine complies with PIPEDA requirements.  Contact form submissions are processed securely and retained only for communication purposes.
                   </p>
                   <p>
                     <strong>9.2 Consumer Protection Act</strong><br/>
-                    Any services provided by The Strategy Pitch comply with Ontario's Consumer Protection Act, including clear disclosure of terms, pricing, and cancellation rights for paid plans.
+                    Any services provided by The Strategy Pitch comply with Ontario's Consumer Protection Act, including clear disclosure of terms, pricing, and cancellation rights for paid plans.Demo sessions are intended for temporary evaluation use. Certain operational, consent, security, verification, and contact-related information may be processed or retained in accordance with applicable legal, operational, and security requirements.
                   </p>
                   <p>
                     <strong>9.3 Accessibility Standards</strong><br/>
