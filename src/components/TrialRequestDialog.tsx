@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { X, AlertCircle, CheckCircle } from 'lucide-react'
 import { submitTrialRequest, sendSmsOtp, verifySmsOtp, storeReferral } from '../lib/supabase'
+import { useTrialSession } from '../contexts/TrialContext'
 
 interface TrialRequestDialogProps {
   isOpen: boolean
@@ -10,6 +12,8 @@ interface TrialRequestDialogProps {
 const GENERIC_EMAILS = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com', 'proton.me', 'aol.com']
 
 export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps) {
+  const navigate = useNavigate()
+  const { startTrial } = useTrialSession()
   const [step, setStep] = useState<'form' | 'sms' | 'success'>('form')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
@@ -132,6 +136,17 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
           })
         }
 
+        startTrial({
+          id: result.id,
+          email: formData.corporate_email,
+          firstName: formData.first_name,
+          lastName: formData.last_name,
+          company: formData.company_name,
+          trialStartDate: verifyResponse.trialStartDate,
+          trialEndDate: verifyResponse.trialEndDate,
+          referralCode: result.generated_referral_code,
+        })
+
         setStep('success')
         setTimeout(() => {
           setStep('form')
@@ -155,7 +170,8 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
           setPhoneForSms('')
           setGeneratedReferralCode(null)
           onClose()
-        }, 4000)
+          navigate('/demo')
+        }, 2000)
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : String(err)
@@ -490,14 +506,17 @@ export function TrialRequestDialog({ isOpen, onClose }: TrialRequestDialogProps)
               </div>
               {generatedReferralCode && (
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <p className="text-xs text-blue-700 mb-2">
-                    Your referral code:
+                  <p className="text-xs text-blue-700 mb-2 font-semibold">
+                    Your Referral Code (Trial Only)
                   </p>
-                  <p className="text-sm font-mono font-semibold text-blue-900 mb-2">
+                  <p className="text-sm font-mono font-semibold text-blue-900 mb-3 p-2 bg-white rounded border border-blue-300">
                     {generatedReferralCode}
                   </p>
-                  <p className="text-xs text-blue-700">
-                    Share it with another SME owner or sales team. If they join, you may receive a launch discount when paid subscriptions open.
+                  <p className="text-xs text-blue-700 mb-2">
+                    Share this code with another SME owner or sales team during your trial. If they join, you may receive a launch discount when paid subscriptions open.
+                  </p>
+                  <p className="text-xs text-blue-600 italic mt-2 pt-2 border-t border-blue-200">
+                    ⚠️ This code will be automatically erased once you create your account.
                   </p>
                 </div>
               )}

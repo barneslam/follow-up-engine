@@ -1,0 +1,23 @@
+{
+  "id": "session-1778764555015",
+  "startedAt": "2026-05-14T13:15:55.015Z",
+  "cwd": "/Users/b.lamoutlook.com/follow-up-engine",
+  "context": {
+    "lastMatchedPatterns": [
+      "mem-feedback_lovable_disconnect----",
+      "mem-project_gtm_dm_polling_implementation-testing",
+      "mem-project_rin_outreach_execution-domain-warmup--days-1-7--befor",
+      "mem-project_gtm_dm_testing-expected--qualificationscore--",
+      "mem-project_gtm_system_complete_reference-in-new-terminal--test-dm-endpo"
+    ]
+  },
+  "metrics": {
+    "edits": 0,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "updatedAt": "2026-05-14T13:16:28.765Z",
+  "endedAt": "2026-05-14T13:16:29.086Z",
+  "duration": 34072
+}

@@ -52,6 +52,14 @@ export function Footer() {
         <p className="text-xs text-muted-foreground mt-2">
           © 2026 The Strategy Pitch. All rights reserved.
         </p>
+        <p className="text-xs text-muted-foreground mt-3 flex justify-center gap-4">
+          <Link to="/terms-and-conditions" className="hover:text-foreground transition">
+            Terms
+          </Link>
+          <Link to="/privacy-policy" className="hover:text-foreground transition">
+            Privacy Policy
+          </Link>
+        </p>
       </div>
     </footer>
   )

@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Section, SectionEyebrow, Container } from '../components/Layout'
 import { Button } from '../components/Button'
 import { SurveyModal } from '../components/SurveyModal'
-import { Copy, Check, File, X } from 'lucide-react'
+import { Copy, Check, File, X, AlertCircle } from 'lucide-react'
+import { useTrialSession } from '../contexts/TrialContext'
 
 export function DemoPage() {
+  const navigate = useNavigate()
+  const { trialSession, isTrialActive, isTrialExpired, daysRemaining, endTrial, clearReferralCode } = useTrialSession()
   const [formData, setFormData] = useState({
     meetingType: 'sales-discovery',
     purpose: '',
@@ -23,10 +27,21 @@ export function DemoPage() {
   const [sessionClosed, setSessionClosed] = useState(false)
   const [lastActivity, setLastActivity] = useState(Date.now())
   const [surveyOpen, setSurveyOpen] = useState(false)
+  const [showCreateAccountPrompt, setShowCreateAccountPrompt] = useState(false)
 
   const SESSION_TIMEOUT = 5 * 60 * 1000
   const MAX_FILES = 3
   const MAX_FILE_SIZE = 20 * 1024 * 1024
+
+  useEffect(() => {
+    if (!isTrialActive()) {
+      if (isTrialExpired() && trialSession) {
+        setShowCreateAccountPrompt(true)
+      } else if (!trialSession) {
+        navigate('/')
+      }
+    }
+  }, [isTrialActive, isTrialExpired, trialSession, navigate])
 
   const trackInteraction = (interactionType: string) => {
     const pattern = {
@@ -176,6 +191,53 @@ export function DemoPage() {
     setTimeout(() => setCopiedField(null), 2000)
   }
 
+  if (showCreateAccountPrompt) {
+    return (
+      <>
+        <section className="border-b border-border bg-surface px-6 py-16 sm:py-20">
+          <Container>
+            <div className="max-w-3xl">
+              <div className="flex gap-4 mb-6">
+                <AlertCircle className="h-8 w-8 text-amber-600 flex-shrink-0" />
+                <div>
+                  <h1 className="font-display text-4xl sm:text-5xl font-semibold mb-4">
+                    Your Trial Has Ended
+                  </h1>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    Thank you for testing Follow-Up Engine! Your 7-day trial has ended.
+                    Create an account to continue using the platform and unlock additional features.
+                  </p>
+                  <div className="flex gap-4">
+                    <Button
+                      onClick={() => {
+                        clearReferralCode()
+                        endTrial()
+                        navigate('/')
+                      }}
+                      className="mt-4"
+                    >
+                      Create Account
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        endTrial()
+                        navigate('/')
+                      }}
+                      className="mt-4"
+                    >
+                      Return Home
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+      </>
+    )
+  }
+
   if (sessionClosed) {
     return (
       <>
@@ -208,6 +270,31 @@ export function DemoPage() {
   return (
     <>
       <SurveyModal isOpen={surveyOpen} onClose={() => setSurveyOpen(false)} />
+
+      {trialSession && isTrialActive() && daysRemaining() <= 2 && (
+        <div className="bg-amber-50 border-b border-amber-200 px-6 py-4">
+          <Container>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <AlertCircle className="h-5 w-5 text-amber-700" />
+                <p className="text-sm text-amber-800">
+                  Your trial expires in {daysRemaining()} day{daysRemaining() !== 1 ? 's' : ''}. Create an account to keep using Follow-Up Engine.
+                </p>
+              </div>
+              <Button
+                size="sm"
+                onClick={() => {
+                  clearReferralCode()
+                  navigate('/')
+                }}
+                className="bg-amber-700 text-white hover:bg-amber-800"
+              >
+                Create Account
+              </Button>
+            </div>
+          </Container>
+        </div>
+      )}
 
       {sessionWarning && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -391,6 +478,14 @@ export function DemoPage() {
                 <label className="block text-xs font-semibold uppercase tracking-widest text-foreground mb-2">
                   Meeting Transcript
                 </label>
+                <div className="mb-3 rounded-lg border border-yellow-200 bg-yellow-50 p-3">
+  <p className="text-xs text-yellow-800 leading-relaxed">
+    This public demo is intended for evaluation purposes only.
+    Do not upload confidential, regulated, or third-party client information
+    unless you are authorized to do so.
+  </p>
+</div>
+               
                 <textarea
                   name="transcript"
                   value={formData.transcript}
