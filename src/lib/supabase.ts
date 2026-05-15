@@ -160,63 +160,6 @@ export async function submitTrialRequest(data: TrialRequestData) {
   return { ...result, generated_referral_code: generatedCode }
 }
 
-export async function sendVerificationCode(email: string, requestId: string) {
-  // TODO: Connect to email service (SendGrid, Resend, etc.)
-  // For MVP: Generate a random code and store it
-  const code = Math.random().toString(36).substring(2, 8).toUpperCase()
-
-  // TODO: Send email with verification code
-  console.log(`[TODO] Send verification code ${code} to ${email}`)
-
-  // Store verification code in browser localStorage for demo (production: use backend)
-  localStorage.setItem(`trial_code_${requestId}`, code)
-  localStorage.setItem(`trial_code_email_${requestId}`, email)
-
-  return { code }
-}
-
-export async function verifyCode(requestId: string, providedCode: string) {
-  // TODO: In production, verify code against backend-stored code
-  // For MVP: Check localStorage
-  const storedCode = localStorage.getItem(`trial_code_${requestId}`)
-
-  if (storedCode && storedCode === providedCode.toUpperCase()) {
-    // Mark as verified in database
-    const now = new Date()
-    const trialEndDate = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000)
-
-    const { data: result, error } = await supabase
-      .from('follow_up_engine_trial_requests')
-      .update({
-        verification_status: 'verified',
-        trial_status: 'active',
-        trial_start_date: now.toISOString(),
-        trial_end_date: trialEndDate.toISOString(),
-      })
-      .eq('id', requestId)
-      .select()
-      .single()
-
-    if (error) throw error
-
-    // Clean up localStorage
-    localStorage.removeItem(`trial_code_${requestId}`)
-    localStorage.removeItem(`trial_code_email_${requestId}`)
-
-    return {
-      verified: true,
-      trial_end_date: trialEndDate.toLocaleDateString('en-US', {
-        weekday: 'short',
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-      }),
-      ...result
-    }
-  }
-
-  return { verified: false }
-}
 
 export interface SurveyResponseData {
   time_saved: string
