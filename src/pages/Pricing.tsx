@@ -92,56 +92,71 @@ export function PricingPage() {
       {/* Pricing Cards */}
       <Section className="bg-[#fefdf9]">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-3 lg:items-end">
-            <PricingCard
-              title="Solo Access"
-              price="$199.99"
-              description="One-time purchase, lifetime access"
-              features={[
-                "Meeting prep workflow",
-                "Transcript-based follow-up",
-                "8 output types",
-                "Document context upload",
-                "All future updates included",
-                "Email support",
-              ]}
-              cta="Get Solo Access"
-              isPrimary={false}
-              onSelect={() => handleSelectPlan('solo')}
-            />
-            <PricingCard
-              title="Launch Plan"
-              price="$99/mo"
-              description="First month free during launch period"
-              features={[
-                "Everything in Solo Access",
-                "Team visibility (2-3 users)",
-                "Shared output library",
-                "Manager dashboards",
-                "Priority email support",
-                "Monthly team check-ins",
-              ]}
-              cta="Start Launch Plan"
-              isPrimary={true}
-              onSelect={() => handleSelectPlan('launch')}
-            />
-            <PricingCard
-              title="Team Setup"
-              price="Custom"
-              description="For sales teams with custom needs"
-              features={[
-                "Unlimited team members",
-                "Multi-workspace setup",
-                "CRM integrations (Salesforce, HubSpot)",
-                "Dedicated onboarding",
-                "SLA support & training",
-                "Custom workflows",
-              ]}
-              cta="Request Team Setup"
-              isPrimary={false}
-              onSelect={() => handleSelectPlan('team')}
-            />
-          </div>
+          <div className="grid gap-6 lg:grid-cols-4 lg:items-stretch">
+  <PricingCard
+    title="Limited Beta"
+    price="$49/mo"
+    description="Limited launch pricing for early users"
+    features={[
+      "Core follow-up workflow",
+      "Transcript-based outputs",
+      "Email and WhatsApp drafts",
+      "Action items",
+      "Limited launch access",
+    ]}
+    cta="Request Limited Beta"
+    isPrimary={false}
+    onSelect={() => handleSelectPlan('launch')}
+  />
+
+  <PricingCard
+    title="Launch Plan"
+    price="$99/mo"
+    description="Primary plan for active sales teams"
+    features={[
+      "Everything in Limited Beta",
+      "Unlimited follow-up packs",
+      "Manager visibility",
+      "Output library",
+      "Priority support",
+      "First month free during launch",
+    ]}
+    cta="Start Launch Plan"
+    isPrimary={true}
+    onSelect={() => handleSelectPlan('launch')}
+  />
+
+  <PricingCard
+    title="Solo Access"
+    price="Coming Soon"
+    description="Future solo operator option"
+    features={[
+      "Individual workspace",
+      "One-time access model",
+      "Personal output library",
+      "Future self-serve checkout",
+    ]}
+    cta="Coming Soon"
+    isDisabled={true}
+    onSelect={() => {}}
+  />
+
+  <PricingCard
+    title="Team Setup"
+    price="Coming Soon"
+    description="Future guided team implementation"
+    features={[
+      "Team onboarding",
+      "CRM integrations",
+      "Manager dashboards",
+      "Custom workflows",
+      "Dedicated support",
+    ]}
+    cta="Coming Soon"
+    isDisabled={true}
+    onSelect={() => {}}
+  />
+</div>
         </Container>
       </Section>
 
