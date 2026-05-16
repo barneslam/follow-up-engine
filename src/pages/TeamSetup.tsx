@@ -85,19 +85,38 @@ const handleSubmit = async (e: React.FormEvent) => {
   return (
     <>
       {/* Header */}
-      <section className="border-b border-border bg-surface px-6 py-16 sm:py-20">
-        <Container>
-          <div className="max-w-3xl">
-            <SectionEyebrow>Team setup</SectionEyebrow>
-            <h1 className="font-display text-4xl sm:text-5xl font-semibold">
-              Build a sales follow-up system for your entire team.
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              From individual contributors to enterprise sales teams. Custom setup, integrations, and dedicated support.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <section className="border-b border-border bg-gradient-to-b from-white via-[#f7fbff] to-[#f5f4f1] px-6 pt-20 pb-16 sm:pt-28 sm:pb-20">
+  <Container>
+    <div className="max-w-4xl">
+      <div className="mb-6 inline-block rounded-full border border-primary/20 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-primary">
+        Team Setup
+      </div>
+
+      <h1 className="font-display text-5xl sm:text-6xl font-bold leading-[0.98] tracking-tight text-slate">
+        Build a follow-up operating system for your sales team.
+      </h1>
+
+      <p className="mt-8 max-w-3xl text-lg sm:text-[1.35rem] font-medium leading-[1.6] text-slate/80">
+        Configure team workflows, manager visibility, CRM connections, and shared follow-up standards so every meeting turns into clear next steps.
+      </p>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <span className="rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+          Team Workflow
+        </span>
+        <span className="rounded-full bg-purple-50 px-4 py-2 text-sm font-semibold text-purple-700">
+          Manager Visibility
+        </span>
+        <span className="rounded-full bg-green-50 px-4 py-2 text-sm font-semibold text-green-700">
+          CRM Integration
+        </span>
+        <span className="rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">
+          Guided Onboarding
+        </span>
+      </div>
+    </div>
+  </Container>
+</section>
 
       {/* Features */}
       <Section className="border-b border-border">
