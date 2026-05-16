@@ -7,28 +7,24 @@ import { useState } from 'react'
 
 const FAQ = [
   {
-    q: "What's actually included in the Solo Access model?",
-    a: "Full meeting prep workflow, transcript-based follow-up, document context input, follow-up email, WhatsApp summary, action items, manager update, and pipeline notes. One-time payment, no subscription.",
+    q: "What's included in Limited Beta?",
+    a: "Limited Beta includes the core follow-up workflow, transcript-based outputs, follow-up email drafts, WhatsApp summaries, and action items during the launch testing period.",
+  },
+  {
+    q: "What is the difference between Limited Beta and Launch Plan?",
+    a: "Limited Beta is a lower-priced early access option. Launch Plan is the primary plan for active sales teams and includes broader usage, manager visibility, output library, priority support, and first-month-free launch access.",
   },
   {
     q: "Is the first month really free on the Launch Plan?",
-    a: "Yes. During launch, your first month on the monthly plan is on us. Cancel anytime before the month ends and you won't be charged.",
+    a: "Yes. During launch, the first month on the Launch Plan is free for selected users. Cancel anytime before the month ends and you will not be charged.",
   },
   {
-    q: "What does Team Setup involve?",
-    a: "We work with you on a short onboarding to set up multi-user access, manager visibility, a shared output library, and any integrations you need. Pricing depends on team size and scope.",
+    q: "Why are Solo Access and Team Setup marked Coming Soon?",
+    a: "We are focusing the launch on the monthly subscription model first. Solo Access and Team Setup may be added later after launch validation.",
   },
   {
     q: "Where does my data go?",
-    a: "In the demo, outputs are generated locally in your browser. In production, transcripts and outputs are encrypted and stored in Supabase with enterprise-grade security.",
-  },
-  {
-    q: "Do you offer refunds?",
-    a: "Yes. If Solo Access doesn't fit your workflow within 14 days of purchase, email us for a full refund — no questions asked.",
-  },
-  {
-    q: "Can I upgrade from Solo to Launch Plan later?",
-    a: "Absolutely. Start with Solo, and upgrade to Launch Plan anytime. We'll credit your one-time purchase toward your first month.",
+    a: "In the demo, outputs are generated for evaluation purposes. Production use with real client data requires appropriate consent, security controls, retention settings, and deletion workflows.",
   },
 ]
 
@@ -41,7 +37,7 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-5 text-left font-semibold text-slate hover:text-primary transition"
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-6">
           <span className="text-base">{q}</span>
           <span className="text-xl text-slate/40">{isOpen ? '−' : '+'}</span>
         </div>
@@ -74,7 +70,6 @@ export function PricingPage() {
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} selectedPlan={selectedPlan} />
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      {/* Header */}
       <section className="border-b border-border bg-gradient-to-b from-white via-[#f0f7ff]/30 to-[#f5f4f1] px-6 py-24 sm:py-32">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
@@ -82,20 +77,14 @@ export function PricingPage() {
             <h1 className="font-display text-5xl sm:text-6xl font-bold text-slate">
               Pricing that fits how you sell.
             </h1>
-               <p className="mt-6 text-xl text-slate/70">
-              Start with a single license, scale to a monthly plan, or set up your full team.
-              </p>
-              <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-4">
-  <div className="h-px flex-1 bg-primary/50" />
-  <span className="rounded-full border border-amber-500 bg-amber-200 px-5 py-2 text-sm font-bold uppercase tracking-wide text-amber-950 shadow-sm">
-    Beta Special
-  </span>
-  <div className="h-px flex-1 bg-primary/50" />
-</div>
-              <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-4">
+            <p className="mt-6 text-xl text-slate/70">
+              Start with beta access, then move into the monthly launch plan when you are ready.
+            </p>
+
+            <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-4">
               <div className="h-px flex-1 bg-primary/50" />
               <span className="rounded-full border border-amber-500 bg-amber-200 px-5 py-2 text-sm font-bold uppercase tracking-wide text-amber-950 shadow-sm">
-              Beta Special
+                Beta Special
               </span>
               <div className="h-px flex-1 bg-primary/50" />
             </div>
@@ -103,78 +92,75 @@ export function PricingPage() {
         </Container>
       </section>
 
-      {/* Pricing Cards */}
       <Section className="bg-[#fefdf9]">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-4 lg:items-stretch">
-  <PricingCard
-    title="Limited Beta"
-    price="$49/mo"
-    description="Limited launch pricing for early users"
-    features={[
-      "Core follow-up workflow",
-      "Transcript-based outputs",
-      "Email and WhatsApp drafts",
-      "Action items",
-      "Limited launch access",
-    ]}
-    cta="Request Limited Beta"
-    isPrimary={false}
-    onSelect={() => handleSelectPlan('launch')}
-  />
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4 items-start">
+            <PricingCard
+              title="Limited Beta"
+              price="$49"
+              description="Limited launch pricing for early users"
+              features={[
+                "Core follow-up workflow",
+                "Transcript-based outputs",
+                "Email and WhatsApp drafts",
+                "Action items",
+                "Limited launch access",
+              ]}
+              cta="Request Limited Beta"
+              onSelect={() => handleSelectPlan('launch')}
+            />
 
-  <PricingCard
-    title="Launch Plan"
-    price="$99/mo"
-    description="Primary plan for active sales teams"
-    features={[
-      "Everything in Limited Beta",
-      "Unlimited follow-up packs",
-      "Manager visibility",
-      "Output library",
-      "Priority support",
-      "First month free during launch",
-    ]}
-    cta="Start Launch Plan"
-    isPrimary={true}
-    onSelect={() => handleSelectPlan('launch')}
-  />
+            <PricingCard
+              title="Launch Plan"
+              price="$99"
+              description="Primary plan for active sales teams"
+              features={[
+                "Everything in Limited Beta",
+                "Unlimited follow-up packs",
+                "Manager visibility",
+                "Output library",
+                "Priority support",
+                "First month free during launch",
+              ]}
+              cta="Start Launch Plan"
+              isPrimary
+              onSelect={() => handleSelectPlan('launch')}
+            />
 
-  <PricingCard
-    title="Solo Access"
-    price="Coming Soon"
-    description="Future solo operator option"
-    features={[
-      "Individual workspace",
-      "One-time access model",
-      "Personal output library",
-      "Future self-serve checkout",
-    ]}
-    cta="Coming Soon"
-    isDisabled={true}
-    onSelect={() => {}}
-  />
+            <PricingCard
+              title="Solo Access"
+              price="Coming Soon"
+              description="Future solo operator option"
+              features={[
+                "Individual workspace",
+                "One-time access model",
+                "Personal output library",
+                "Future self-serve checkout",
+              ]}
+              cta="Coming Soon"
+              isDisabled
+              onSelect={() => {}}
+            />
 
-  <PricingCard
-    title="Team Setup"
-    price="Coming Soon"
-    description="Future guided team implementation"
-    features={[
-      "Team onboarding",
-      "CRM integrations",
-      "Manager dashboards",
-      "Custom workflows",
-      "Dedicated support",
-    ]}
-    cta="Coming Soon"
-    isDisabled={true}
-    onSelect={() => {}}
-  />
-</div>
+            <PricingCard
+              title="Team Setup"
+              price="Coming Soon"
+              description="Future guided team implementation"
+              features={[
+                "Team onboarding",
+                "CRM integrations",
+                "Manager dashboards",
+                "Custom workflows",
+                "Dedicated support",
+              ]}
+              cta="Coming Soon"
+              isDisabled
+              onSelect={() => {}}
+            />
+          </div>
         </Container>
       </Section>
 
-      {/* FAQ */}
       <Section className="bg-[#f8f7f6] border-b border-border">
         <Container>
           <div className="max-w-3xl">
@@ -190,7 +176,6 @@ export function PricingPage() {
         </Container>
       </Section>
 
-      {/* CTA */}
       <Section className="bg-white">
         <Container>
           <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
@@ -198,7 +183,7 @@ export function PricingPage() {
               Ready to turn meetings into revenue next steps?
             </h2>
             <p className="mt-6 text-lg text-white/90 max-w-2xl mx-auto">
-              Start with Solo Access or request a demo of the full team platform.
+              Start with beta access or request the launch plan for active sales teams.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Button size="lg" onClick={() => setTrialOpen(true)}>
@@ -222,7 +207,8 @@ function PricingCard({
   features,
   cta,
   isPrimary = false,
-  onSelect
+  isDisabled = false,
+  onSelect,
 }: {
   title: string
   price: string
@@ -230,36 +216,56 @@ function PricingCard({
   features: string[]
   cta: string
   isPrimary?: boolean
+  isDisabled?: boolean
   onSelect: () => void
 }) {
+  const isComingSoon = price.includes('Coming')
+
   return (
-    <div className={`rounded-3xl border transition-all cursor-pointer ${isPrimary
-      ? 'border-primary bg-gradient-to-br from-[#f0f7ff] to-white shadow-xl ring-2 ring-primary/20 scale-105'
-      : 'border-slate-200 bg-white shadow-md hover:shadow-xl'
-    } p-10`}>
+    <div className={`flex h-full min-h-[560px] flex-col rounded-3xl border p-8 transition-all ${
+      isDisabled
+        ? 'border-slate-200 bg-slate-50 opacity-60'
+        : isPrimary
+          ? 'border-primary bg-gradient-to-br from-[#f0f7ff] to-white shadow-xl ring-2 ring-primary/20 xl:scale-105'
+          : 'border-slate-200 bg-white shadow-md hover:shadow-xl'
+    }`}>
       {isPrimary && (
-        <span className="inline-block mb-4 px-3 py-1 rounded-full bg-primary/10 text-xs font-semibold text-primary">
+        <span className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
           Recommended
         </span>
       )}
 
-      <h3 className="font-display text-2xl font-bold text-slate">{title}</h3>
+      {isDisabled && (
+        <span className="mb-4 inline-block w-fit rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate/60">
+          Coming Soon
+        </span>
+      )}
 
-      <div className="mt-4">
-        <span className="text-5xl font-bold text-slate">{price}</span>
-        {price !== 'Custom' && (
-          <span className="text-sm ml-2 text-muted-foreground">
-            {title === 'Solo Access' ? 'one-time' : '/month'}
+      <h3 className="min-h-[58px] font-display text-2xl font-bold leading-tight text-slate">
+        {title}
+      </h3>
+
+      <div className="mt-4 flex min-h-[92px] flex-col justify-end">
+        <span className={`${isComingSoon ? 'text-4xl' : 'text-5xl'} font-bold leading-tight text-slate`}>
+          {price}
+        </span>
+
+        {!isComingSoon && (
+          <span className="mt-1 text-sm text-muted-foreground">
+            /month
           </span>
         )}
       </div>
 
-      <p className="mt-3 text-base text-slate/70">{description}</p>
+      <p className="mt-4 min-h-[56px] text-base leading-relaxed text-slate/70">
+        {description}
+      </p>
 
       <Button
-        className="w-full mt-7 font-bold"
+        className="mt-7 w-full font-bold"
         variant={isPrimary ? 'primary' : 'outline'}
-        onClick={onSelect}
+        onClick={isDisabled ? undefined : onSelect}
+        disabled={isDisabled}
       >
         {cta}
       </Button>
@@ -267,7 +273,7 @@ function PricingCard({
       <ul className="mt-9 space-y-4">
         {features.map((f) => (
           <li key={f} className="flex gap-3 text-sm leading-relaxed text-slate/70">
-            <Check className={`h-5 w-5 shrink-0 mt-0 ${isPrimary ? 'text-primary' : 'text-slate/40'}`} />
+            <Check className={`h-5 w-5 shrink-0 ${isPrimary ? 'text-primary' : 'text-slate/40'}`} />
             <span>{f}</span>
           </li>
         ))}
