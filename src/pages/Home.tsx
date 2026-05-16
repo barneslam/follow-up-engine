@@ -330,26 +330,41 @@ export function HomePage() {
         </div>
       </Section>
 
-      <Section className="border-b border-border bg-[#f8f7f6]">
-        <div className="max-w-3xl mb-16">
-          <SectionEyebrow>Pricing</SectionEyebrow>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
-            Simple plans for solo operators and growing teams.
-          </h2>
-        </div>
-        <div className="grid gap-8 lg:grid-cols-3 lg:items-end">
-          <PricingCard title="Limited Beta" price="$49" description="Limited launch pricing for early users" features={['Core follow-up workflow', 'Transcript-based outputs', 'Email and WhatsApp drafts', 'Action items', 'Limited launch access']} cta="Request Limited Beta" />
-          <PricingCard title="Launch Plan" price="$99" description="Primary plan for active sales teams" features={['Everything in Limited Beta', 'Unlimited follow-up packs', 'Manager visibility', 'Output library', 'Priority support']} cta="Start Launch Plan" isPrimary />
-          <PricingCard title="Team Setup" price="Coming Soon" description="Future guided team implementation" features={['Team onboarding', 'CRM integrations', 'Manager dashboards', 'Custom workflows', 'Dedicated support']} cta="Coming Soon" />
-        </div>
-        <div className="mt-16 text-center">
-          <Button size="lg" variant="outline" asChild>
-            <Link to="/pricing">See full pricing & FAQs</Link>
-          </Button>
-        </div>
-      </Section>
+      
+<Section className="border-b border-border bg-[#f8f7f6]">
+  <div className="max-w-3xl mb-16">
+    <SectionEyebrow>Pricing</SectionEyebrow>
+    <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
+      Launch pricing for growing sales teams.
+    </h2>
+  </div>
 
-      <Section className="bg-white border-b border-border">
+  <div className="rounded-3xl border-2 border-slate-200 bg-white p-10 text-center shadow-md">
+    <div className="mx-auto mb-6 flex max-w-2xl items-center justify-center gap-4">
+      <div className="h-px flex-1 bg-primary/40" />
+      <span className="rounded-full border border-amber-500 bg-amber-200 px-5 py-2 text-sm font-bold uppercase tracking-wide text-amber-950">
+        Beta Special
+      </span>
+      <div className="h-px flex-1 bg-primary/40" />
+    </div>
+
+    <h3 className="font-display text-3xl font-bold text-slate">
+      Limited Beta starts at $49/month.
+    </h3>
+
+    <p className="mx-auto mt-4 max-w-xl text-base text-slate/70">
+      See the full launch pricing structure, including the $99/month Launch Plan and future coming-soon tiers.
+    </p>
+
+    <div className="mt-8">
+      <Button size="lg" asChild>
+        <Link to="/pricing">View Launch Pricing</Link>
+      </Button>
+    </div>
+  </div>
+</Section>
+
+<Section className="bg-white border-b border-border">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>Fit check</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">Who it&apos;s for.</h2>
