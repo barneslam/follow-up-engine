@@ -168,12 +168,13 @@ export function HomePage() {
                   Start 7-Day Trial
                 </Button>
 
-                <Button size="lg" variant="outline" className="h-14 w-full sm:w-auto px-8 text-base border-slate-300 hover:border-slate-400" asChild>
-                  <Link to="/demo">
-                    Watch Demo Flow
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
+               <Link
+  to="/demo"
+  className="inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-8 text-base font-semibold text-slate hover:border-slate-400 hover:bg-slate-50 transition"
+>
+  Watch Demo Flow
+  <ArrowRight className="h-4 w-4" />
+</Link> 
               </div>
 
               <p className="mt-6 text-sm font-medium text-slate/60">
