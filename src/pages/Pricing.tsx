@@ -97,8 +97,8 @@ export function PricingPage() {
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4 items-start">
             <PricingCard
               title="Limited Beta"
-              price="$49"
-              description="Limited launch pricing for early users"
+              price="$9.99"
+              description="Beta launch pricing for the first month"
               features={[
                 "Core follow-up workflow",
                 "Transcript-based outputs",
@@ -112,10 +112,10 @@ export function PricingPage() {
 
             <PricingCard
               title="Launch Plan"
-              price="$99"
-              description="Primary plan for active sales teams"
+              price="$19.99"
+              description="Continues at $19.99/month after the first month"
               features={[
-                "Everything in Limited Beta",
+                "Everything in Beta Special",
                 "Unlimited follow-up packs",
                 "Manager visibility",
                 "Output library",

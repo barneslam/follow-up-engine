@@ -349,11 +349,11 @@ export function HomePage() {
     </div>
 
     <h3 className="font-display text-3xl font-bold text-slate">
-      Limited Beta starts at $49/month.
+      Limited Beta starts at $9.99 for the first month.
     </h3>
 
     <p className="mx-auto mt-4 max-w-xl text-base text-slate/70">
-      See the full launch pricing structure, including the $99/month Launch Plan and future coming-soon tiers.
+      See the full launch pricing structure, including the $19.99/month Launch Plan and future coming-soon tiers.
     </p>
 
     <div className="mt-8">
