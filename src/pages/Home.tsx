@@ -362,9 +362,12 @@ export function HomePage() {
     </p>
 
     <div className="mt-8">
-      <Button size="lg" asChild>
-        <Link to="/pricing">View Launch Pricing</Link>
-      </Button>
+      <Link
+  to="/pricing"
+  className="inline-flex h-14 items-center justify-center rounded-lg bg-primary px-8 text-base font-semibold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition"
+>
+  View Launch Pricing
+</Link>
     </div>
   </div>
 </Section>
