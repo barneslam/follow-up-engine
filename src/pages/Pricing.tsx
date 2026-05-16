@@ -86,6 +86,13 @@ export function PricingPage() {
               Start with a single license, scale to a monthly plan, or set up your full team.
               </p>
               <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-4">
+  <div className="h-px flex-1 bg-primary/50" />
+  <span className="rounded-full border border-amber-500 bg-amber-200 px-5 py-2 text-sm font-bold uppercase tracking-wide text-amber-950 shadow-sm">
+    Beta Special
+  </span>
+  <div className="h-px flex-1 bg-primary/50" />
+</div>
+              <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-4">
               <div className="h-px flex-1 bg-primary/50" />
               <span className="rounded-full border border-amber-500 bg-amber-200 px-5 py-2 text-sm font-bold uppercase tracking-wide text-amber-950 shadow-sm">
               Beta Special
