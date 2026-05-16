@@ -324,9 +324,13 @@ export function HomePage() {
             A live, simulated demo runs entirely in your browser. No signup, no integrations, no data sent anywhere.
           </p>
           <div className="mt-10">
-            <Button size="lg" asChild>
-              <Link to="/demo">Open the demo flow <ArrowRight className="h-4 w-4" /></Link>
-            </Button>
+            <Link
+              to="/demo"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-primary px-8 text-base font-semibold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition"
+            >
+              Open the demo flow
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </Section>
@@ -429,9 +433,12 @@ export function HomePage() {
             <Button size="lg" onClick={() => setTrialOpen(true)}>
               Request Early Access
             </Button>
-            <Button size="lg" className="border-white/40 bg-white/15 text-white hover:bg-white/25" asChild>
-              <Link to="/demo">Try Demo Flow</Link>
-            </Button>
+            <Link
+              to="/demo"
+              className="inline-flex h-14 items-center justify-center rounded-lg border border-white/40 bg-white/15 px-8 text-base font-semibold text-white hover:bg-white/25 transition"
+            >
+              Try Demo Flow
+            </Link>
           </div>
         </div>
       </Section>
