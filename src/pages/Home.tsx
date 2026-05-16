@@ -22,22 +22,21 @@ import {
   ArrowRight,
   Shield,
 } from 'lucide-react'
-
+import { SiGmail, SiWhatsapp, SiGooglecalendar, SiGoogledrive } from 'react-icons/si'
 import { useState } from 'react'
 import { ContactDialog } from '../components/ContactDialog'
 import { TrialRequestDialog } from '../components/TrialRequestDialog'
 
 const PROBLEMS = [
-  { icon: CalendarDays, text: "Meeting agendas are created too late or not at all" },
-  { icon: HelpCircle, text: "Salespeople forget to ask key questions" },
-  { icon: FolderOpen, text: "Relevant proposals and documents are scattered" },
-  { icon: Mail, text: "Follow-up emails take too long" },
-  { icon: MessageCircle, text: "WhatsApp summaries are inconsistent" },
-  { icon: Users, text: "Internal managers do not know what was promised" },
-  { icon: ListChecks, text: "Action items are not assigned clearly" },
-  { icon: BarChart3, text: "Pipeline impact is not captured" },
+  { icon: SiGooglecalendar, bg: 'bg-blue-50', color: 'text-blue-600', text: 'Meeting agendas are created too late or not at all' },
+  { icon: HelpCircle, bg: 'bg-indigo-50', color: 'text-indigo-600', text: 'Salespeople forget to ask key questions' },
+  { icon: SiGoogledrive, bg: 'bg-green-50', color: 'text-green-600', text: 'Relevant proposals and documents are scattered' },
+  { icon: SiGmail, bg: 'bg-red-50', color: 'text-red-600', text: 'Follow-up emails take too long' },
+  { icon: SiWhatsapp, bg: 'bg-green-50', color: 'text-green-600', text: 'WhatsApp summaries are inconsistent' },
+  { icon: Users, bg: 'bg-purple-50', color: 'text-purple-600', text: 'Internal managers do not know what was promised' },
+  { icon: ListChecks, bg: 'bg-blue-50', color: 'text-blue-600', text: 'Action items are not assigned clearly' },
+  { icon: BarChart3, bg: 'bg-emerald-50', color: 'text-emerald-600', text: 'Pipeline impact is not captured' },
 ]
-
 const WORKFLOW = [
   { icon: CalendarDays, label: "Calendar" },
   { icon: Upload, label: "Documents" },
@@ -141,14 +140,14 @@ export function HomePage() {
       {/* Hero */}
       <section className="border-b border-border bg-gradient-to-b from-white via-[#f0f7ff]/30 to-[#f5f4f1] px-6 pt-24 pb-28 sm:pt-32 sm:pb-40">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:items-start">
             <div>
               <div className="mb-6 inline-block rounded-full border border-primary/20 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-primary">
                 Built for SME sales teams
               </div>
-              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-slate">
-                One-click sales meeting follow-up for SMEs.
-              </h1>
+              <h1 className="font-display text-5xl sm:text-6xl lg:text-[4.9rem] font-bold leading-[0.98] tracking-tight text-slate">
+  One-click sales follow-up for growing teams.
+</h1>
 
               <div className="mt-8 inline-flex items-center gap-3 rounded-xl border-2 border-primary/20 bg-gradient-to-r from-blue-50 to-white px-5 py-4 shadow-md">
                 <span className="text-xs font-bold uppercase tracking-wide text-primary">Save</span>
@@ -156,68 +155,104 @@ export function HomePage() {
                 <span className="text-sm font-semibold text-slate/70">per sales meeting</span>
               </div>
 
-              <p className="mt-8 max-w-2xl text-xl sm:text-2xl font-semibold text-slate leading-relaxed">
-                Follow-Up Engine turns meeting context and transcripts into agendas, follow-up emails, WhatsApp summaries, action items, manager updates, and next steps — before the momentum disappears.
-              </p>
+              <p className="mt-8 max-w-2xl text-lg sm:text-[1.45rem] font-medium leading-[1.6] text-slate/80">
+  Follow-Up Engine turns meeting transcripts into structured agendas,
+  follow-up emails, WhatsApp summaries, action items, manager updates,
+  and next steps — before momentum disappears.
+</p>
 
-              <p className="mt-6 max-w-xl text-base text-slate/70">
-                One meeting in. Seven sales outputs out.
-              </p>
+              <p className="mt-5 text-base font-semibold text-primary">
+  One meeting in. Seven sales-ready outputs out.
+</p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Button size="lg" onClick={() => setTrialOpen(true)}>
-                  Try Free for 7 Days
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link to="/demo">See How It Works <ArrowRight className="h-4 w-4" /></Link>
-                </Button>
-              </div>
+              <div className="mt-12 flex flex-wrap items-center gap-4">
+  <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/20" onClick={() => setTrialOpen(true)}>
+    Start 7-Day Trial
+  </Button>
 
+  <Button
+    size="lg"
+    variant="outline"
+    className="h-14 px-8 text-base border-slate-300 hover:border-slate-400"
+    asChild
+  >
+    <Link to="/demo">
+      Watch Demo Flow
+      <ArrowRight className="h-4 w-4" />
+    </Link>
+  </Button>
+</div>
               <p className="mt-6 text-sm font-medium text-slate/60">
                 Create unlimited follow-up packs during your 7-day launch test.
               </p>
             </div>
 
-            <div className="relative">
-              <div className="absolute -inset-8 -z-10 rounded-3xl bg-gradient-to-br from-blue-100/40 via-transparent to-blue-50/40 blur-2xl" />
-              <div className="space-y-3">
-                <div className="rounded-xl border border-border bg-gradient-to-br from-white to-blue-50 p-6 shadow-md">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-primary">
-                    <Mail className="h-4 w-4" /> FOLLOW-UP EMAIL
-                  </div>
-                  <div className="mt-4">
-                    <div className="text-xs text-muted-foreground">To: prospect@company.com</div>
-                    <div className="mt-2 text-sm font-semibold text-slate">Subject: Next steps from our discovery call today</div>
-                    <div className="mt-3 space-y-2 text-xs leading-relaxed text-slate/80">
-                      <p>Hi Sarah,</p>
-                      <p>Great conversation today. Here's what we discussed:</p>
-                      <p className="text-slate/60">• Your team needs better visibility into pipeline health<br/>• Currently using spreadsheets for tracking<br/>• Interested in Q2 pilot with 3 reps</p>
-                      <p>Next: I'll send the one-pager by EOD Friday. Chat next week?</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-xl border border-border bg-gradient-to-br from-white to-slate-50 p-5 shadow-md">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-primary">
-                      <ListChecks className="h-4 w-4" /> ACTION ITEMS
-                    </div>
-                    <ul className="mt-3 space-y-2 text-xs">
-                      <li className="flex gap-2 text-slate"><Check className="h-4 w-4 shrink-0 text-primary" /> <span>Send solution one-pager</span></li>
-                      <li className="flex gap-2 text-slate"><Check className="h-4 w-4 shrink-0 text-primary" /> <span>Confirm 3 pilot reps</span></li>
-                      <li className="flex gap-2 text-slate"><Check className="h-4 w-4 shrink-0 text-primary" /> <span>Schedule kickoff call</span></li>
-                    </ul>
-                  </div>
-                  <div className="rounded-xl border border-border bg-gradient-to-br from-white to-slate-50 p-5 shadow-md">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-primary">
-                      <MessageCircle className="h-4 w-4" /> WHATSAPP SUMMARY
-                    </div>
-                    <div className="mt-3 space-y-1.5 text-xs text-slate/80 leading-relaxed">
-                      <p>Quick recap: Sarah's team is tracking pipeline manually, wants better visibility. Interested in Q2 pilot with 3 reps. Follow-up: solution one-pager by Fri EOD.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="relative lg:pt-6">
+  <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-blue-100/40 blur-3xl" />
+
+  <div className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-2xl shadow-slate-200/70">
+    <div className="flex items-center gap-3 text-base font-bold text-primary">
+      <SiGmail className="h-7 w-7 text-red-500" />
+FOLLOW-UP EMAIL 
+    </div>
+
+    <div className="mt-6 space-y-4 text-base leading-relaxed text-slate">
+      <p className="text-slate/70">To: prospect@company.com</p>
+      <p className="font-bold">
+        Subject: Next steps from our discovery call today
+      </p>
+      <p>Hi Sarah,</p>
+      <p>Great conversation today. Here&apos;s what we discussed:</p>
+
+      <ul className="ml-5 list-disc space-y-2">
+        <li>Your team needs better visibility into pipeline health</li>
+        <li>Currently using spreadsheets for tracking</li>
+        <li>Interested in Q2 pilot with 3 reps</li>
+      </ul>
+
+      <p>
+        Next: I&apos;ll send the one-pager by EOD Friday. Chat next week?
+      </p>
+    </div>
+  </div>
+
+  <div className="mt-6 grid gap-6 sm:grid-cols-2">
+    <div className="rounded-[1.5rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/60">
+      <div className="flex items-center gap-3 text-base font-bold text-primary">
+        <ListChecks className="h-7 w-7" />
+        ACTION ITEMS
+      </div>
+
+      <ul className="mt-6 space-y-4 text-base text-slate">
+        <li className="flex gap-3">
+          <Check className="h-5 w-5 shrink-0 text-primary" />
+          <span>Send solution one-pager</span>
+        </li>
+        <li className="flex gap-3">
+          <Check className="h-5 w-5 shrink-0 text-primary" />
+          <span>Confirm 3 pilot reps</span>
+        </li>
+        <li className="flex gap-3">
+          <Check className="h-5 w-5 shrink-0 text-primary" />
+          <span>Schedule kickoff call</span>
+        </li>
+      </ul>
+    </div>
+
+    <div className="rounded-[1.5rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/60">
+      <div className="flex items-center gap-3 text-base font-bold text-primary">
+        <SiWhatsapp className="h-7 w-7 text-green-500" />
+WHATSAPP SUMMARY
+      </div>
+
+      <p className="mt-6 text-base leading-relaxed text-slate">
+        Quick recap: Sarah&apos;s team is tracking pipeline manually,
+        wants better visibility, and is interested in a Q2 pilot with 3 reps.
+        Follow-up: send one-pager by Friday.
+      </p>
+    </div>
+  </div>
+</div>
           </div>
         </Container>
       </section>
@@ -323,7 +358,7 @@ export function HomePage() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {OUTPUTS.map((o) => (
             <div key={o.title} className="rounded-2xl border-2 border-slate-200 bg-white p-8 hover:shadow-lg hover:border-primary/40 transition-all">
-              <div className="grid h-12 w-12 place-items-center rounded-lg bg-primary/10 text-primary font-bold">
+              <div className={`grid h-12 w-12 place-items-center rounded-lg ${o.bg} ${o.color} font-bold`}>
                 <o.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-5 text-sm font-bold text-slate leading-snug">{o.title}</h3>
