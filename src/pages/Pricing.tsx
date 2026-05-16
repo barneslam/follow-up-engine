@@ -204,21 +204,28 @@ function PricingCard({
   onSelect: () => void
 }) {
   return (
-    <div className={`rounded-3xl border-2 transition-all cursor-pointer ${isPrimary
-      ? 'border-primary bg-gradient-to-br from-[#f0f7ff] to-white shadow-lg ring-2 ring-primary/30 scale-105'
-      : 'border-slate-200 bg-white shadow-md hover:shadow-lg opacity-70 hover:opacity-100'
+    <div className={`rounded-3xl border transition-all cursor-pointer ${isPrimary
+      ? 'border-primary bg-gradient-to-br from-[#f0f7ff] to-white shadow-xl ring-2 ring-primary/20 scale-105'
+      : 'border-slate-200 bg-white shadow-md hover:shadow-xl'
     } p-10`}>
       {isPrimary && (
         <span className="inline-block mb-4 px-3 py-1 rounded-full bg-primary/10 text-xs font-semibold text-primary">
           Recommended
         </span>
       )}
-      <h3 className={`font-display text-2xl font-bold ${isPrimary ? 'text-slate' : 'text-slate/70'}`}>{title}</h3>
+
+      <h3 className="font-display text-2xl font-bold text-slate">{title}</h3>
+
       <div className="mt-4">
-        <span className={`text-5xl font-bold ${isPrimary ? 'text-slate' : 'text-slate/70'}`}>{price}</span>
-        {price !== 'Custom' && <span className={`text-sm ml-2 ${isPrimary ? 'text-muted-foreground' : 'text-muted-foreground/60'}`}>{title === 'Solo Access' ? 'one-time' : '/month'}</span>}
+        <span className="text-5xl font-bold text-slate">{price}</span>
+        {price !== 'Custom' && (
+          <span className="text-sm ml-2 text-muted-foreground">
+            {title === 'Solo Access' ? 'one-time' : '/month'}
+          </span>
+        )}
       </div>
-      <p className={`mt-3 text-base ${isPrimary ? 'text-slate/80' : 'text-slate/60'}`}>{description}</p>
+
+      <p className="mt-3 text-base text-slate/70">{description}</p>
 
       <Button
         className="w-full mt-7 font-bold"
@@ -230,8 +237,8 @@ function PricingCard({
 
       <ul className="mt-9 space-y-4">
         {features.map((f) => (
-          <li key={f} className={`flex gap-3 text-sm leading-relaxed ${isPrimary ? 'text-slate/80' : 'text-slate/60'}`}>
-            <Check className={`h-5 w-5 shrink-0 mt-0 font-bold ${isPrimary ? 'text-primary' : 'text-gray-light'}`} />
+          <li key={f} className="flex gap-3 text-sm leading-relaxed text-slate/70">
+            <Check className={`h-5 w-5 shrink-0 mt-0 ${isPrimary ? 'text-primary' : 'text-slate/40'}`} />
             <span>{f}</span>
           </li>
         ))}
