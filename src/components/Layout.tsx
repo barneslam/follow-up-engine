@@ -13,7 +13,7 @@ export function Header() {
         </Link>
 
         <nav className="hidden md:flex gap-8">
-          <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition">Home</Link>
+          
           <Link to="/demo" className="text-sm text-muted-foreground hover:text-foreground transition">How It Works</Link>
           <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition">Pricing</Link>
           <Link to="/team-setup" className="text-sm text-muted-foreground hover:text-foreground transition">Team Setup</Link>
@@ -29,9 +29,7 @@ export function Header() {
 
       {isOpen && (
   <nav className="md:hidden border-t border-border px-6 py-4 flex flex-col gap-4">
-    <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition" onClick={() => setIsOpen(false)}>
-      Home
-    </Link>
+    
     <Link to="/demo" className="text-sm text-muted-foreground hover:text-foreground transition" onClick={() => setIsOpen(false)}>
       How It Works
     </Link>
