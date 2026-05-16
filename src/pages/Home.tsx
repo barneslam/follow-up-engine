@@ -103,7 +103,7 @@ function PricingCard({
           <span className="text-4xl font-bold text-slate">{price}</span>
           {price !== 'Custom' && (
             <span className="text-sm ml-2 text-muted-foreground">
-              {title === 'Solo Access' ? 'one-time' : '/month'}
+              {price.includes('Coming') ? '' : '/month'}
             </span>
           )}
         </div>
@@ -338,9 +338,9 @@ export function HomePage() {
           </h2>
         </div>
         <div className="grid gap-8 lg:grid-cols-3 lg:items-end">
-          <PricingCard title="Solo Access" price="$199.99" description="One-time purchase, lifetime access" features={['Meeting prep workflow', 'Transcript-based follow-up', '8 output types', 'Document context', 'All future updates']} cta="Get Solo Access" />
-          <PricingCard title="Launch Plan" price="$99/mo" description="First month free during launch" features={['Everything in Solo', 'Team visibility (2-3 users)', 'Output library', 'Manager dashboards', 'Priority support']} cta="Start Launch Plan" isPrimary />
-          <PricingCard title="Team Setup" price="Custom" description="For sales teams with custom needs" features={['Unlimited team members', 'Multi-workspace setup', 'CRM integrations', 'Dedicated onboarding', 'SLA support']} cta="Request Team Setup" />
+          <PricingCard title="Limited Beta" price="$49" description="Limited launch pricing for early users" features={['Core follow-up workflow', 'Transcript-based outputs', 'Email and WhatsApp drafts', 'Action items', 'Limited launch access']} cta="Request Limited Beta" />
+          <PricingCard title="Launch Plan" price="$99" description="Primary plan for active sales teams" features={['Everything in Limited Beta', 'Unlimited follow-up packs', 'Manager visibility', 'Output library', 'Priority support']} cta="Start Launch Plan" isPrimary />
+          <PricingCard title="Team Setup" price="Coming Soon" description="Future guided team implementation" features={['Team onboarding', 'CRM integrations', 'Manager dashboards', 'Custom workflows', 'Dedicated support']} cta="Coming Soon" />
         </div>
         <div className="mt-16 text-center">
           <Button size="lg" variant="outline" asChild>
