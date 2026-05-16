@@ -478,12 +478,34 @@ export function DemoPage() {
                 <label className="block text-xs font-semibold uppercase tracking-widest text-foreground mb-2">
                   Meeting Transcript
                 </label>
-                <div className="mb-3 rounded-lg border border-yellow-200 bg-yellow-50 p-3">
-  <p className="text-xs text-yellow-800 leading-relaxed">
-    This public demo is intended for evaluation purposes only.
-    Do not upload confidential, regulated, or third-party client information
-    unless you are authorized to do so.
-  </p>
+                <div className="mb-4 rounded-xl border border-yellow-300 bg-yellow-50 p-4">
+  <h3 className="text-sm font-semibold text-yellow-900 mb-2">
+    Before Using Real Client Data
+  </h3>
+
+  <div className="space-y-2 text-xs text-yellow-800 leading-relaxed">
+    <p>
+      This environment is intended for evaluation and controlled business testing.
+    </p>
+
+    <p>
+      Do not upload confidential, regulated, legal, medical, financial, HR,
+      government, or third-party customer information unless you are authorized
+      to do so.
+    </p>
+
+    <p>
+      By continuing, you acknowledge that you are responsible for ensuring
+      you have the right to process and upload any meeting transcripts,
+      notes, files, or customer information entered into the system.
+    </p>
+
+    <p>
+      For enterprise deployment, regulated data handling, encryption,
+      retention controls, and dedicated environments, contact
+      barnes@thestrategypitch.com.
+    </p>
+  </div>
 </div>
                
                 <textarea
