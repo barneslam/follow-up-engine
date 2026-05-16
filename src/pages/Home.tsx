@@ -2,43 +2,61 @@ import { Link } from 'react-router-dom'
 import { Button } from '../components/Button'
 import { Section, SectionEyebrow, Container } from '../components/Layout'
 import {
-  Calendar, FileUp, Target, Sparkles, FileText, Send, UserCheck, ChevronRight,
-  X, Check, FileSearch, MessagesSquare, ListChecks, Mail, MessageCircle, UserCog, TrendingUp, ArrowRight,
+  CalendarDays,
+  Upload,
+  Target,
+  Sparkles,
+  FileText,
+  Send,
+  Users,
+  ChevronRight,
+  Check,
+  X,
+  Mail,
+  MessageCircle,
+  ListChecks,
+  BarChart3,
+  FolderOpen,
+  HelpCircle,
+  ClipboardList,
+  ArrowRight,
+  Shield,
 } from 'lucide-react'
+
 import { useState } from 'react'
 import { ContactDialog } from '../components/ContactDialog'
 import { TrialRequestDialog } from '../components/TrialRequestDialog'
 
 const PROBLEMS = [
-  "Meeting agendas are created too late or not at all",
-  "Salespeople forget to ask key questions",
-  "Relevant proposals and documents are scattered",
-  "Follow-up emails take too long",
-  "WhatsApp summaries are inconsistent",
-  "Internal managers do not know what was promised",
-  "Action items are not assigned clearly",
-  "Pipeline impact is not captured",
+  { icon: CalendarDays, text: "Meeting agendas are created too late or not at all" },
+  { icon: HelpCircle, text: "Salespeople forget to ask key questions" },
+  { icon: FolderOpen, text: "Relevant proposals and documents are scattered" },
+  { icon: Mail, text: "Follow-up emails take too long" },
+  { icon: MessageCircle, text: "WhatsApp summaries are inconsistent" },
+  { icon: Users, text: "Internal managers do not know what was promised" },
+  { icon: ListChecks, text: "Action items are not assigned clearly" },
+  { icon: BarChart3, text: "Pipeline impact is not captured" },
 ]
 
 const WORKFLOW = [
-  { icon: Calendar, label: "Calendar Meeting" },
-  { icon: FileUp, label: "Upload Documents" },
-  { icon: Target, label: "Select Objective" },
-  { icon: Sparkles, label: "Generate Prep Pack" },
-  { icon: FileText, label: "Add Transcript" },
-  { icon: Send, label: "Generate Follow-Up" },
-  { icon: UserCheck, label: "Manager Update" },
+  { icon: CalendarDays, label: "Calendar" },
+  { icon: Upload, label: "Documents" },
+  { icon: Target, label: "Objective" },
+  { icon: Sparkles, label: "Prep Pack" },
+  { icon: FileText, label: "Transcript" },
+  { icon: Send, label: "Follow-Up" },
+  { icon: Users, label: "Manager Update" },
 ]
 
 const OUTPUTS = [
-  { icon: FileSearch, title: "Client-facing agenda", desc: "Structured agenda the client sees ahead of time." },
-  { icon: MessagesSquare, title: "Questions to ask", desc: "Right questions for the objective and stage." },
-  { icon: Mail, title: "Follow-up email", desc: "On-tone email, ready to send within minutes." },
-  { icon: MessageCircle, title: "WhatsApp summary", desc: "Short, friendly recap for fast channels." },
-  { icon: ListChecks, title: "Action items", desc: "Owners and deadlines, clearly captured." },
-  { icon: UserCog, title: "Manager update", desc: "What was promised and what's next." },
-  { icon: TrendingUp, title: "Pipeline impact", desc: "Stage changes and revenue implications." },
-  { icon: ArrowRight, title: "Next steps", desc: "Concrete moves to keep momentum." },
+  { icon: ClipboardList, title: "Agenda", desc: "Client-ready meeting agenda." },
+  { icon: HelpCircle, title: "Questions", desc: "Key questions to ask." },
+  { icon: Mail, title: "Email", desc: "Follow-up email draft." },
+  { icon: MessageCircle, title: "WhatsApp", desc: "Short message recap." },
+  { icon: ListChecks, title: "Actions", desc: "Owners and next steps." },
+  { icon: Users, title: "Manager Update", desc: "Internal status summary." },
+  { icon: BarChart3, title: "Pipeline", desc: "Deal movement notes." },
+  { icon: FolderOpen, title: "Documents", desc: "Context and assets used." },
 ]
 
 const BEST_FOR = [
@@ -214,13 +232,16 @@ export function HomePage() {
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           {PROBLEMS.map((p) => (
-            <div key={p} className="flex gap-4 rounded-2xl border-2 border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all">
-              <div className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-slate-100 text-slate-500">
-                <X className="h-4 w-4 font-bold" />
-              </div>
-              <span className="text-sm leading-relaxed text-slate/80">{p}</span>
-            </div>
-          ))}
+  <div key={p.text} className="flex items-center gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-blue-50 text-primary">
+      <p.icon className="h-6 w-6" />
+    </div>
+    <span className="text-base font-medium leading-relaxed text-slate">
+      {p.text}
+    </span>
+  </div>
+))}
+           
         </div>
       </Section>
 
