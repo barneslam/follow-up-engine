@@ -20,7 +20,6 @@ export function PrivacyPolicyPage() {
       <Section>
         <Container>
           <div className="max-w-3xl space-y-8 text-muted-foreground">
-
             <div>
               <h2 className="font-display text-2xl font-semibold mb-4 text-foreground">
                 1. Overview
@@ -69,9 +68,16 @@ export function PrivacyPolicyPage() {
                 5. Retention and Deletion
               </h2>
               <p>
-                Demo session information is intended to be temporary. You may request deletion
-                of submitted contact or trial information by emailing
-                barnes@thestrategypitch.com.
+                Demo session inputs are intended to be temporary and session-based. Trial,
+                contact, referral, survey, and team setup records may be retained for
+                operational, support, security, compliance, and business record purposes.
+                For future production workflows involving stored client transcripts,
+                meeting notes, uploaded files, or customer data, the intended retention
+                target is up to 90 days unless a different written agreement applies.
+                Automated deletion and customer-controlled deletion must be implemented
+                and verified before relying on this workflow for production client-data
+                storage. You may request deletion of submitted contact or trial information
+                by emailing info@thestrategypitch.com.
               </p>
             </div>
 
@@ -93,7 +99,7 @@ export function PrivacyPolicyPage() {
               <p>
                 Privacy-related requests can be sent to:
                 <br />
-                barnes@thestrategypitch.com
+                info@thestrategypitch.com
               </p>
             </div>
 
@@ -102,7 +108,6 @@ export function PrivacyPolicyPage() {
                 Back to Home
               </Link>
             </div>
-
           </div>
         </Container>
       </Section>
