@@ -478,32 +478,25 @@ export function DemoPage() {
                 <label className="block text-xs font-semibold uppercase tracking-widest text-foreground mb-2">
                   Meeting Transcript
                 </label>
-                <div className="mb-4 rounded-xl border border-yellow-300 bg-yellow-50 p-4">
-  <h3 className="text-sm font-semibold text-yellow-900 mb-2">
-    Before Using Real Client Data
+                <div className="mb-5 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+  <h3 className="text-sm font-bold text-amber-900 mb-2">
+    Data Use Notice
   </h3>
 
-  <div className="space-y-2 text-xs text-yellow-800 leading-relaxed">
+  <div className="space-y-2 text-sm text-amber-900/80 leading-relaxed">
     <p>
-      This environment is intended for evaluation and controlled business testing.
+      This demo is for evaluation and workflow testing only.
     </p>
 
     <p>
-      Do not upload confidential, regulated, legal, medical, financial, HR,
-      government, or third-party customer information unless you are authorized
+      Do not enter confidential, regulated, legal, medical, financial, HR,
+      government, or third-party client information unless you are authorized
       to do so.
     </p>
 
     <p>
-      By continuing, you acknowledge that you are responsible for ensuring
-      you have the right to process and upload any meeting transcripts,
-      notes, files, or customer information entered into the system.
-    </p>
-
-    <p>
-      For enterprise deployment, regulated data handling, encryption,
-      retention controls, and dedicated environments, contact
-      barnes@thestrategypitch.com.
+      Production use with real client data requires appropriate customer
+      consent, security controls, retention settings, and deletion workflows.
     </p>
   </div>
 </div>
