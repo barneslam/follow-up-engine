@@ -180,6 +180,14 @@ How It Works
               <p className="mt-6 text-sm font-medium text-slate/60">
                 Create unlimited follow-up packs during your 7-day launch test.
               </p>
+
+              <div className="mt-10">
+                <img
+                  src="/images/hero-workflow.png"
+                  alt="Follow-Up Engine for SMB sales teams"
+                  className="w-full rounded-3xl border border-slate-200 shadow-2xl"
+                />
+              </div>
             </div>
 
             <div className="relative lg:pt-6">
@@ -277,6 +285,14 @@ How It Works
           </h2>
         </div>
 
+        <div className="mb-16">
+          <img
+            src="/images/how-it-works.png"
+            alt="How Follow-Up Engine works"
+            className="w-full rounded-3xl border border-slate-200 shadow-xl"
+          />
+        </div>
+
         <div className="rounded-3xl bg-gradient-to-br from-[#f0f7ff] to-white border-2 border-slate-200 p-8 sm:p-12 mb-20 shadow-sm overflow-x-auto">
           <ol className="flex min-w-max items-center gap-3">
             {WORKFLOW.map((s, i) => (
@@ -300,6 +316,14 @@ How It Works
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
             Eight outputs from one meeting — every time.
           </h2>
+        </div>
+
+        <div className="mb-16">
+          <img
+            src="/images/outputs-engine.png"
+            alt="Seven follow-up outputs from one meeting"
+            className="w-full rounded-3xl border border-slate-200 shadow-xl"
+          />
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {OUTPUTS.map((o) => (
