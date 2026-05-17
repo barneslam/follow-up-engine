@@ -98,9 +98,9 @@ function PricingCard({
             Recommended
           </span>
         )}
-        <h3 className="font-display text-xl font-semibold text-white">{title}</h3>
+        <h3 className="font-display text-xl font-semibold text-slate">{title}</h3>
         <div className="mt-3">
-          <span className="text-4xl font-bold text-white">{price}</span>
+          <span className="text-4xl font-bold text-slate">{price}</span>
           {price !== 'Custom' && (
             <span className="text-sm ml-2 text-muted-foreground">
               {price.includes('Coming') ? '' : '/month'}
@@ -143,7 +143,7 @@ export function HomePage() {
                 Built for SMB sales teams
               </div>
 
-              <h1 className="font-display text-4xl sm:text-6xl lg:text-[4.9rem] font-bold leading-[1.02] tracking-tight text-white">
+              <h1 className="font-display text-4xl sm:text-6xl lg:text-[4.9rem] font-bold leading-[1.02] tracking-tight text-slate">
                 Team follow-up after every sales meeting.
               </h1>
 
@@ -193,7 +193,7 @@ How It Works
                   FOLLOW-UP EMAIL
                 </div>
 
-                <div className="mt-6 space-y-4 text-base leading-relaxed text-white">
+                <div className="mt-6 space-y-4 text-base leading-relaxed text-slate">
                   <p className="text-slate/70">To: prospect@company.com</p>
                   <p className="font-bold">Subject: Next steps from our discovery call today</p>
                   <p>Hi Sarah,</p>
@@ -216,7 +216,7 @@ How It Works
                     ACTION ITEMS
                   </div>
 
-                  <ul className="mt-6 space-y-4 text-base text-white">
+                  <ul className="mt-6 space-y-4 text-base text-slate">
                     <li className="flex gap-3">
                       <Check className="h-5 w-5 shrink-0 text-primary" />
                       <span>Send solution one-pager</span>
@@ -238,7 +238,7 @@ How It Works
                     WHATSAPP SUMMARY
                   </div>
 
-                  <p className="mt-6 text-base leading-relaxed text-white">
+                  <p className="mt-6 text-base leading-relaxed text-slate">
                     Quick recap: Sarah&apos;s team is tracking pipeline manually,
                     wants better visibility, and is interested in a Q2 pilot with 3 reps.
                     Follow-up: send one-pager by Friday.
@@ -251,7 +251,7 @@ How It Works
                     EMAIL TO MANAGER
                   </div>
 
-                  <div className="mt-6 space-y-3 text-base leading-relaxed text-white">
+                  <div className="mt-6 space-y-3 text-base leading-relaxed text-slate">
                     <p className="font-bold">Subject: Update from today’s sales call</p>
                     <p>
                       Sarah’s team is interested in a Q2 pilot with 3 reps. Main issue is weak pipeline visibility and inconsistent follow-up.
@@ -270,7 +270,7 @@ How It Works
       <Section className="border-b border-border bg-[#f4f1eb]">
         <div className="max-w-3xl mb-14">
           <SectionEyebrow>The problem</SectionEyebrow>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-white">
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
             Sales follow-up breaks before and after the meeting.
           </h2>
         </div>
@@ -280,7 +280,7 @@ How It Works
               <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl ${p.bg} ${p.color}`}>
                 <p.icon className="h-6 w-6" />
               </div>
-              <span className="text-base font-medium leading-relaxed text-white">
+              <span className="text-base font-medium leading-relaxed text-slate">
                 {p.text}
               </span>
             </div>
@@ -291,7 +291,7 @@ How It Works
       <Section id="how-it-works" className="bg-white border-b border-border">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>How it works</SectionEyebrow>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-white">
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
             One workflow, end-to-end — from calendar invite to manager update.
           </h2>
         </div>
@@ -324,7 +324,7 @@ How It Works
       <Section className="border-b border-border bg-[#f8f7f4]">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>Product output</SectionEyebrow>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-white">
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
             Eight outputs from one meeting — every time.
           </h2>
         </div>
@@ -352,7 +352,7 @@ How It Works
       <Section className="bg-[#f7fbff] border-b border-border">
         <div className="rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-[#f0f7ff] to-white p-10 text-center sm:p-20 shadow-md">
           <SectionEyebrow>Try it</SectionEyebrow>
-          <h2 className="mx-auto max-w-2xl font-display text-4xl sm:text-5xl font-bold text-white">
+          <h2 className="mx-auto max-w-2xl font-display text-4xl sm:text-5xl font-bold text-slate">
             Paste a transcript. See the full follow-up pack in seconds.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-slate/70">
@@ -374,7 +374,7 @@ How It Works
 <Section className="border-b border-border bg-[#f8f7f6]">
   <div className="max-w-3xl mb-16">
     <SectionEyebrow>Pricing</SectionEyebrow>
-    <h2 className="font-display text-4xl sm:text-5xl font-bold text-white">
+    <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
       Team-based beta pricing for growing sales teams.
     </h2>
   </div>
@@ -388,7 +388,7 @@ How It Works
       <div className="h-px flex-1 bg-primary/40" />
     </div>
 
-    <h3 className="font-display text-3xl font-bold text-white">
+    <h3 className="font-display text-3xl font-bold text-slate">
       Beta Team Trial starts at 14-day free trial for the first month.
     </h3>
 
@@ -410,11 +410,11 @@ How It Works
 <Section className="bg-[#f7fbff] border-b border-border">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>Fit check</SectionEyebrow>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-white">Who it&apos;s for.</h2>
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">Who it&apos;s for.</h2>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-white to-[#f5f8f5] p-10 shadow-md">
-            <h3 className="font-display text-2xl font-bold text-white">Best for</h3>
+            <h3 className="font-display text-2xl font-bold text-slate">Best for</h3>
             <ul className="mt-6 space-y-4">
               {BEST_FOR.map((t) => (
                 <li key={t} className="flex items-start gap-3 text-sm text-slate/80">
@@ -425,7 +425,7 @@ How It Works
             </ul>
           </div>
           <div className="rounded-3xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-10 shadow-md">
-            <h3 className="font-display text-2xl font-bold text-white">Not for</h3>
+            <h3 className="font-display text-2xl font-bold text-slate">Not for</h3>
             <ul className="mt-6 space-y-4">
               {NOT_FOR.map((t) => (
                 <li key={t} className="flex items-start gap-3 text-sm text-slate/70">
@@ -441,7 +441,7 @@ How It Works
       <Section className="border-b border-border bg-[#f4f1eb]">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>Roadmap</SectionEyebrow>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-white">
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
             Built for deeper workflow integration.
           </h2>
           <p className="mt-6 text-lg text-slate/70">
@@ -460,11 +460,11 @@ How It Works
       </Section>
 
       <Section className="bg-white">
-        <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
+        <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-slate sm:px-16 sm:py-28 shadow-lg">
           <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
             Stop letting meetings end without clear follow-up.
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate/70">
             Start with early access today. Request a demo, try the flow, or pick a plan.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -473,7 +473,7 @@ How It Works
             </Button>
             <Link
               to="/demo"
-              className="inline-flex h-14 items-center justify-center rounded-lg border border-white/20 bg-white/10 backdrop-blur px-8 text-base font-semibold text-white hover:bg-white/25 transition"
+              className="inline-flex h-14 items-center justify-center rounded-lg border border-white/20 bg-white/10 backdrop-blur px-8 text-base font-semibold text-slate hover:bg-white/25 transition"
             >
               Try Demo Flow
             </Link>
