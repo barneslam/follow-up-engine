@@ -269,7 +269,7 @@ How It Works
         </div>
       </Section>
 
-      <Section className="bg-white border-b border-border">
+      <Section id="how-it-works" className="bg-white border-b border-border">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>How it works</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
