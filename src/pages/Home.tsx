@@ -168,12 +168,13 @@ export function HomePage() {
                   Start 7-Day Trial
                 </Button>
 
-                <Button size="lg" variant="outline" className="h-14 w-full sm:w-auto px-8 text-base border-slate-300 hover:border-slate-400" asChild>
-                  <Link to="/demo">
-                    Watch Demo Flow
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
+               <Link
+  to="/demo"
+  className="inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-8 text-base font-semibold text-slate hover:border-slate-400 hover:bg-slate-50 transition"
+>
+  Watch Demo Flow
+  <ArrowRight className="h-4 w-4" />
+</Link> 
               </div>
 
               <p className="mt-6 text-sm font-medium text-slate/60">
@@ -323,9 +324,13 @@ export function HomePage() {
             A live, simulated demo runs entirely in your browser. No signup, no integrations, no data sent anywhere.
           </p>
           <div className="mt-10">
-            <Button size="lg" asChild>
-              <Link to="/demo">Open the demo flow <ArrowRight className="h-4 w-4" /></Link>
-            </Button>
+            <Link
+              to="/demo"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-primary px-8 text-base font-semibold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition"
+            >
+              Open the demo flow
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </Section>
@@ -357,9 +362,12 @@ export function HomePage() {
     </p>
 
     <div className="mt-8">
-      <Button size="lg" asChild>
-        <Link to="/pricing">View Launch Pricing</Link>
-      </Button>
+      <Link
+  to="/pricing"
+  className="inline-flex h-14 items-center justify-center rounded-lg bg-primary px-8 text-base font-semibold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition"
+>
+  View Launch Pricing
+</Link>
     </div>
   </div>
 </Section>
@@ -428,9 +436,12 @@ export function HomePage() {
             <Button size="lg" onClick={() => setTrialOpen(true)}>
               Request Early Access
             </Button>
-            <Button size="lg" className="border-white/40 bg-white/15 text-white hover:bg-white/25" asChild>
-              <Link to="/demo">Try Demo Flow</Link>
-            </Button>
+            <Link
+              to="/demo"
+              className="inline-flex h-14 items-center justify-center rounded-lg border border-white/40 bg-white/15 px-8 text-base font-semibold text-white hover:bg-white/25 transition"
+            >
+              Try Demo Flow
+            </Link>
           </div>
         </div>
       </Section>
