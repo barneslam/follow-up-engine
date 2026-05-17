@@ -135,7 +135,7 @@ export function HomePage() {
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} />
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="border-b border-border bg-gradient-to-b from-[#f7fbff] via-[#eef6ff] to-[#f5f4f1] px-6 pt-20 pb-24 sm:pt-32 sm:pb-40">
+      <section className="border-b border-border bg-gradient-to-b from-[#f7fbff] via-[#eef6ff] to-[#f4f1eb] px-6 pt-20 pb-24 sm:pt-32 sm:pb-40">
         <Container>
           <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:items-start">
             <div>
@@ -150,7 +150,7 @@ export function HomePage() {
               <div className="mt-8 inline-flex items-center gap-3 rounded-xl border border-primary/20 bg-white px-5 py-4 shadow-lg shadow-slate-200/70">
                 <span className="text-xs font-bold uppercase tracking-wide text-primary">Save</span>
                 <span className="text-3xl font-bold text-primary">2+ hours</span>
-                <span className="text-sm font-semibold text-white/80">per sales meeting</span>
+                <span className="text-sm font-semibold text-slate/70">per sales meeting</span>
               </div>
 
               <p className="mt-6 sm:mt-8 max-w-2xl text-lg sm:text-[1.45rem] font-medium leading-[1.6] text-slate/80">
@@ -194,7 +194,7 @@ How It Works
                 </div>
 
                 <div className="mt-6 space-y-4 text-base leading-relaxed text-white">
-                  <p className="text-white/80">To: prospect@company.com</p>
+                  <p className="text-slate/70">To: prospect@company.com</p>
                   <p className="font-bold">Subject: Next steps from our discovery call today</p>
                   <p>Hi Sarah,</p>
                   <p>Great conversation today. Here&apos;s what we discussed:</p>
@@ -312,7 +312,7 @@ How It Works
                   <div className="grid h-14 w-14 place-items-center rounded-xl border-2 border-primary/40 bg-white text-primary shadow-md">
                     <s.icon className="h-6 w-6" />
                   </div>
-                  <span className="w-28 text-center text-xs font-semibold text-white/80">{s.label}</span>
+                  <span className="w-28 text-center text-xs font-semibold text-slate/70">{s.label}</span>
                 </div>
                 {i < WORKFLOW.length - 1 && <ChevronRight className="h-5 w-5 text-slate/20" />}
               </li>
@@ -343,7 +343,7 @@ How It Works
                 <o.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-5 text-sm font-bold text-slate leading-snug">{o.title}</h3>
-              <p className="mt-3 text-xs text-white/80 leading-relaxed">{o.desc}</p>
+              <p className="mt-3 text-xs text-slate/70 leading-relaxed">{o.desc}</p>
             </div>
           ))}
         </div>
@@ -355,7 +355,7 @@ How It Works
           <h2 className="mx-auto max-w-2xl font-display text-4xl sm:text-5xl font-bold text-white">
             Paste a transcript. See the full follow-up pack in seconds.
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-white/80">
+          <p className="mx-auto mt-6 max-w-xl text-lg text-slate/70">
             A live, simulated demo runs entirely in your browser. No signup, no integrations, no data sent anywhere.
           </p>
           <div className="mt-10">
@@ -392,7 +392,7 @@ How It Works
       Beta Team Trial starts at 14-day free trial for the first month.
     </h3>
 
-    <p className="mx-auto mt-4 max-w-xl text-base text-white/80">
+    <p className="mx-auto mt-4 max-w-xl text-base text-slate/70">
       See the full launch pricing structure, including the $59/month Launch Plan and future coming-soon tiers.
     </p>
 
@@ -428,7 +428,7 @@ How It Works
             <h3 className="font-display text-2xl font-bold text-white">Not for</h3>
             <ul className="mt-6 space-y-4">
               {NOT_FOR.map((t) => (
-                <li key={t} className="flex items-start gap-3 text-sm text-white/80">
+                <li key={t} className="flex items-start gap-3 text-sm text-slate/70">
                   <span className="mt-2 h-0.5 w-4 shrink-0 bg-slate/30 rounded" />
                   <span>{t}</span>
                 </li>
@@ -444,7 +444,7 @@ How It Works
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-white">
             Built for deeper workflow integration.
           </h2>
-          <p className="mt-6 text-lg text-white/80">
+          <p className="mt-6 text-lg text-slate/70">
             Future phases may include Fathom connection, Google Calendar, Outlook Calendar, Google Drive,
             Salesforce, HubSpot, Pipedrive, and team manager dashboards.
           </p>
@@ -459,7 +459,7 @@ How It Works
         <p className="text-xs font-medium text-slate/60">Coming soon — not live in this version.</p>
       </Section>
 
-      <Section className="bg-[#0f172a] text-white">
+      <Section className="bg-white">
         <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
           <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
             Stop letting meetings end without clear follow-up.
