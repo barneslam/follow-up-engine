@@ -460,11 +460,11 @@ How It Works
       </Section>
 
       <Section className="bg-[#0f172a]">
-        <div className="rounded-3xl bg-[radial-gradient(circle_at_top,#1d4ed8_0%,#12356f_35%,#0f172a_100%)] px-8 py-20 text-center text-slate sm:px-16 sm:py-28 shadow-lg">
+        <div className="rounded-3xl bg-[radial-gradient(circle_at_top,#1d4ed8_0%,#12356f_35%,#0f172a_100%)] px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
           <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
             Stop letting meetings end without clear follow-up.
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate/70">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85">
             Start with early access today. Request a demo, try the flow, or pick a plan.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -473,7 +473,7 @@ How It Works
             </Button>
             <Link
               to="/demo"
-              className="inline-flex h-14 items-center justify-center rounded-lg border border-white/20 bg-white/10 backdrop-blur px-8 text-base font-semibold text-slate hover:bg-white/25 transition"
+              className="inline-flex h-14 items-center justify-center rounded-lg border border-white/20 bg-white/10 backdrop-blur px-8 text-base font-semibold text-white hover:bg-white/25 transition"
             >
               Try Demo Flow
             </Link>
