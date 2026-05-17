@@ -165,7 +165,7 @@ export function HomePage() {
 
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
                 <Button size="lg" className="h-14 w-full sm:w-auto px-8 text-base font-semibold shadow-lg shadow-primary/20" onClick={() => setTrialOpen(true)}>
-                  Start 7-Day Trial
+                  Start 14-Day Trial
                 </Button>
 
                <Link
@@ -181,13 +181,7 @@ How It Works
                 Start with a 14-day free team beta. Built for up to 3 users.
               </p>
 
-              <div className="mt-10">
-                <img
-                  src="/images/hero-workflow.png"
-                  alt="Follow-Up Engine for SMB sales teams"
-                  className="w-full rounded-3xl border border-slate-200 shadow-2xl"
-                />
-              </div>
+              
             </div>
 
             <div className="relative lg:pt-6">
