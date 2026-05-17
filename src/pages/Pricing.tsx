@@ -168,7 +168,7 @@ export function PricingPage() {
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate mb-12">
               Frequently asked questions
             </h2>
-            <div className="bg-white border-2 border-slate/20 rounded-xl divide-y divide-slate/20 overflow-hidden shadow-sm">
+            <div className="bg-[#f4f7fb] border-2 border-slate/20 rounded-xl divide-y divide-slate/20 overflow-hidden shadow-sm">
               {FAQ.map((f) => (
                 <AccordionItem key={f.q} q={f.q} a={f.a} />
               ))}
@@ -177,7 +177,7 @@ export function PricingPage() {
         </Container>
       </Section>
 
-      <Section className="bg-white">
+      <Section className="bg-[#f4f7fb]">
         <Container>
           <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
             <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
@@ -190,7 +190,7 @@ export function PricingPage() {
               <Button size="lg" onClick={() => setTrialOpen(true)}>
                 Request Early Access
               </Button>
-              <Button size="lg" className="border-white/40 bg-white/15 text-white hover:bg-white/25">
+              <Button size="lg" className="border-white/40 bg-[#f4f7fb]/15 text-white hover:bg-[#f4f7fb]/25">
                 Request Demo
               </Button>
             </div>
@@ -228,7 +228,7 @@ function PricingCard({
         ? 'border-slate-200 bg-slate-50 opacity-60'
         : isPrimary
           ? 'border-primary bg-gradient-to-br from-[#f0f7ff] to-white shadow-xl ring-2 ring-primary/20 xl:scale-105'
-          : 'border-slate-200 bg-white shadow-md hover:shadow-xl'
+          : 'border-slate-200 bg-[#f4f7fb] shadow-md hover:shadow-xl'
     }`}>
       {isPrimary && (
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">

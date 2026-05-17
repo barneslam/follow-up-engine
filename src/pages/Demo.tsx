@@ -44,14 +44,14 @@ export function DemoPage() {
     <>
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="border-b border-border bg-[radial-gradient(circle_at_top_left,#dbeafe_0%,#f7fbff_42%,#f4f1eb_100%)] px-6 pt-20 pb-16 sm:pt-28 sm:pb-20">
+      <section className="bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_55%,#020617_100%)] pt-20 pb-20">
         <Container>
           <div className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full border border-primary/20 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-primary">
               Try Product Demo
             </div>
 
-            <h1 className="font-display text-5xl sm:text-6xl font-bold leading-[0.98] tracking-tight text-slate">
+            <h1 className="font-display text-5xl sm:text-6xl font-bold leading-[0.98] tracking-tight text-white">
               Turn meeting notes into intent-driven sales follow-up.
             </h1>
 
@@ -67,7 +67,7 @@ export function DemoPage() {
 
               <Link
                 to="/pricing"
-                className="inline-flex h-12 items-center justify-center rounded-lg border border-slate-300 bg-white px-6 text-sm font-semibold text-slate hover:bg-[#f5f7fb] transition"
+                className="inline-flex h-12 items-center justify-center rounded-lg border border-slate-300 bg-[#f4f7fb] px-6 text-sm font-semibold text-slate hover:bg-[#f5f7fb] transition"
               >
                 Buy
               </Link>
@@ -78,7 +78,7 @@ export function DemoPage() {
 
       <Section className="bg-[#f4f1eb] border-b border-border">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-3xl border border-white/80 bg-white/95 p-8 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur">
+          <div className="rounded-3xl border border-white/80 bg-[#f4f7fb]/95 p-8 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur">
             <div className="mb-5 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4">
               <Shield className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
               <p className="text-sm leading-relaxed text-amber-900/85">
@@ -95,19 +95,19 @@ export function DemoPage() {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={9}
-              className="w-full rounded-2xl border border-slate-300 bg-white p-4 text-sm leading-relaxed text-slate shadow-inner focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full rounded-2xl border border-slate-300 bg-[#f4f7fb] p-4 text-sm leading-relaxed text-slate shadow-inner focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Paste sample meeting notes here. Example: Prospect wants better sales follow-up, has 3 reps, currently uses manual notes, manager lacks visibility, next step is proposal review..."
             />
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate/70">
+                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-white/80">
                   2. Communication Objective
                 </label>
                 <select
                   value={objective}
                   onChange={(e) => setObjective(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full rounded-xl border border-slate-300 bg-[#f4f7fb] px-4 py-3 text-sm text-slate focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option>Move deal forward</option>
                   <option>Secure next meeting</option>
@@ -120,13 +120,13 @@ export function DemoPage() {
               </div>
 
               <div>
-                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-slate/70">
+                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-white/80">
                   3. Desired Tone
                 </label>
                 <select
                   value={tone}
                   onChange={(e) => setTone(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full rounded-xl border border-slate-300 bg-[#f4f7fb] px-4 py-3 text-sm text-slate focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option>Executive</option>
                   <option>Consultative</option>
@@ -146,7 +146,7 @@ export function DemoPage() {
                 value={keyMessage}
                 onChange={(e) => setKeyMessage(e.target.value)}
                 rows={3}
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full rounded-xl border border-slate-300 bg-[#f4f7fb] px-4 py-3 text-sm text-slate focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="What should the client clearly understand after reading the follow-up?"
               />
             </div>
@@ -159,7 +159,7 @@ export function DemoPage() {
                 value={nextStep}
                 onChange={(e) => setNextStep(e.target.value)}
                 rows={2}
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full rounded-xl border border-slate-300 bg-[#f4f7fb] px-4 py-3 text-sm text-slate focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Example: Schedule a 30-minute pilot review next week."
               />
             </div>
@@ -205,16 +205,16 @@ export function DemoPage() {
 
               <Link
                 to="/pricing"
-                className="inline-flex h-12 items-center justify-center rounded-lg border border-slate-300 bg-white px-6 text-sm font-semibold text-slate hover:bg-[#f5f7fb] transition"
+                className="inline-flex h-12 items-center justify-center rounded-lg border border-slate-300 bg-[#f4f7fb] px-6 text-sm font-semibold text-slate hover:bg-[#f5f7fb] transition"
               >
                 Buy
               </Link>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-white/80 bg-white/95 p-8 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur">
+          <div className="rounded-3xl border border-white/80 bg-[#f4f7fb]/95 p-8 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur">
             <div className="mb-6">
-              <h2 className="font-display text-3xl font-bold text-slate">
+              <h2 className="font-display text-3xl font-bold text-white">
                 Generated follow-up pack
               </h2>
               <p className="mt-2 text-sm text-slate/70">
@@ -257,7 +257,7 @@ export function DemoPage() {
 
               <Link
                 to="/pricing"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 text-sm font-semibold text-slate hover:bg-[#f5f7fb] transition"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-[#f4f7fb] px-6 text-sm font-semibold text-slate hover:bg-[#f5f7fb] transition"
               >
                 View Pricing <ArrowRight className="h-4 w-4" />
               </Link>
@@ -286,7 +286,7 @@ function FrameworkButton({
     <button
       onClick={() => setFramework(id)}
       className={`rounded-xl border px-4 py-3 text-sm font-semibold transition ${
-        active ? 'border-primary bg-primary text-white shadow-md' : 'border-slate-200 bg-white text-slate hover:bg-[#f5f7fb]'
+        active ? 'border-primary bg-primary text-white shadow-md' : 'border-slate-200 bg-[#f4f7fb] text-slate hover:bg-[#f5f7fb]'
       }`}
     >
       {label}
@@ -324,7 +324,7 @@ function OutputButton({
       className={`flex items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm font-semibold transition ${
         active
           ? 'border-primary bg-primary text-white shadow-md'
-          : 'border-slate-200 bg-white text-slate hover:bg-[#f5f7fb]'
+          : 'border-slate-200 bg-[#f4f7fb] text-slate hover:bg-[#f5f7fb]'
       }`}
     >
       {icon}
@@ -360,7 +360,7 @@ function OutputPanel({
         <p>
           Thank you again for the conversation today. Based on our discussion, the priority appears to be moving from meeting activity to consistent follow-through across the team.
         </p>
-        <p className="rounded-xl bg-white p-4 border border-slate-200">
+        <p className="rounded-xl bg-[#f4f7fb] p-4 border border-slate-200">
           <strong>Context used:</strong> {summarySource}
         </p>
         <p>
@@ -383,7 +383,7 @@ function OutputPanel({
     return (
       <div className="space-y-4 text-sm leading-relaxed text-slate">
         <p className="font-bold">WhatsApp / Short Message</p>
-        <p className="rounded-xl bg-white p-4 border border-slate-200">
+        <p className="rounded-xl bg-[#f4f7fb] p-4 border border-slate-200">
           Quick recap from today: the main focus is improving team follow-up consistency and manager visibility. Next step: {nextStep} I’ll send the short summary and we can confirm a time to review.
         </p>
       </div>
@@ -395,9 +395,9 @@ function OutputPanel({
       <div className="space-y-4 text-sm leading-relaxed text-slate">
         <p className="font-bold">Action Items</p>
         <ul className="space-y-3">
-          <li className="rounded-xl bg-white p-4 border border-slate-200">Owner: Rep — Send client follow-up email with clear next meeting CTA.</li>
-          <li className="rounded-xl bg-white p-4 border border-slate-200">Owner: Rep — Confirm preferred time for follow-up discussion.</li>
-          <li className="rounded-xl bg-white p-4 border border-slate-200">Owner: Manager — Review opportunity risk, next step, and timeline.</li>
+          <li className="rounded-xl bg-[#f4f7fb] p-4 border border-slate-200">Owner: Rep — Send client follow-up email with clear next meeting CTA.</li>
+          <li className="rounded-xl bg-[#f4f7fb] p-4 border border-slate-200">Owner: Rep — Confirm preferred time for follow-up discussion.</li>
+          <li className="rounded-xl bg-[#f4f7fb] p-4 border border-slate-200">Owner: Manager — Review opportunity risk, next step, and timeline.</li>
         </ul>
       </div>
     )
@@ -410,7 +410,7 @@ function OutputPanel({
       <p>
         Quick update from the meeting: the prospect appears aligned with the need for better follow-up discipline and visibility across a small sales team.
       </p>
-      <p className="rounded-xl bg-white p-4 border border-slate-200">
+      <p className="rounded-xl bg-[#f4f7fb] p-4 border border-slate-200">
         <strong>Opportunity:</strong> Strong fit for team workflow. <br />
         <strong>Risk:</strong> Decision timeline and owner still need confirmation. <br />
         <strong>Next step:</strong> {nextStep}
