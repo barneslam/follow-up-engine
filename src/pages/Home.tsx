@@ -135,7 +135,7 @@ export function HomePage() {
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} />
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="border-b border-border bg-[radial-gradient(circle_at_top_left,#eaf4ff_0%,#f7fbff_35%,#f4f1eb_100%)] px-6 pt-20 pb-24 sm:pt-32 sm:pb-40">
+      <section className="border-b border-border bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_55%,#020617_100%)] px-6 pt-20 pb-24 sm:pt-32 sm:pb-40">
         <Container>
           <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:items-start">
             <div>
