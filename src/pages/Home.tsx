@@ -244,6 +244,23 @@ How It Works
                     Follow-up: send one-pager by Friday.
                   </p>
                 </div>
+
+                <div className="rounded-[1.5rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/60 sm:col-span-2">
+                  <div className="flex items-center gap-3 text-base font-bold text-primary">
+                    <Users className="h-7 w-7" />
+                    EMAIL TO MANAGER
+                  </div>
+
+                  <div className="mt-6 space-y-3 text-base leading-relaxed text-slate">
+                    <p className="font-bold">Subject: Update from today’s sales call</p>
+                    <p>
+                      Sarah’s team is interested in a Q2 pilot with 3 reps. Main issue is weak pipeline visibility and inconsistent follow-up.
+                    </p>
+                    <p>
+                      Next move: send one-pager, confirm pilot owner, and book pilot review next week.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
