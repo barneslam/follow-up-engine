@@ -172,7 +172,7 @@ export function HomePage() {
   to="/demo"
   className="inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-8 text-base font-semibold text-slate hover:border-slate-400 hover:bg-slate-50 transition"
 >
-  Watch Demo Flow
+How It Works
   <ArrowRight className="h-4 w-4" />
 </Link> 
               </div>
