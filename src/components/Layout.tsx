@@ -14,7 +14,7 @@ export function Header() {
 
         <nav className="hidden md:flex gap-8">
           
-          <Link to="/demo" className="text-sm text-muted-foreground hover:text-foreground transition">How It Works</Link>
+          <Link to="/demo" className="text-sm text-muted-foreground hover:text-foreground transition">Try Product</Link>
           <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition">Pricing</Link>
           <Link to="/team-setup" className="text-sm text-muted-foreground hover:text-foreground transition">Team Setup</Link>
         </nav>
