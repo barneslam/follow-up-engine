@@ -76,7 +76,7 @@ export function DemoPage() {
         </Container>
       </section>
 
-      <Section className="bg-[#f4f1eb] border-b border-border">
+      <Section className="bg-gradient-to-b from-[#f4f7fb] to-[#eef2f7] border-b border-border">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="rounded-3xl border border-white/80 bg-[#f4f7fb]/95 p-8 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur">
             <div className="mb-5 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4">
@@ -229,7 +229,7 @@ export function DemoPage() {
               <OutputButton id="manager" activeTab={activeTab} setActiveTab={setActiveTab} icon={<Users className="h-4 w-4" />} label="Manager Email" />
             </div>
 
-            <div className="min-h-[430px] rounded-2xl border border-slate-200/80 bg-[#f8fafc] p-6 shadow-inner">
+            <div className="min-h-[430px] rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_12px_35px_rgba(15,23,42,0.08)]">
               {!generated ? (
                 <div className="flex h-[360px] flex-col items-center justify-center text-center">
                   <p className="text-lg font-semibold text-slate">Add intent and generate a sample pack.</p>
