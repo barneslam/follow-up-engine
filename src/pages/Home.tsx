@@ -30,7 +30,7 @@ const PROBLEMS = [
   { icon: SiGmail, bg: 'bg-red-50', color: 'text-red-600', text: 'Follow-up emails take too long' },
   { icon: SiWhatsapp, bg: 'bg-green-50', color: 'text-green-600', text: 'WhatsApp summaries are inconsistent' },
   { icon: Users, bg: 'bg-purple-50', color: 'text-purple-600', text: 'Internal managers do not know what was promised' },
-  { icon: ListChecks, bg: 'bg-blue-50', color: 'text-blue-600', text: 'Action items are not assigned clearly' },
+  { icon: ListChecks, bg: 'bg-blue-50', color: 'text-blue-600', text: 'Action items and owners are not assigned clearly' },
   { icon: BarChart3, bg: 'bg-emerald-50', color: 'text-emerald-600', text: 'Pipeline impact is not captured' },
 ]
 
@@ -364,7 +364,7 @@ How It Works
   <div className="max-w-3xl mb-16">
     <SectionEyebrow>Pricing</SectionEyebrow>
     <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
-      Launch pricing for growing sales teams.
+      Team-based beta pricing for growing sales teams.
     </h2>
   </div>
 
@@ -378,11 +378,11 @@ How It Works
     </div>
 
     <h3 className="font-display text-3xl font-bold text-slate">
-      Limited Beta starts at $9.99 for the first month.
+      Beta Team Trial starts at 14-day free trial for the first month.
     </h3>
 
     <p className="mx-auto mt-4 max-w-xl text-base text-slate/70">
-      See the full launch pricing structure, including the $19.99/month Launch Plan and future coming-soon tiers.
+      See the full launch pricing structure, including the $59/month Launch Plan and future coming-soon tiers.
     </p>
 
     <div className="mt-8">

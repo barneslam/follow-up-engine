@@ -7,12 +7,12 @@ import { useState } from 'react'
 
 const FAQ = [
   {
-    q: "What's included in Limited Beta?",
-    a: "Limited Beta includes the core follow-up workflow, transcript-based outputs, follow-up email drafts, WhatsApp summaries, and action items during the launch testing period.",
+    q: "What's included in Beta Team Trial?",
+    a: "Beta Team Trial includes the core follow-up workflow, transcript-based outputs, follow-up email drafts, WhatsApp summaries, and action items during the launch testing period.",
   },
   {
-    q: "What is the difference between Limited Beta and Launch Plan?",
-    a: "Limited Beta is a lower-priced early access option. Launch Plan is the primary plan for active sales teams and includes broader usage, manager visibility, output library, priority support, and first-month-free launch access.",
+    q: "What is the difference between Beta Team Trial and Launch Plan?",
+    a: "Beta Team Trial is a lower-priced early access option. Launch Plan is the primary plan for active sales teams and includes broader usage, manager visibility, output library, priority support, and first-month-free launch access.",
   },
   {
     q: "Is the first month really free on the Launch Plan?",
@@ -75,10 +75,10 @@ export function PricingPage() {
           <div className="max-w-3xl mx-auto text-center">
             <SectionEyebrow>Pricing</SectionEyebrow>
             <h1 className="font-display text-5xl sm:text-6xl font-bold text-slate">
-              Pricing that fits how you sell.
+              Beta access for SMB sales teams.
             </h1>
             <p className="mt-6 text-xl text-slate/70">
-              Start with beta access, then move into the monthly launch plan when you are ready.
+              Start with a 14-day team beta. Then continue at $59/month for up to 3 users.
             </p>
 
             <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-4">
@@ -96,31 +96,32 @@ export function PricingPage() {
         <Container>
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4 items-start">
             <PricingCard
-              title="Limited Beta"
-              price="$9.99"
-              description="Beta launch pricing for the first month"
+              title="Beta Team Trial"
+              price="14-day free trial"
+              description="14-day free beta for SMB sales teams"
               features={[
-                "Core follow-up workflow",
+                "Rep follow-up workflow",
                 "Transcript-based outputs",
-                "Email and WhatsApp drafts",
-                "Action items",
+                "Email and WhatsApp follow-ups",
+                "Action items and owners",
                 "Limited launch access",
               ]}
-              cta="Request Limited Beta"
+              cta="Request Beta Team Trial"
               onSelect={() => handleSelectPlan('launch')}
             />
 
             <PricingCard
               title="Launch Plan"
-              price="$19.99"
-              description="Continues at $19.99/month after the first month"
+              price="$59"
+              description="Then $59/month for up to 3 users"
               features={[
-                "Everything in Beta Special",
+                "Everything in Beta Team Trial",
                 "Unlimited follow-up packs",
-                "Manager visibility",
-                "Output library",
+                "Manager update and visibility",
+                "Shared team output history",
                 "Priority support",
-                "First month free during launch",
+                "14-day free beta trial",
+                "Calendar integration coming next",
               ]}
               cta="Start Launch Plan"
               isPrimary
@@ -180,7 +181,7 @@ export function PricingPage() {
         <Container>
           <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
             <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
-              Ready to turn meetings into revenue next steps?
+              Ready to turn meetings into rep follow-up and manager visibility?
             </h2>
             <p className="mt-6 text-lg text-white/90 max-w-2xl mx-auto">
               Start with beta access or request the launch plan for active sales teams.
