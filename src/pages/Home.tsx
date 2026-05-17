@@ -140,11 +140,11 @@ export function HomePage() {
           <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:items-start">
             <div>
               <div className="mb-6 inline-block rounded-full border border-primary/20 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-primary">
-                Built for SME sales teams
+                Built for SMB sales teams
               </div>
 
               <h1 className="font-display text-4xl sm:text-6xl lg:text-[4.9rem] font-bold leading-[1.02] tracking-tight text-slate">
-                One-click sales follow-up for growing teams.
+                Team follow-up after every sales meeting.
               </h1>
 
               <div className="mt-8 inline-flex items-center gap-3 rounded-xl border border-primary/20 bg-white px-5 py-4 shadow-lg shadow-slate-200/70">
@@ -160,7 +160,7 @@ export function HomePage() {
               </p>
 
               <p className="mt-5 text-base font-semibold text-primary">
-                One meeting in. Seven sales-ready outputs out.
+                One meeting in. Rep follow-up and manager visibility out.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
@@ -178,7 +178,7 @@ How It Works
               </div>
 
               <p className="mt-6 text-sm font-medium text-slate/60">
-                Create unlimited follow-up packs during your 7-day launch test.
+                Start with a 14-day free team beta. Built for up to 3 users.
               </p>
 
               <div className="mt-10">
