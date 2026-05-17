@@ -135,7 +135,7 @@ export function HomePage() {
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} />
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="border-b border-border bg-gradient-to-b from-[#f7fbff] via-[#eef6ff] to-[#f4f1eb] px-6 pt-20 pb-24 sm:pt-32 sm:pb-40">
+      <section className="border-b border-border bg-[radial-gradient(circle_at_top_left,#eaf4ff_0%,#f7fbff_35%,#f4f1eb_100%)] px-6 pt-20 pb-24 sm:pt-32 sm:pb-40">
         <Container>
           <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:items-start">
             <div>
@@ -187,7 +187,7 @@ How It Works
             <div className="relative lg:pt-6">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-blue-100/40 blur-3xl" />
 
-              <div className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+              <div className="rounded-[1.75rem] border border-slate-200/80 bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.12)]">
                 <div className="flex items-center gap-3 text-base font-bold text-primary">
                   <SiGmail className="h-7 w-7 text-red-500" />
                   FOLLOW-UP EMAIL
@@ -210,7 +210,7 @@ How It Works
               </div>
 
               <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-slate-200 bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.08)]">
+                <div className="rounded-[1.5rem] border border-slate-200/80 bg-white p-7 shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
                   <div className="flex items-center gap-3 text-base font-bold text-primary">
                     <ListChecks className="h-7 w-7" />
                     ACTION ITEMS
@@ -232,7 +232,7 @@ How It Works
                   </ul>
                 </div>
 
-                <div className="rounded-[1.5rem] border border-slate-200 bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.08)]">
+                <div className="rounded-[1.5rem] border border-slate-200/80 bg-white p-7 shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
                   <div className="flex items-center gap-3 text-base font-bold text-primary">
                     <SiWhatsapp className="h-7 w-7 text-green-500" />
                     WHATSAPP SUMMARY
@@ -245,7 +245,7 @@ How It Works
                   </p>
                 </div>
 
-                <div className="rounded-[1.5rem] border border-slate-200 bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.08)] sm:col-span-2">
+                <div className="rounded-[1.5rem] border border-slate-200/80 bg-white p-7 shadow-[0_18px_45px_rgba(15,23,42,0.10)] sm:col-span-2">
                   <div className="flex items-center gap-3 text-base font-bold text-primary">
                     <Users className="h-7 w-7" />
                     EMAIL TO MANAGER
@@ -276,7 +276,7 @@ How It Works
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           {PROBLEMS.map((p) => (
-            <div key={p.text} className="flex items-center gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div key={p.text} className="flex items-center gap-5 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
               <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl ${p.bg} ${p.color}`}>
                 <p.icon className="h-6 w-6" />
               </div>
@@ -459,8 +459,8 @@ How It Works
         <p className="text-xs font-medium text-slate/60">Coming soon — not live in this version.</p>
       </Section>
 
-      <Section className="bg-white">
-        <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-slate sm:px-16 sm:py-28 shadow-lg">
+      <Section className="bg-[#0f172a]">
+        <div className="rounded-3xl bg-gradient-to-r from-[#0f172a] via-[#12356f] to-primary px-8 py-20 text-center text-slate sm:px-16 sm:py-28 shadow-lg">
           <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
             Stop letting meetings end without clear follow-up.
           </h2>
