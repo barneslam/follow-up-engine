@@ -44,7 +44,7 @@ export function DemoPage() {
     <>
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_55%,#020617_100%)] pt-20 pb-20">
+      <section className="bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_55%,#020617_100%)] px-6 pt-20 pb-20 text-white">
         <Container>
           <div className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full border border-primary/20 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-primary">

@@ -35,15 +35,15 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-slate/20">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-5 text-left font-semibold text-slate hover:text-primary transition"
+        className="w-full py-5 text-left font-semibold text-white hover:text-primary transition"
       >
         <div className="flex items-center justify-between gap-6">
           <span className="text-base">{q}</span>
-          <span className="text-xl text-slate/40">{isOpen ? '−' : '+'}</span>
+          <span className="text-xl text-white/40">{isOpen ? '−' : '+'}</span>
         </div>
       </button>
       {isOpen && (
-        <div className="pb-5 text-slate/70 text-sm leading-relaxed">
+        <div className="pb-5 text-white/70 text-sm leading-relaxed">
           {a}
         </div>
       )}
@@ -70,11 +70,11 @@ export function PricingPage() {
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} selectedPlan={selectedPlan} />
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="border-b border-border bg-gradient-to-b from-white via-[#f0f7ff]/30 to-[#f5f4f1] px-6 py-24 sm:py-32">
+      <section className="min-h-screen bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_45%,#020617_100%)] px-6 py-20 text-white">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <SectionEyebrow>Pricing</SectionEyebrow>
-            <h1 className="font-display text-5xl sm:text-6xl font-bold text-slate">
+            <h1 className="font-display text-5xl sm:text-6xl font-bold text-white">
               Beta access for SMB sales teams.
             </h1>
             <p className="mt-6 text-xl text-slate/70">
@@ -165,7 +165,7 @@ export function PricingPage() {
       <Section className="bg-[#f8f7f6] border-b border-border">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate mb-12">
+            <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-12">
               Frequently asked questions
             </h2>
             <div className="bg-[#f4f7fb] border-2 border-slate/20 rounded-xl divide-y divide-slate/20 overflow-hidden shadow-sm">
@@ -242,17 +242,17 @@ function PricingCard({
         </span>
       )}
 
-      <h3 className="min-h-[58px] font-display text-2xl font-bold leading-tight text-slate">
+      <h3 className="min-h-[58px] font-display text-2xl font-bold leading-tight text-white">
         {title}
       </h3>
 
       <div className="mt-4 flex min-h-[92px] flex-col justify-end">
-        <span className={`${isComingSoon ? 'text-4xl' : 'text-5xl'} font-bold leading-tight text-slate`}>
+        <span className={`${isComingSoon ? 'text-4xl' : 'text-5xl'} font-bold leading-tight text-white`}>
           {price}
         </span>
 
         {!isComingSoon && (
-          <span className="mt-1 text-sm text-muted-foreground">
+          <span className="mt-1 text-sm text-slate/70">
             /month
           </span>
         )}
@@ -274,7 +274,7 @@ function PricingCard({
       <ul className="mt-9 space-y-4">
         {features.map((f) => (
           <li key={f} className="flex gap-3 text-sm leading-relaxed text-slate/70">
-            <Check className={`h-5 w-5 shrink-0 ${isPrimary ? 'text-primary' : 'text-slate/40'}`} />
+            <Check className={`h-5 w-5 shrink-0 ${isPrimary ? 'text-primary' : 'text-white/40'}`} />
             <span>{f}</span>
           </li>
         ))}
