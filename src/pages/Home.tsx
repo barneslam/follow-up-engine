@@ -143,7 +143,7 @@ export function HomePage() {
                 Built for SMB sales teams
               </div>
 
-              <h1 className="font-display text-4xl sm:text-6xl lg:text-[4.9rem] font-bold leading-[1.02] tracking-tight text-slate">
+              <h1 className="font-display text-4xl sm:text-6xl lg:text-[4.9rem] font-bold leading-[1.02] tracking-tight text-white">
                 Team follow-up after every sales meeting.
               </h1>
 
@@ -153,13 +153,13 @@ export function HomePage() {
                 <span className="text-sm font-semibold text-slate/70">per sales meeting</span>
               </div>
 
-              <p className="mt-6 sm:mt-8 max-w-2xl text-lg sm:text-[1.45rem] font-medium leading-[1.6] text-slate/80">
+              <p className="mt-6 sm:mt-8 max-w-2xl text-lg sm:text-[1.45rem] font-medium leading-[1.6] text-white/85">
                 Follow-Up Engine turns meeting transcripts into structured agendas,
                 follow-up emails, WhatsApp summaries, action items, manager updates,
                 and next steps — before momentum disappears.
               </p>
 
-              <p className="mt-5 text-base font-semibold text-primary">
+              <p className="mt-5 text-base font-semibold text-blue-200">
                 One meeting in. Rep follow-up and manager visibility out.
               </p>
 
@@ -177,7 +177,7 @@ How It Works
 </Link> 
               </div>
 
-              <p className="mt-6 text-sm font-medium text-slate/60">
+              <p className="mt-6 text-sm font-medium text-white/70">
                 Start with a 14-day free team beta. Built for up to 3 users.
               </p>
 
