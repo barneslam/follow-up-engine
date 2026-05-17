@@ -44,7 +44,7 @@ export function DemoPage() {
     <>
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="border-b border-border bg-[radial-gradient(circle_at_top_left,#e8f3ff_0%,#f7fbff_40%,#f4f1eb_100%)] px-6 pt-20 pb-16 sm:pt-28 sm:pb-20">
+      <section className="border-b border-border bg-[radial-gradient(circle_at_top_left,#dbeafe_0%,#f7fbff_42%,#f4f1eb_100%)] px-6 pt-20 pb-16 sm:pt-28 sm:pb-20">
         <Container>
           <div className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full border border-primary/20 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-primary">
@@ -78,7 +78,7 @@ export function DemoPage() {
 
       <Section className="bg-[#f4f1eb] border-b border-border">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-3xl border border-slate-200/80 bg-white p-8 shadow-[0_28px_80px_rgba(15,23,42,0.12)]">
+          <div className="rounded-3xl border border-white/80 bg-white/95 p-8 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur">
             <div className="mb-5 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4">
               <Shield className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
               <p className="text-sm leading-relaxed text-amber-900/85">
@@ -212,7 +212,7 @@ export function DemoPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200/80 bg-white p-8 shadow-[0_28px_80px_rgba(15,23,42,0.12)]">
+          <div className="rounded-3xl border border-white/80 bg-white/95 p-8 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur">
             <div className="mb-6">
               <h2 className="font-display text-3xl font-bold text-slate">
                 Generated follow-up pack

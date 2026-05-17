@@ -187,7 +187,7 @@ How It Works
             <div className="relative lg:pt-6">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-blue-100/40 blur-3xl" />
 
-              <div className="rounded-[1.75rem] border border-slate-200/80 bg-white p-8 shadow-[0_28px_80px_rgba(15,23,42,0.14)]">
+              <div className="rounded-[1.75rem] border border-white/80 bg-white/95 p-8 backdrop-blur shadow-[0_28px_80px_rgba(15,23,42,0.14)]">
                 <div className="flex items-center gap-3 text-base font-bold text-primary">
                   <SiGmail className="h-7 w-7 text-red-500" />
                   FOLLOW-UP EMAIL
@@ -210,7 +210,7 @@ How It Works
               </div>
 
               <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-slate-200/80 bg-white p-7 shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+                <div className="rounded-[1.5rem] border border-white/80 bg-white/95 p-7 backdrop-blur shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
                   <div className="flex items-center gap-3 text-base font-bold text-primary">
                     <ListChecks className="h-7 w-7" />
                     ACTION ITEMS
@@ -232,7 +232,7 @@ How It Works
                   </ul>
                 </div>
 
-                <div className="rounded-[1.5rem] border border-slate-200/80 bg-white p-7 shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+                <div className="rounded-[1.5rem] border border-white/80 bg-white/95 p-7 backdrop-blur shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
                   <div className="flex items-center gap-3 text-base font-bold text-primary">
                     <SiWhatsapp className="h-7 w-7 text-green-500" />
                     WHATSAPP SUMMARY
@@ -245,7 +245,7 @@ How It Works
                   </p>
                 </div>
 
-                <div className="rounded-[1.5rem] border border-slate-200/80 bg-white p-7 shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:col-span-2">
+                <div className="rounded-[1.5rem] border border-white/80 bg-white/95 p-7 backdrop-blur shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:col-span-2">
                   <div className="flex items-center gap-3 text-base font-bold text-primary">
                     <Users className="h-7 w-7" />
                     EMAIL TO MANAGER
@@ -288,7 +288,7 @@ How It Works
         </div>
       </Section>
 
-      <Section id="how-it-works" className="bg-[#eef6ff] border-b border-border">
+      <Section id="how-it-works" className="bg-gradient-to-b from-[#eef6ff] to-white border-b border-border">
         <div className="max-w-3xl mb-16">
           <SectionEyebrow>How it works</SectionEyebrow>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate">
@@ -379,7 +379,7 @@ How It Works
     </h2>
   </div>
 
-  <div className="rounded-3xl border-2 border-slate-200/80 bg-white p-10 text-center shadow-md">
+  <div className="rounded-3xl border-2 border-slate-200/80 bg-white p-10 text-center shadow-[0_24px_70px_rgba(15,23,42,0.10)]">
     <div className="mx-auto mb-6 flex max-w-2xl items-center justify-center gap-4">
       <div className="h-px flex-1 bg-primary/40" />
       <span className="rounded-full border border-amber-500 bg-amber-200 px-5 py-2 text-sm font-bold uppercase tracking-wide text-amber-950">
@@ -460,7 +460,7 @@ How It Works
       </Section>
 
       <Section className="bg-[#0f172a]">
-        <div className="rounded-3xl bg-gradient-to-r from-[#0f172a] via-[#12356f] to-primary px-8 py-20 text-center text-slate sm:px-16 sm:py-28 shadow-lg">
+        <div className="rounded-3xl bg-[radial-gradient(circle_at_top,#1d4ed8_0%,#12356f_35%,#0f172a_100%)] px-8 py-20 text-center text-slate sm:px-16 sm:py-28 shadow-lg">
           <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
             Stop letting meetings end without clear follow-up.
           </h2>
