@@ -32,18 +32,18 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border-b border-slate/20">
+    <div className="border-b border-slate-200 last:border-b-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-5 text-left font-semibold text-white hover:text-primary transition"
+        className="w-full py-5 text-left font-semibold text-slate-900 hover:text-primary transition"
       >
         <div className="flex items-center justify-between gap-6">
           <span className="text-base">{q}</span>
-          <span className="text-xl text-white/40">{isOpen ? '−' : '+'}</span>
+          <span className="text-xl text-slate-400">{isOpen ? '−' : '+'}</span>
         </div>
       </button>
       {isOpen && (
-        <div className="pb-5 text-white/70 text-sm leading-relaxed">
+        <div className="pb-5 text-slate-700 text-sm leading-relaxed">
           {a}
         </div>
       )}
@@ -70,31 +70,31 @@ export function PricingPage() {
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} selectedPlan={selectedPlan} />
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="min-h-screen bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_45%,#020617_100%)] px-6 pt-14 pb-20 text-white">
+      <section className="bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_48%,#020617_100%)] px-6 pt-14 pb-16 text-white">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <SectionEyebrow>Pricing</SectionEyebrow>
             <h1 className="font-display text-5xl sm:text-6xl font-bold text-white">
               Beta access for SMB sales teams.
             </h1>
-            <p className="mt-6 text-xl text-slate/70">
+            <p className="mt-6 text-xl text-white/85">
               Start with a 14-day team beta. Then continue at $59/month for up to 3 users.
             </p>
 
             <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-4">
-              <div className="h-px flex-1 bg-primary/50" />
+              <div className="h-px flex-1 bg-primary/60" />
               <span className="rounded-full border border-amber-500 bg-amber-200 px-5 py-2 text-sm font-bold uppercase tracking-wide text-amber-950 shadow-sm">
                 Beta Special
               </span>
-              <div className="h-px flex-1 bg-primary/50" />
+              <div className="h-px flex-1 bg-primary/60" />
             </div>
           </div>
         </Container>
       </section>
 
-      <Section className="bg-[#fefdf9]">
+      <section className="bg-[#f4f7fb] px-6 pt-12 pb-20">
         <Container>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 items-start">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 items-stretch">
             <PricingCard
               title="Beta Team Trial"
               price="14-day free trial"
@@ -160,15 +160,15 @@ export function PricingPage() {
             />
           </div>
         </Container>
-      </Section>
+      </section>
 
       <Section className="bg-[#f8f7f6] border-b border-border">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-12">
+            <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-12">
               Frequently asked questions
             </h2>
-            <div className="bg-[#f4f7fb] border-2 border-slate/20 rounded-xl divide-y divide-slate/20 overflow-hidden shadow-sm">
+            <div className="bg-white border-2 border-slate-200 rounded-xl divide-y divide-slate-200 overflow-hidden shadow-sm px-6">
               {FAQ.map((f) => (
                 <AccordionItem key={f.q} q={f.q} a={f.a} />
               ))}
@@ -179,18 +179,18 @@ export function PricingPage() {
 
       <Section className="bg-[#f4f7fb]">
         <Container>
-          <div className="rounded-3xl bg-gradient-to-r from-primary via-primary to-primary/90 px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
-            <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight">
+          <div className="rounded-3xl bg-[radial-gradient(circle_at_top,#1d4ed8_0%,#12356f_38%,#0f172a_100%)] px-8 py-20 text-center text-white sm:px-16 sm:py-28 shadow-lg">
+            <h2 className="mx-auto max-w-3xl font-display text-4xl sm:text-5xl font-bold leading-tight text-white">
               Ready to turn meetings into rep follow-up and manager visibility?
             </h2>
-            <p className="mt-6 text-lg text-white/90 max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-white/85 max-w-2xl mx-auto">
               Start with beta access or request the launch plan for active sales teams.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Button size="lg" onClick={() => setTrialOpen(true)}>
                 Request Early Access
               </Button>
-              <Button size="lg" className="border-white/40 bg-[#f4f7fb]/15 text-white hover:bg-[#f4f7fb]/25">
+              <Button size="lg" className="border-white/40 bg-white/15 text-white hover:bg-white/25">
                 Request Demo
               </Button>
             </div>
@@ -225,10 +225,10 @@ function PricingCard({
   return (
     <div className={`flex h-full min-h-[560px] flex-col rounded-3xl border p-8 transition-all ${
       isDisabled
-        ? 'border-slate-200 bg-slate-50 opacity-60'
+        ? 'border-slate-200 bg-white opacity-70 shadow-sm'
         : isPrimary
-          ? 'border-primary bg-gradient-to-br from-[#f0f7ff] to-white shadow-xl ring-2 ring-primary/20 xl:scale-105'
-          : 'border-slate-200 bg-[#f4f7fb] shadow-md hover:shadow-xl'
+          ? 'border-primary bg-white text-slate-900 shadow-[0_30px_90px_rgba(37,99,235,0.20)] ring-2 ring-primary/35 xl:scale-105'
+          : 'border-slate-200 bg-white text-slate-900 shadow-[0_20px_60px_rgba(15,23,42,0.08)] hover:shadow-xl'
     }`}>
       {isPrimary && (
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
@@ -237,28 +237,28 @@ function PricingCard({
       )}
 
       {isDisabled && (
-        <span className="mb-4 inline-block w-fit rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate/60">
+        <span className="mb-4 inline-block w-fit rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate-600">
           Coming Soon
         </span>
       )}
 
-      <h3 className="min-h-[58px] font-display text-2xl font-bold leading-tight text-white">
+      <h3 className="min-h-[58px] font-display text-2xl font-bold leading-tight text-slate-900">
         {title}
       </h3>
 
       <div className="mt-4 flex min-h-[92px] flex-col justify-end">
-        <span className={`${isComingSoon ? 'text-4xl' : 'text-5xl'} font-bold leading-tight text-white`}>
+        <span className={`${isComingSoon ? 'text-4xl' : 'text-5xl'} font-bold leading-tight text-slate-900`}>
           {price}
         </span>
 
         {!isComingSoon && (
-          <span className="mt-1 text-sm text-slate/70">
+          <span className="mt-1 text-sm text-slate-700">
             /month
           </span>
         )}
       </div>
 
-      <p className="mt-4 min-h-[56px] text-base leading-relaxed text-slate/70">
+      <p className="mt-4 min-h-[56px] text-base leading-relaxed text-slate-700">
         {description}
       </p>
 
@@ -273,8 +273,8 @@ function PricingCard({
 
       <ul className="mt-9 space-y-4">
         {features.map((f) => (
-          <li key={f} className="flex gap-3 text-sm leading-relaxed text-slate/70">
-            <Check className={`h-5 w-5 shrink-0 ${isPrimary ? 'text-primary' : 'text-white/40'}`} />
+          <li key={f} className="flex gap-3 text-sm leading-relaxed text-slate-700">
+            <Check className={`h-5 w-5 shrink-0 ${isPrimary ? 'text-primary' : 'text-slate-500'}`} />
             <span>{f}</span>
           </li>
         ))}
