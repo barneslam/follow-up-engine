@@ -70,7 +70,7 @@ export function PricingPage() {
       <ContactDialog isOpen={contactOpen} onClose={() => setContactOpen(false)} selectedPlan={selectedPlan} />
       <TrialRequestDialog isOpen={trialOpen} onClose={() => setTrialOpen(false)} />
 
-      <section className="min-h-screen bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_45%,#020617_100%)] px-6 py-20 text-white">
+      <section className="min-h-screen bg-[radial-gradient(circle_at_top_left,#1d4ed8_0%,#0f172a_45%,#020617_100%)] px-6 pt-14 pb-20 text-white">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <SectionEyebrow>Pricing</SectionEyebrow>
@@ -94,7 +94,7 @@ export function PricingPage() {
 
       <Section className="bg-[#fefdf9]">
         <Container>
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4 items-start">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 items-start">
             <PricingCard
               title="Beta Team Trial"
               price="14-day free trial"
