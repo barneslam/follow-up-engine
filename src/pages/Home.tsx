@@ -22,7 +22,6 @@ import {
   Github,
   Mail,
   Rocket,
-  ExternalLink,
 } from 'lucide-react'
 import { SiGmail, SiWhatsapp, SiGoogledrive } from 'react-icons/si'
 import { type ComponentType, useState } from 'react'
@@ -203,7 +202,7 @@ export function HomePage() {
                 </div>
               </div>
 
-              <div className="grid gap-6 rounded-[1.6rem] border border-slate-200 bg-white/95 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] lg:grid-cols-[1.2fr_0.75fr_1fr]">
+              <div className="grid gap-6 rounded-[1.6rem] border border-slate-200 bg-white/95 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] lg:grid-cols-[1.25fr_0.75fr]">
                 <div className="flex gap-5">
                   <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-blue-50 text-primary">
                     <Rocket className="h-8 w-8" />
@@ -229,22 +228,6 @@ export function HomePage() {
                       Email Us
                     </button>
                   </div>
-                </div>
-
-                <div className="border-slate-200 lg:border-l lg:pl-6">
-                  <h3 className="text-base font-black text-slate-950">GitHub Repository</h3>
-                  <p className="mt-3 text-sm font-medium leading-6 text-slate-700">
-                    Explore the code, contribute, or request a feature.
-                  </p>
-                  <a
-                    href="https://github.com/thestrategypitch/followup-engine"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-5 flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm font-semibold leading-6 text-slate-700 transition hover:border-primary/40 hover:bg-blue-50"
-                  >
-                    github.com/thestrategypitch/followup-engine
-                    <ExternalLink className="h-5 w-5 shrink-0" />
-                  </a>
                 </div>
               </div>
             </div>
