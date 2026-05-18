@@ -142,6 +142,120 @@ header nav a {
   font-weight: 600;
 }
 
+/* How It Works section: primary infographic layout.
+   The component currently renders as the third section in <main>.
+   This shifts the page toward the top-left design concept: a clear headline,
+   a horizontal operational timeline, and a compact outputs panel underneath. */
+main > section:nth-of-type(3) {
+  padding-top: clamp(5rem, 7vw, 7rem);
+  padding-bottom: clamp(5rem, 7vw, 7rem);
+}
+
+main > section:nth-of-type(3) > div {
+  max-width: 1220px;
+}
+
+main > section:nth-of-type(3) > div > div:first-child {
+  display: block;
+}
+
+main > section:nth-of-type(3) > div > div:first-child > div:first-child {
+  max-width: 760px;
+}
+
+main > section:nth-of-type(3) > div > div:first-child > div:first-child h2 {
+  max-width: 720px;
+  font-size: clamp(2.75rem, 5vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+main > section:nth-of-type(3) > div > div:first-child > div:first-child p {
+  max-width: 650px;
+  font-size: clamp(1.05rem, 1vw, 1.25rem);
+}
+
+main > section:nth-of-type(3) > div > div:first-child > div:first-child > div:last-child {
+  display: none;
+}
+
+main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) {
+  margin-top: 2.5rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
+  border-radius: 1.75rem;
+}
+
+main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:first-child {
+  margin-bottom: 1.5rem;
+}
+
+main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:first-child h3 {
+  font-size: clamp(1.75rem, 2vw, 2.25rem);
+}
+
+main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:nth-child(2) {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) {
+  margin-top: 3rem;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) > div:first-child {
+  display: none;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) ol {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) ol > li {
+  min-width: 150px;
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) ol > li > div:first-child {
+  justify-content: center;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) ol > li > div:first-child span {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) ol > li > div:nth-child(2) {
+  margin-left: auto;
+  margin-right: auto;
+  height: 4rem;
+  width: 4rem;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) ol h4 {
+  font-size: 0.95rem;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) ol p {
+  font-size: 0.78rem;
+}
+
+main > section:nth-of-type(3) > div > div:nth-child(2) > div:last-child {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:nth-child(2) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 640px) {
   main > section:nth-of-type(2) {
     padding-top: 4rem;
@@ -159,5 +273,17 @@ header nav a {
 
   main > section:nth-of-type(2) > div > div:nth-child(2) span {
     font-size: 1rem;
+  }
+
+  main > section:nth-of-type(3) > div > div:first-child > div:first-child h2 {
+    font-size: clamp(2.25rem, 12vw, 3.25rem);
+  }
+
+  main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:nth-child(2) {
+    grid-template-columns: 1fr;
+  }
+
+  main > section:nth-of-type(3) > div > div:nth-child(2) {
+    padding: 1.25rem;
   }
 }
