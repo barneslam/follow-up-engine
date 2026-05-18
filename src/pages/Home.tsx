@@ -9,7 +9,6 @@ import {
   FileText,
   Send,
   Users,
-  ChevronRight,
   Check,
   ListChecks,
   BarChart3,
@@ -34,13 +33,13 @@ const PROBLEMS = [
 ]
 
 const WORKFLOW = [
-  { icon: CalendarDays, label: 'Calendar', desc: 'Meeting scheduled and confirmed' },
-  { icon: Upload, label: 'Documents', desc: 'Agenda and relevant docs are shared' },
-  { icon: Target, label: 'Objective', desc: 'Key meeting goals are defined' },
-  { icon: Sparkles, label: 'Prep Pack', desc: 'AI creates the meeting prep pack' },
-  { icon: FileText, label: 'Transcript', desc: 'Meeting is captured and structured' },
-  { icon: Send, label: 'Follow-Up', desc: 'Emails, WhatsApp, and next steps are prepared' },
-  { icon: Users, label: 'Manager Update', desc: 'Management gets a clear summary' },
+  { icon: CalendarDays, label: 'Calendar', desc: 'Meeting scheduled and confirmed', top: '6%', left: '50%' },
+  { icon: Upload, label: 'Documents', desc: 'Agenda and relevant docs are shared', top: '22%', left: '82%' },
+  { icon: Target, label: 'Objective', desc: 'Key meeting goals are defined', top: '58%', left: '88%' },
+  { icon: Sparkles, label: 'Prep Pack', desc: 'AI creates the meeting prep pack', top: '88%', left: '64%' },
+  { icon: FileText, label: 'Transcript', desc: 'Meeting is captured and structured', top: '88%', left: '36%' },
+  { icon: Send, label: 'Follow-Up', desc: 'Emails, WhatsApp, and next steps are prepared', top: '58%', left: '12%' },
+  { icon: Users, label: 'Manager Update', desc: 'Management gets a clear summary', top: '22%', left: '18%' },
 ]
 
 const OUTPUTS = [
@@ -179,8 +178,6 @@ How It Works
               <p className="mt-6 text-sm font-medium text-white/70">
                 Start with a 14-day free team beta. Built for up to 3 users.
               </p>
-
-              
             </div>
 
             <div className="relative lg:pt-6">
@@ -287,21 +284,46 @@ How It Works
         </div>
       </Section>
 
-      <Section id="how-it-works" className="bg-gradient-to-b from-[#eef6ff] to-white border-b border-border">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
-            <SectionEyebrow>How it works</SectionEyebrow>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-slate">
-              One workflow, end-to-end.
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-slate/70">
-              Follow-Up Engine connects what happens before, during, and after the sales meeting so the team can see the full operating flow at a glance.
-            </p>
-            <div className="mt-8 rounded-2xl border border-primary/20 bg-white p-6 shadow-sm">
-              <p className="text-sm font-bold uppercase tracking-wide text-primary">Simple promise</p>
-              <p className="mt-3 text-2xl font-bold leading-snug text-slate">
-                One meeting in. Clear follow-up, tasks, and manager visibility out.
-              </p>
+      <Section id="how-it-works" className="workflow-circle-section bg-gradient-to-b from-[#eef6ff] to-white border-b border-border">
+        <div className="mx-auto max-w-3xl text-center">
+          <SectionEyebrow>How it works</SectionEyebrow>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-slate">
+            One workflow, end-to-end.
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate/70">
+            A circular operating loop shows how Follow-Up Engine keeps the whole sales workflow connected before, during, and after every meeting.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_24px_70px_rgba(15,23,42,0.10)] sm:p-10">
+            <div className="relative mx-auto h-[560px] max-w-[640px]">
+              <div className="absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[22px] border-blue-100" />
+              <div className="absolute left-1/2 top-1/2 h-[292px] w-[292px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white shadow-inner" />
+              <div className="absolute left-1/2 top-1/2 flex h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-gradient-to-br from-blue-50 to-white p-8 text-center shadow-lg">
+                <p className="text-sm font-bold uppercase tracking-widest text-primary">Workflow</p>
+                <h3 className="mt-3 font-display text-2xl font-bold leading-tight text-slate">End-to-end sales continuity</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate/65">Everything connected. Nothing lost after the call.</p>
+              </div>
+
+              {WORKFLOW.map((s, i) => (
+                <div
+                  key={s.label}
+                  className="absolute w-[175px] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_16px_38px_rgba(15,23,42,0.10)]"
+                  style={{ top: s.top, left: s.left }}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-primary/20 bg-blue-50 text-primary">
+                      <s.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-black text-primary">0{i + 1}</p>
+                      <h4 className="text-sm font-bold text-slate">{s.label}</h4>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-slate/60">{s.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -309,7 +331,7 @@ How It Works
             <div className="mb-6 flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-bold uppercase tracking-widest text-primary">What you get</p>
-                <h3 className="mt-2 font-display text-2xl font-bold text-slate sm:text-3xl">
+                <h3 className="mt-2 font-display text-3xl font-bold text-slate">
                   Eight outputs from one meeting.
                 </h3>
               </div>
@@ -331,44 +353,12 @@ How It Works
                 </div>
               ))}
             </div>
-          </div>
-        </div>
 
-        <div className="mt-14 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:p-8 lg:p-10">
-          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-primary">Workflow map</p>
-              <h3 className="mt-2 font-display text-3xl font-bold text-slate">
-                From meeting invite to manager update.
-              </h3>
+            <div className="mt-8 rounded-2xl border border-primary/20 bg-blue-50 px-6 py-5 text-center">
+              <p className="text-lg font-bold text-primary">
+                All connected. All automated. All in one place.
+              </p>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-slate/60">
-              Built for sales teams that need consistent follow-up without adding more manual admin work.
-            </p>
-          </div>
-
-          <ol className="grid gap-4 md:grid-cols-7">
-            {WORKFLOW.map((s, i) => (
-              <li key={s.label} className="relative rounded-2xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5 shadow-sm">
-                <div className="mb-5 flex items-center justify-between">
-                  <span className="text-sm font-black text-primary">{String(i + 1).padStart(2, '0')}</span>
-                  {i < WORKFLOW.length - 1 && (
-                    <ChevronRight className="hidden h-5 w-5 text-slate/25 md:block" />
-                  )}
-                </div>
-                <div className="grid h-12 w-12 place-items-center rounded-xl border border-primary/20 bg-blue-50 text-primary">
-                  <s.icon className="h-6 w-6" />
-                </div>
-                <h4 className="mt-5 text-base font-bold text-slate">{s.label}</h4>
-                <p className="mt-2 text-sm leading-relaxed text-slate/60">{s.desc}</p>
-              </li>
-            ))}
-          </ol>
-
-          <div className="mt-8 rounded-2xl border border-primary/20 bg-blue-50 px-6 py-5 text-center">
-            <p className="text-lg font-bold text-primary">
-              All connected. All automated. All in one place.
-            </p>
           </div>
         </div>
       </Section>
