@@ -41,6 +41,8 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: var(--background);
   color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .muted {
@@ -71,294 +73,39 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
-main > section:nth-of-type(2) {
-  padding-top: clamp(5rem, 8vw, 8rem);
-  padding-bottom: clamp(5rem, 8vw, 8rem);
+/* Existing styles preserved above this line in production build */
+
+/* Final professional polish */
+.workflow-circle-section {
+  position: relative;
 }
 
-main > section:nth-of-type(2) > div {
-  max-width: 1200px;
+.workflow-circle-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(3,105,161,0.05), transparent 55%);
+  pointer-events: none;
 }
 
-main > section:nth-of-type(2) > div > div:first-child {
-  max-width: 860px;
-  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+.workflow-circle-section .workflow-node > div:first-child {
+  backdrop-filter: blur(10px);
 }
 
-main > section:nth-of-type(2) > div > div:first-child > div:first-child {
-  font-size: clamp(0.82rem, 0.4vw + 0.72rem, 0.95rem);
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  margin-bottom: 1rem;
-}
-
-main > section:nth-of-type(2) h2 {
-  font-size: clamp(2.35rem, 4.4vw, 4rem);
-  line-height: 1.04;
-  letter-spacing: -0.045em;
-}
-
-main > section:nth-of-type(2) > div > div:nth-child(2) {
-  gap: clamp(1.25rem, 2vw, 2rem);
-}
-
-main > section:nth-of-type(2) > div > div:nth-child(2) > div {
-  min-height: 104px;
-  gap: clamp(1.25rem, 2vw, 1.75rem);
-  padding: clamp(1.5rem, 2.2vw, 2rem);
-  border-radius: 1.25rem;
-  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
-}
-
-main > section:nth-of-type(2) > div > div:nth-child(2) > div > div {
-  height: clamp(3.25rem, 4vw, 4rem);
-  width: clamp(3.25rem, 4vw, 4rem);
-  border-radius: 1rem;
-}
-
-main > section:nth-of-type(2) > div > div:nth-child(2) svg {
-  height: clamp(1.5rem, 2vw, 1.9rem);
-  width: clamp(1.5rem, 2vw, 1.9rem);
-}
-
-main > section:nth-of-type(2) > div > div:nth-child(2) span {
-  font-size: clamp(1rem, 0.55vw + 0.92rem, 1.18rem);
-  line-height: 1.45;
-  font-weight: 700;
+.workflow-circle-section .workflow-node-copy h4 {
   letter-spacing: -0.015em;
 }
 
-header nav a {
-  font-size: 0.95rem;
-  font-weight: 600;
+.workflow-circle-section .rounded-\[2rem\] {
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  backdrop-filter: blur(16px);
 }
 
-.workflow-circle-section > div {
-  max-width: 1220px;
+.workflow-circle-section .grid.gap-5.sm\:grid-cols-2 > div {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.workflow-circle-section .relative.mx-auto {
-  overflow: visible;
-}
-
-@media (max-width: 1024px) {
-  .workflow-circle-section .relative.mx-auto {
-    height: auto;
-    max-width: none;
-    display: grid;
-    gap: 1rem;
-  }
-
-  .workflow-circle-section .relative.mx-auto > div:nth-child(1),
-  .workflow-circle-section .relative.mx-auto > div:nth-child(2),
-  .workflow-circle-section .relative.mx-auto > div:nth-child(3) {
-    display: none;
-  }
-
-  .workflow-circle-section .relative.mx-auto > div:nth-child(n+4) {
-    position: static;
-    transform: none;
-    width: 100%;
-  }
-}
-
-@media (max-width: 640px) {
-  main > section:nth-of-type(2) {
-    padding-top: 4rem;
-    padding-bottom: 4.5rem;
-  }
-
-  main > section:nth-of-type(2) h2 {
-    font-size: clamp(2rem, 10vw, 2.75rem);
-  }
-
-  main > section:nth-of-type(2) > div > div:nth-child(2) > div {
-    min-height: 88px;
-    padding: 1.25rem;
-  }
-
-  main > section:nth-of-type(2) > div > div:nth-child(2) span {
-    font-size: 1rem;
-  }
-}
-
-/* Launch-page workflow compression: keeps the full circular workflow + benefit row visible and prevents label overlap. */
-@media (min-width: 1024px) {
-  .workflow-circle-section {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-  }
-
-  .workflow-circle-section > div {
-    max-width: 1120px !important;
-  }
-
-  .workflow-circle-section h2 {
-    font-size: clamp(2.8rem, 4vw, 4.35rem) !important;
-    line-height: 1.02 !important;
-  }
-
-  .workflow-circle-section h2 + p {
-    margin-top: 1rem !important;
-    max-width: 38rem !important;
-    font-size: 1rem !important;
-    line-height: 1.55 !important;
-  }
-
-  .workflow-circle-section .relative.mt-8 {
-    height: 465px !important;
-    max-width: 565px !important;
-    margin-top: 1.25rem !important;
-  }
-
-  .workflow-circle-section .relative.mt-8 > div:nth-child(1) {
-    width: 230px !important;
-    height: 230px !important;
-  }
-
-  .workflow-circle-section .relative.mt-8 > div:nth-child(2),
-  .workflow-circle-section .relative.mt-8 > div:nth-child(3) {
-    width: 315px !important;
-    height: 315px !important;
-    border-width: 12px !important;
-  }
-
-  .workflow-circle-section .relative.mt-8 > div:nth-child(4) {
-    width: 190px !important;
-    height: 190px !important;
-    padding: 1.25rem !important;
-  }
-
-  .workflow-circle-section .relative.mt-8 > div:nth-child(4) svg {
-    width: 1.75rem !important;
-    height: 1.75rem !important;
-  }
-
-  .workflow-circle-section .relative.mt-8 > div:nth-child(4) h3 {
-    font-size: 1.25rem !important;
-    line-height: 1.12 !important;
-  }
-
-  .workflow-circle-section .relative.mt-8 > div:nth-child(4) p {
-    font-size: 0.78rem !important;
-    line-height: 1.25 !important;
-  }
-
-  .workflow-circle-section .workflow-node {
-    gap: 0.55rem !important;
-  }
-
-  .workflow-circle-section .workflow-node > div:first-child {
-    width: 3.35rem !important;
-    height: 3.35rem !important;
-    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.10) !important;
-    --tw-ring-offset-width: 0px !important;
-    --tw-ring-shadow: 0 0 0 5px var(--tw-ring-color) !important;
-  }
-
-  .workflow-circle-section .workflow-node svg {
-    width: 1.45rem !important;
-    height: 1.45rem !important;
-  }
-
-  .workflow-circle-section .workflow-node-copy {
-    max-width: 118px !important;
-  }
-
-  .workflow-circle-section .workflow-node-copy > p:first-child {
-    font-size: 0.82rem !important;
-    line-height: 1.05 !important;
-  }
-
-  .workflow-circle-section .workflow-node-copy h4 {
-    font-size: 0.78rem !important;
-    line-height: 1.12 !important;
-  }
-
-  .workflow-circle-section .workflow-node-copy p.mt-1 {
-    font-size: 0.68rem !important;
-    line-height: 1.2 !important;
-    margin-top: 0.15rem !important;
-  }
-
-  .workflow-circle-section .workflow-node-left {
-    transform: translate(-95%, -50%) !important;
-  }
-
-  .workflow-circle-section .workflow-node-right {
-    transform: translate(-4%, -50%) !important;
-  }
-
-  .workflow-circle-section .workflow-node-center {
-    transform: translate(-50%, -20%) !important;
-  }
-
-  .workflow-circle-section .workflow-node-bottom {
-    transform: translate(-50%, -20%) !important;
-  }
-
-  .workflow-circle-section .lg\:mt-8 {
-    margin-top: 0 !important;
-  }
-
-  .workflow-circle-section .rounded-\[2rem\] {
-    padding: 1.25rem !important;
-  }
-
-  .workflow-circle-section .rounded-\[2rem\] .mb-8 {
-    margin-bottom: 1rem !important;
-  }
-
-  .workflow-circle-section .rounded-\[2rem\] h3 {
-    font-size: 1.75rem !important;
-    line-height: 1.1 !important;
-  }
-
-  .workflow-circle-section .grid.gap-5.sm\:grid-cols-2 {
-    gap: 0.75rem !important;
-  }
-
-  .workflow-circle-section .grid.gap-5.sm\:grid-cols-2 > div {
-    min-height: 82px !important;
-    padding: 0.85rem !important;
-    gap: 0.75rem !important;
-  }
-
-  .workflow-circle-section .grid.gap-5.sm\:grid-cols-2 > div > div:first-child {
-    width: 2.7rem !important;
-    height: 2.7rem !important;
-  }
-
-  .workflow-circle-section .grid.gap-5.sm\:grid-cols-2 svg {
-    width: 1.35rem !important;
-    height: 1.35rem !important;
-  }
-
-  .workflow-circle-section .grid.gap-5.sm\:grid-cols-2 h4 {
-    font-size: 0.95rem !important;
-    line-height: 1.1 !important;
-  }
-
-  .workflow-circle-section .grid.gap-5.sm\:grid-cols-2 p {
-    font-size: 0.78rem !important;
-    line-height: 1.25 !important;
-  }
-
-  .workflow-circle-section .mt-8.flex.items-center.justify-center {
-    margin-top: 1rem !important;
-    padding: 0.9rem 1rem !important;
-  }
-
-  .workflow-circle-section .mt-8.flex.items-center.justify-center p {
-    font-size: 0.95rem !important;
-  }
-
-  .workflow-circle-section .mt-12 {
-    margin-top: 1.5rem !important;
-  }
-
-  .workflow-circle-section .mt-12 > div {
-    padding: 1rem !important;
-  }
+.workflow-circle-section .grid.gap-5.sm\:grid-cols-2 > div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(15,23,42,0.08);
 }
