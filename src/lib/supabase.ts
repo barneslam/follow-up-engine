@@ -21,6 +21,32 @@ export async function submitContactForm(payload: Record<string, unknown>) {
   return { success: !error, error }
 }
 
+export async function submitTrialRequest(payload: Record<string, unknown>) {
+  if (!supabase) return { success: false, error: 'Supabase not configured' }
+
+  const { error } = await supabase.from('product_usage_events').insert({
+    event_name: 'trial_request_submit',
+    page_path: window.location.pathname,
+    source: 'website',
+    metadata: payload,
+  })
+
+  return { success: !error, error }
+}
+
+export async function storeReferral(payload: Record<string, unknown>) {
+  if (!supabase) return { success: false, error: 'Supabase not configured' }
+
+  const { error } = await supabase.from('product_usage_events').insert({
+    event_name: 'referral_captured',
+    page_path: window.location.pathname,
+    source: 'website',
+    metadata: payload,
+  })
+
+  return { success: !error, error }
+}
+
 export async function sendSmsOtp(phone: string) {
   return {
     success: true,
