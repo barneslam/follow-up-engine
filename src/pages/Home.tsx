@@ -29,13 +29,13 @@ import { ContactDialog } from '../components/ContactDialog'
 import { TrialRequestDialog } from '../components/TrialRequestDialog'
 
 const WORKFLOW = [
-  { icon: CalendarDays, number: '01', label: 'Calendar', desc: 'Meeting is scheduled and confirmed.', color: 'text-blue-600', ring: 'ring-blue-100', x: '50%', y: '2%', align: 'center' },
-  { icon: Upload, number: '02', label: 'Documents', desc: 'Agenda and relevant docs are shared.', color: 'text-violet-600', ring: 'ring-violet-100', x: '78%', y: '25%', align: 'right' },
-  { icon: Target, number: '03', label: 'Objectives', desc: 'Key talking points and meeting goals are defined.', color: 'text-green-600', ring: 'ring-green-100', x: '82%', y: '58%', align: 'right' },
-  { icon: Sparkles, number: '04', label: 'Prep Pack', desc: 'AI creates your meeting prep pack.', color: 'text-orange-500', ring: 'ring-orange-100', x: '61%', y: '86%', align: 'bottom' },
-  { icon: FileText, number: '05', label: 'Transcript', desc: 'Meeting is captured and structured.', color: 'text-blue-600', ring: 'ring-blue-100', x: '39%', y: '86%', align: 'bottom' },
-  { icon: Send, number: '06', label: 'Follow-Up', desc: 'Emails, WhatsApp, and next steps are prepared.', color: 'text-cyan-600', ring: 'ring-cyan-100', x: '18%', y: '58%', align: 'left' },
-  { icon: Users, number: '07', label: 'Manager Update', desc: 'Management gets a clear Follow-Up Engine summary.', color: 'text-purple-600', ring: 'ring-purple-100', x: '22%', y: '25%', align: 'left' },
+  { icon: CalendarDays, number: '01', label: 'Calendar', desc: 'Meeting is scheduled and confirmed.', color: 'text-blue-600', ring: 'ring-blue-100', x: '50%', y: '4%', align: 'center' },
+  { icon: Upload, number: '02', label: 'Documents', desc: 'Agenda and relevant docs are shared.', color: 'text-violet-600', ring: 'ring-violet-100', x: '76%', y: '26%', align: 'right' },
+  { icon: Target, number: '03', label: 'Objectives', desc: 'Key talking points and meeting goals are defined.', color: 'text-green-600', ring: 'ring-green-100', x: '79%', y: '57%', align: 'right' },
+  { icon: Sparkles, number: '04', label: 'Prep Pack', desc: 'AI creates your meeting prep pack.', color: 'text-orange-500', ring: 'ring-orange-100', x: '61%', y: '83%', align: 'bottom' },
+  { icon: FileText, number: '05', label: 'Transcript', desc: 'Meeting is captured and structured.', color: 'text-blue-600', ring: 'ring-blue-100', x: '39%', y: '83%', align: 'bottom' },
+  { icon: Send, number: '06', label: 'Follow-Up', desc: 'Emails, WhatsApp, and next steps are prepared.', color: 'text-cyan-600', ring: 'ring-cyan-100', x: '21%', y: '57%', align: 'left' },
+  { icon: Users, number: '07', label: 'Manager Update', desc: 'Management gets a clear Follow-Up Engine summary.', color: 'text-purple-600', ring: 'ring-purple-100', x: '24%', y: '26%', align: 'left' },
 ]
 
 const OUTPUTS = [
@@ -85,7 +85,7 @@ export function HomePage() {
       <main className="bg-[radial-gradient(circle_at_top_left,#ffffff_0%,#f8fbff_44%,#edf6ff_100%)] text-slate-950">
         <section id="how-it-works" className="px-6 pb-8 pt-10 lg:pb-8 lg:pt-12">
           <div className="mx-auto max-w-[1240px]">
-            <div className="grid items-center gap-8 lg:grid-cols-[300px_460px_1fr] xl:grid-cols-[320px_480px_1fr]">
+            <div className="grid items-center gap-8 lg:grid-cols-[300px_390px_1fr] xl:grid-cols-[320px_405px_1fr]">
               <div>
                 <p className="text-[0.7rem] font-black uppercase tracking-[0.18em] text-primary">How it works</p>
                 <h1 className="mt-4 font-display text-[2.55rem] font-black leading-[1.02] tracking-[-0.055em] text-slate-950 lg:text-[3rem] xl:text-[3.2rem]">
@@ -97,17 +97,17 @@ export function HomePage() {
                 </p>
               </div>
 
-              <div className="relative mx-auto h-[520px] w-full max-w-[480px]">
-                <div className="absolute left-1/2 top-1/2 h-[248px] w-[248px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_24px_70px_rgba(37,99,235,0.10)] ring-1 ring-slate-200" />
-                <div className="absolute left-1/2 top-1/2 h-[325px] w-[325px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[13px] border-blue-100/80" />
-                <div className="absolute left-1/2 top-1/2 h-[325px] w-[325px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[13px] border-transparent border-b-amber-400 border-l-cyan-400 border-r-violet-500 border-t-blue-500 opacity-90" />
+              <div className="relative mx-auto h-[455px] w-full max-w-[405px]">
+                <div className="absolute left-1/2 top-1/2 h-[216px] w-[216px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_24px_70px_rgba(37,99,235,0.10)] ring-1 ring-slate-200" />
+                <div className="absolute left-1/2 top-1/2 h-[285px] w-[285px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[11px] border-blue-100/80" />
+                <div className="absolute left-1/2 top-1/2 h-[285px] w-[285px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[11px] border-transparent border-b-amber-400 border-l-cyan-400 border-r-violet-500 border-t-blue-500 opacity-90" />
 
-                <div className="absolute left-1/2 top-1/2 flex h-[196px] w-[196px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-white p-7 text-center shadow-[0_18px_60px_rgba(15,23,42,0.10)]">
-                  <p className="text-xs font-black text-violet-600">Follow-Up Engine</p>
-                  <h2 className="mt-2 font-display text-[1.45rem] font-black leading-[1.08] tracking-[-0.035em] text-slate-950">
+                <div className="absolute left-1/2 top-1/2 flex h-[170px] w-[170px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-white p-6 text-center shadow-[0_18px_60px_rgba(15,23,42,0.10)]">
+                  <p className="text-[0.65rem] font-black text-violet-600">Follow-Up Engine</p>
+                  <h2 className="mt-1.5 font-display text-[1.18rem] font-black leading-[1.08] tracking-[-0.035em] text-slate-950">
                     End-to-end sales continuity
                   </h2>
-                  <p className="mt-3 text-xs font-medium leading-5 text-slate-700">
+                  <p className="mt-2 text-[0.68rem] font-medium leading-4 text-slate-700">
                     Everything connected. Nothing falls through the cracks.
                   </p>
                 </div>
@@ -117,16 +117,16 @@ export function HomePage() {
                   return (
                     <div
                       key={step.label}
-                      className={`absolute flex items-center gap-3 ${step.align === 'left' ? '-translate-x-[100%] -translate-y-1/2 text-right' : ''} ${step.align === 'right' ? '-translate-y-1/2 text-left' : ''} ${step.align === 'center' ? '-translate-x-1/2 -translate-y-[12%] flex-col text-center' : ''} ${step.align === 'bottom' ? '-translate-x-1/2 -translate-y-[10%] flex-col text-center' : ''}`}
+                      className={`absolute flex items-center gap-2 ${step.align === 'left' ? '-translate-x-[96%] -translate-y-1/2 text-right' : ''} ${step.align === 'right' ? '-translate-y-1/2 text-left' : ''} ${step.align === 'center' ? '-translate-x-1/2 -translate-y-[12%] flex-col text-center' : ''} ${step.align === 'bottom' ? '-translate-x-1/2 -translate-y-[10%] flex-col text-center' : ''}`}
                       style={{ left: step.x, top: step.y }}
                     >
-                      <div className={`grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white ${step.color} shadow-[0_14px_38px_rgba(15,23,42,0.12)] ring-8 ${step.ring}`}>
-                        <Icon className="h-6 w-6" />
+                      <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white ${step.color} shadow-[0_12px_30px_rgba(15,23,42,0.11)] ring-6 ${step.ring}`}>
+                        <Icon className="h-5 w-5" />
                       </div>
-                      <div className="max-w-[120px]">
-                        <p className={`text-lg font-black leading-none ${step.color}`}>{step.number}</p>
-                        <h3 className="mt-1 text-[0.8rem] font-black leading-tight text-slate-950">{step.label}</h3>
-                        <p className="mt-1 text-[0.68rem] font-semibold leading-[1.32] text-slate-700">{step.desc}</p>
+                      <div className="max-w-[96px]">
+                        <p className={`text-base font-black leading-none ${step.color}`}>{step.number}</p>
+                        <h3 className="mt-1 text-[0.68rem] font-black leading-tight text-slate-950">{step.label}</h3>
+                        <p className="mt-1 text-[0.58rem] font-semibold leading-[1.25] text-slate-700">{step.desc}</p>
                       </div>
                     </div>
                   )
