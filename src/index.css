@@ -20,8 +20,6 @@
   --blue-soft: #dbeafe;
   --blue-subtle: #eff6ff;
   --gray-light: #e2e8f0;
-
-  /* Warm section colors */
   --section-cream: #fefdf9;
   --section-warm-gray: #f5f4f1;
   --section-soft-blue: #f0f7ff;
@@ -61,12 +59,10 @@ select:disabled {
   cursor: not-allowed;
 }
 
-/* Smooth transitions */
 a, button {
   transition: all 0.2s ease;
 }
 
-/* Focus styles */
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
@@ -75,10 +71,6 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
-/* The Problem section visual scale fix
-   The component currently renders as the second section in <main>.
-   These overrides intentionally target only that section so the homepage hero
-   and other product sections are not restyled. */
 main > section:nth-of-type(2) {
   padding-top: clamp(5rem, 8vw, 8rem);
   padding-bottom: clamp(5rem, 8vw, 8rem);
@@ -142,117 +134,32 @@ header nav a {
   font-weight: 600;
 }
 
-/* How It Works section: primary infographic layout.
-   The component currently renders as the third section in <main>.
-   This shifts the page toward the top-left design concept: a clear headline,
-   a horizontal operational timeline, and a compact outputs panel underneath. */
-main > section:nth-of-type(3) {
-  padding-top: clamp(5rem, 7vw, 7rem);
-  padding-bottom: clamp(5rem, 7vw, 7rem);
-}
-
-main > section:nth-of-type(3) > div {
+.workflow-circle-section > div {
   max-width: 1220px;
 }
 
-main > section:nth-of-type(3) > div > div:first-child {
-  display: block;
+.workflow-circle-section .relative.mx-auto {
+  overflow: visible;
 }
 
-main > section:nth-of-type(3) > div > div:first-child > div:first-child {
-  max-width: 760px;
-}
+@media (max-width: 1024px) {
+  .workflow-circle-section .relative.mx-auto {
+    height: auto;
+    max-width: none;
+    display: grid;
+    gap: 1rem;
+  }
 
-main > section:nth-of-type(3) > div > div:first-child > div:first-child h2 {
-  max-width: 720px;
-  font-size: clamp(2.75rem, 5vw, 4.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.055em;
-}
+  .workflow-circle-section .relative.mx-auto > div:nth-child(1),
+  .workflow-circle-section .relative.mx-auto > div:nth-child(2),
+  .workflow-circle-section .relative.mx-auto > div:nth-child(3) {
+    display: none;
+  }
 
-main > section:nth-of-type(3) > div > div:first-child > div:first-child p {
-  max-width: 650px;
-  font-size: clamp(1.05rem, 1vw, 1.25rem);
-}
-
-main > section:nth-of-type(3) > div > div:first-child > div:first-child > div:last-child {
-  display: none;
-}
-
-main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) {
-  margin-top: 2.5rem;
-  padding: clamp(1.25rem, 2vw, 2rem);
-  border-radius: 1.75rem;
-}
-
-main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:first-child {
-  margin-bottom: 1.5rem;
-}
-
-main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:first-child h3 {
-  font-size: clamp(1.75rem, 2vw, 2.25rem);
-}
-
-main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:nth-child(2) {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) {
-  margin-top: 3rem;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) > div:first-child {
-  display: none;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) ol {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scroll-snap-type: x mandatory;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) ol > li {
-  min-width: 150px;
-  scroll-snap-align: start;
-  text-align: center;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) ol > li > div:first-child {
-  justify-content: center;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) ol > li > div:first-child span {
-  position: absolute;
-  top: 0.8rem;
-  left: 0.8rem;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) ol > li > div:nth-child(2) {
-  margin-left: auto;
-  margin-right: auto;
-  height: 4rem;
-  width: 4rem;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) ol h4 {
-  font-size: 0.95rem;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) ol p {
-  font-size: 0.78rem;
-}
-
-main > section:nth-of-type(3) > div > div:nth-child(2) > div:last-child {
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 900px) {
-  main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:nth-child(2) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .workflow-circle-section .relative.mx-auto > div:nth-child(n+4) {
+    position: static;
+    transform: none;
+    width: 100%;
   }
 }
 
@@ -273,17 +180,5 @@ main > section:nth-of-type(3) > div > div:nth-child(2) > div:last-child {
 
   main > section:nth-of-type(2) > div > div:nth-child(2) span {
     font-size: 1rem;
-  }
-
-  main > section:nth-of-type(3) > div > div:first-child > div:first-child h2 {
-    font-size: clamp(2.25rem, 12vw, 3.25rem);
-  }
-
-  main > section:nth-of-type(3) > div > div:first-child > div:nth-child(2) > div:nth-child(2) {
-    grid-template-columns: 1fr;
-  }
-
-  main > section:nth-of-type(3) > div > div:nth-child(2) {
-    padding: 1.25rem;
   }
 }
