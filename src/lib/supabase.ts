@@ -63,3 +63,17 @@ export async function verifySmsOtp(phone: string, code: string) {
     code,
   }
 }
+
+
+export async function submitTeamSetupRequest(payload: Record<string, unknown>) {
+  if (!supabase) return { success: false, error: 'Supabase not configured' }
+
+  const { error } = await supabase.from('product_usage_events').insert({
+    event_name: 'team_setup_request_submit',
+    page_path: window.location.pathname,
+    source: 'website',
+    metadata: payload,
+  })
+
+  return { success: !error, error }
+}
